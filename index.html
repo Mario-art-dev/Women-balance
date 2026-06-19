@@ -4,996 +4,1054 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Woman Balance · Clínica Montesinos Valencia</title>
+  <meta name="description" content="Programas de bienestar integral femenino — Woman Balance y Woman Balance Prime. Clínica Montesinos, Valencia." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --rose:   #B8607E;
-      --violet: #6B4A96;
-      --gold:   #A67C40;
-      --teal:   #3E7A68;
-      --ink:    #1a1a2e;
-      --mist:   #f7f5f8;
-      --white:  #ffffff;
-      --border: #e8e0ed;
-      --text:   #3d3450;
-      --subtle: #7a6d88;
+      --page:       #FDFCFA;
+      --card:       #FFFFFF;
+      --dark:       #1C1A2E;
+      --mid:        #5A5570;
+      --light:      #8A8298;
+      --border:     #E8DDF5;
+      --rose:       #B8607E;
+      --rose-bg:    #FEF0F4;
+      --violet:     #6B4A96;
+      --violet-bg:  #F3EEFA;
+      --gold:       #A67C40;
+      --gold-bg:    #FBF5E8;
+      --teal:       #3E7A68;
+      --teal-bg:    #EEF8F4;
+      --prime:      #4A2A7A;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.6;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--page);
+      color: var(--dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ─── NAV ─────────────────────────────────────────── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-    }
-    .nav-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-    .nav-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--subtle);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      font-size: .8rem;
-      font-weight: 500;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--subtle);
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--rose); }
+    .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
 
-    /* ─── HERO ─────────────────────────────────────────── */
+    /* ── HERO ── */
     .hero {
-      background: linear-gradient(135deg, #f9f5fb 0%, #f0eaf7 50%, #f5f0f8 100%);
-      padding: 7rem 2rem 5rem;
+      background: radial-gradient(ellipse at 70% 0%, #FFF0F6 0%, #FDFCFA 45%, #F5F0FF 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 52px 24px 60px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-eyebrow {
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: 1.25rem;
+    .hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, var(--rose-bg) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--ink);
-      margin-bottom: 1.25rem;
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -40px; left: -40px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, var(--violet-bg) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .hero p {
-      max-width: 520px;
-      margin: 0 auto 2.5rem;
-      color: var(--subtle);
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-block;
-      padding: .75rem 1.75rem;
-      border-radius: 3px;
-      font-size: .8rem;
-      font-weight: 600;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all .2s;
-      cursor: pointer;
-      border: none;
-    }
-    .btn-rose    { background: var(--rose);   color: #fff; }
-    .btn-rose:hover  { background: #a4516e; }
-    .btn-violet  { background: var(--violet); color: #fff; }
-    .btn-violet:hover { background: #5a3b82; }
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid var(--rose);
-      color: var(--rose);
-    }
-    .btn-outline:hover { background: var(--rose); color: #fff; }
+    .hero-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
 
-    /* ─── SECTIONS ─────────────────────────────────────── */
-    section { padding: 5rem 2rem; }
-    .container { max-width: 900px; margin: 0 auto; }
+    .clinic-badge {
+      display: inline-block;
+      background: rgba(184,96,126,0.10);
+      border: 1px solid rgba(184,96,126,0.25);
+      border-radius: 9999px;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 10vw, 5.5rem);
+      font-weight: 600;
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 3.5vw, 1.4rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--rose);
+      margin-bottom: 18px;
+    }
+    .hero-desc {
+      color: var(--mid);
+      font-size: 0.9rem;
+      line-height: 1.75;
+      max-width: 460px;
+      margin: 0 auto 36px;
+    }
+
+    .nav-pills { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      border-radius: 9999px; padding: 9px 18px;
+      font-size: 0.82rem; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.04em;
+      border: 1.5px solid transparent;
+      transition: opacity 0.2s;
+    }
+    .pill:hover { opacity: 0.8; }
+    .pill-rose   { background: var(--rose-bg);   color: var(--rose);   border-color: rgba(184,96,126,0.2); }
+    .pill-violet { background: var(--violet-bg); color: var(--violet); border-color: rgba(107,74,150,0.2); }
+    .pill-teal   { background: var(--teal-bg);   color: var(--teal);   border-color: rgba(62,122,104,0.2); }
+
+    /* ── SECTIONS ── */
+    section { padding: 64px 24px; }
+    .inner  { max-width: 900px; margin: 0 auto; }
+    .inner-sm { max-width: 760px; margin: 0 auto; }
 
     .section-label {
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: .75rem;
+      display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
     }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 1rem;
+    .section-label span:first-child {
+      display: block; width: 32px; height: 2px;
     }
-    .section-lead {
-      color: var(--subtle);
-      font-size: 1rem;
-      max-width: 580px;
-      line-height: 1.7;
-      margin-bottom: 3rem;
+    .section-label span:last-child {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
     }
 
-    /* ─── QUICK COMPARE ────────────────────────────────── */
-    .quick-compare { background: var(--mist); }
+    .section-title {
+      font-size: clamp(1.8rem, 5.5vw, 2.8rem);
+      font-weight: 600; line-height: 1.15; color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      color: var(--mid); font-size: 0.9rem; line-height: 1.75;
+      max-width: 560px;
+    }
+    .section-head { margin-bottom: 44px; }
+
+    /* ── COMPARE CARDS ── */
     .compare-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
-    .compare-card {
-      background: var(--white);
+    .cmp-card {
+      background: var(--card);
+      border-radius: 20px;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2rem 1.75rem;
-      position: relative;
-    }
-    .compare-card.is-prime { border-color: var(--violet); }
-    .compare-card .badge {
-      position: absolute;
-      top: -12px;
-      left: 1.5rem;
-      background: var(--violet);
-      color: #fff;
-      font-size: .65rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: .25rem .7rem;
-      border-radius: 2px;
-    }
-    .compare-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: .35rem;
-    }
-    .compare-card .sub {
-      font-size: .8rem;
-      color: var(--subtle);
-      margin-bottom: 1.25rem;
-    }
-    .treatment-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .55rem;
-      margin-bottom: 1.75rem;
-    }
-    .treatment-list li {
-      font-size: .85rem;
-      color: var(--text);
-      display: flex;
-      align-items: flex-start;
-      gap: .5rem;
-    }
-    .treatment-list li::before {
-      content: '·';
-      color: var(--rose);
-      font-size: 1.2rem;
-      line-height: 1;
-      margin-top: -.05rem;
-      flex-shrink: 0;
-    }
-    .treatment-list li span { color: var(--subtle); }
-
-    /* ─── TREATMENT BLOCKS ─────────────────────────────── */
-    .treatments-section { background: var(--white); }
-    .prime-section { background: linear-gradient(135deg, #f9f5fb 0%, #f3eef8 100%); }
-
-    .treatment-block {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 1.5rem;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .treatment-block:last-of-type { border-bottom: none; }
-
-    .treatment-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      font-weight: 300;
-      color: var(--border);
-      line-height: 1;
-      padding-top: .15rem;
-    }
-    .treatment-body {}
-    .treatment-meta {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      margin-bottom: .5rem;
-      flex-wrap: wrap;
-    }
-    .tag {
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: .25rem .65rem;
-      border-radius: 2px;
-    }
-    .tag-rose   { background: #f9eef2; color: var(--rose); }
-    .tag-violet { background: #f0ecf8; color: var(--violet); }
-    .tag-teal   { background: #eaf4f1; color: var(--teal); }
-    .tag-gold   { background: #f8f3eb; color: var(--gold); }
-    .tag-prime  { background: var(--violet); color: #fff; }
-
-    .treatment-duration {
-      font-size: .78rem;
-      color: var(--subtle);
-    }
-    .treatment-specialist {
-      font-size: .78rem;
-      color: var(--subtle);
-    }
-    .treatment-body h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: .2rem;
-    }
-    .treatment-body .subtitle {
-      font-size: .82rem;
-      color: var(--subtle);
-      margin-bottom: .9rem;
-    }
-    .treatment-body p {
-      font-size: .92rem;
-      color: var(--text);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-    .benefit-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .4rem;
-    }
-    .benefit-list li {
-      font-size: .83rem;
-      color: var(--subtle);
-      display: flex;
-      align-items: flex-start;
-      gap: .5rem;
-    }
-    .benefit-list li::before {
-      content: '✓';
-      color: var(--teal);
-      font-size: .8rem;
-      flex-shrink: 0;
-      margin-top: .05rem;
-    }
-
-    /* ─── EMSCULPT HIGHLIGHT ────────────────────────────── */
-    .emsculpt-highlight {
-      background: linear-gradient(135deg, var(--violet) 0%, #4a3270 100%);
-      border-radius: 10px;
-      padding: 2.5rem 2rem;
-      color: #fff;
-      margin-bottom: 3rem;
-    }
-    .emsculpt-highlight .prime-eye {
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.65);
-      margin-bottom: .5rem;
-    }
-    .emsculpt-highlight h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      margin-bottom: .75rem;
-    }
-    .emsculpt-highlight p {
-      font-size: .9rem;
-      color: rgba(255,255,255,.85);
-      line-height: 1.7;
-      max-width: 560px;
-      margin-bottom: 1.5rem;
-    }
-    .emsculpt-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-    .emsculpt-stat {
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: 6px;
-      padding: 1rem;
-      text-align: center;
-    }
-    .emsculpt-stat .val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #fff;
-      display: block;
-      margin-bottom: .2rem;
-    }
-    .emsculpt-stat .lbl {
-      font-size: .7rem;
-      color: rgba(255,255,255,.7);
-    }
-
-    /* ─── COMPARE TABLE ─────────────────────────────────── */
-    .compare-table-section { background: var(--mist); }
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--white);
-      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
     }
-    .compare-table thead th {
-      padding: 1.25rem 1.5rem;
-      text-align: left;
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--subtle);
-      background: var(--mist);
-      border-bottom: 1px solid var(--border);
+    .cmp-bar { height: 6px; }
+    .cmp-body { padding: 28px; position: relative; }
+    .cmp-title {
+      font-size: 1.5rem; font-weight: 600; color: var(--dark);
+      margin-bottom: 4px; line-height: 1.2;
     }
-    .compare-table thead th:first-child { width: 40%; }
-    .compare-table thead th:nth-child(2) { color: var(--rose); }
-    .compare-table thead th:nth-child(3) { color: var(--violet); }
-    .compare-table tbody tr { border-bottom: 1px solid var(--border); }
-    .compare-table tbody tr:last-child { border-bottom: none; }
-    .compare-table tbody td {
-      padding: 1rem 1.5rem;
-      font-size: .88rem;
-      color: var(--text);
+    .cmp-sub { color: var(--light); font-size: 0.82rem; margin-bottom: 20px; }
+    .cmp-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .cmp-list li { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .cmp-dot { display: flex; align-items: center; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .cmp-label { font-size: 0.875rem; font-weight: 500; color: var(--dark); }
+    .cmp-label.prime-label { font-weight: 700; }
+    .cmp-detail { font-size: 0.78rem; color: var(--light); white-space: nowrap; }
+    .prime-badge-abs {
+      position: absolute; top: 22px; right: 20px;
+      background: var(--prime); color: #E8DCFF;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 9999px;
     }
-    .compare-table tbody td:first-child { font-weight: 500; }
-    .compare-table tbody td:not(:first-child) { color: var(--subtle); }
-    .compare-table tbody td .star { color: var(--violet); }
-    .compare-table tbody tr:hover { background: #fcfafd; }
 
-    /* ─── SEGUIMIENTO ───────────────────────────────────── */
-    .seguimiento-section { background: var(--white); }
-    .seguimiento-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
+    .cmp-btn {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      border-radius: 9999px; padding: 10px 0; width: 100%;
+      font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      text-decoration: none; border: 1.5px solid transparent;
+      transition: opacity 0.2s;
     }
-    .seg-card {
+    .cmp-btn:hover { opacity: 0.8; }
+    .cmp-btn-rose   { background: var(--rose-bg);   color: var(--rose);   border-color: rgba(184,96,126,0.2); }
+    .cmp-btn-violet { background: var(--violet-bg); color: var(--violet); border-color: rgba(107,74,150,0.2); }
+
+    /* ── BG ALTERNATES ── */
+    .bg-rose-soft   { background: #FFF8FB; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .bg-violet-soft { background: #F8F5FF; border-bottom: 1px solid var(--border); }
+    .bg-teal-soft   { background: #EEF8F4; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    /* ── TREATMENT CARDS ── */
+    .tx-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .tx-card {
+      background: var(--card);
+      border-radius: 20px;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.75rem;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      display: flex; flex-direction: column;
     }
-    .seg-card .seg-week {
-      font-size: .72rem;
-      font-weight: 600;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: .5rem;
+    .tx-bar { height: 4px; }
+    .tx-body { padding: 26px 26px 22px; flex: 1; }
+    .tx-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+    .tx-icon {
+      width: 46px; height: 46px; border-radius: 13px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
     }
-    .seg-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: .3rem;
+    .tx-icon svg { width: 20px; height: 20px; }
+    .tx-meta { flex: 1; min-width: 0; }
+    .tx-num {
+      font-size: 1.4rem; font-weight: 300; opacity: 0.45;
+      line-height: 1; flex-shrink: 0;
     }
-    .seg-card .seg-who {
-      font-size: .78rem;
-      color: var(--subtle);
-      margin-bottom: .75rem;
+    .tx-title {
+      font-size: 1.25rem; font-weight: 600; color: var(--dark);
+      line-height: 1.2; margin-bottom: 4px;
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
     }
-    .seg-card p {
-      font-size: .85rem;
-      color: var(--text);
-      line-height: 1.65;
+    .tx-subtitle { color: var(--light); font-size: 0.76rem; line-height: 1.4; }
+    .tx-session-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      border-radius: 9999px; padding: 5px 13px; margin-bottom: 16px;
+    }
+    .tx-session-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .tx-session-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; }
+    .tx-session-who { color: var(--light); font-size: 0.74rem; }
+    .tx-prime-note {
+      border-left: 3px solid var(--violet);
+      border-radius: 0 8px 8px 0;
+      padding: 9px 13px; margin-bottom: 14px;
+      background: var(--violet-bg);
+    }
+    .tx-prime-note p { font-size: 0.8rem; color: var(--violet); line-height: 1.5; }
+    .tx-desc { color: var(--mid); font-size: 0.875rem; line-height: 1.7; margin-bottom: 18px; }
+    .tx-benefits { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .tx-benefits li { display: flex; align-items: flex-start; gap: 9px; }
+    .tx-benefits li span { color: var(--mid); font-size: 0.84rem; line-height: 1.5; }
+    .check-icon { flex-shrink: 0; margin-top: 2px; }
+
+    /* exclusive badge */
+    .excl-badge {
+      background: var(--prime); color: #E8DCFF;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 9999px;
     }
 
-    .seg-nesa {
-      background: linear-gradient(135deg, #f5f0f9, #ede6f5);
-      border-radius: 8px;
-      padding: 2rem 1.75rem;
-      margin-bottom: 1.5rem;
+    /* ── EMSCULPT HERO ── */
+    .emsculpt-hero {
+      background: linear-gradient(135deg, #4A2A7A 0%, #6B4A96 100%);
+      border-radius: 20px; padding: 30px 26px; margin-bottom: 26px;
+      color: #E8DCFF; position: relative; overflow: hidden;
     }
-    .seg-nesa h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: .5rem;
+    .emsculpt-hero::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: rgba(255,255,255,0.05); pointer-events: none;
     }
-    .seg-nesa .seg-week { color: var(--teal); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .5rem; }
-    .seg-nesa p { font-size: .85rem; color: var(--text); line-height: 1.65; margin-bottom: 1rem; }
-    .nesa-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .emsculpt-inner { position: relative; z-index: 1; }
+    .emsculpt-eyebrow {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #D4C0FF;
     }
-    .nesa-option {
-      background: var(--white);
-      border-radius: 6px;
-      padding: 1rem;
+    .emsculpt-title {
+      font-size: clamp(1.4rem, 4.5vw, 2rem);
+      font-weight: 600; color: #fff; margin-bottom: 10px; line-height: 1.2;
     }
-    .nesa-option .opt-name {
-      font-weight: 600;
-      font-size: .85rem;
-      color: var(--ink);
-      margin-bottom: .2rem;
+    .emsculpt-desc { color: #C8B8F0; font-size: 0.875rem; line-height: 1.7; max-width: 500px; margin-bottom: 18px; }
+    .emsculpt-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .emsculpt-tag {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 9999px; padding: 5px 13px;
+      font-size: 0.8rem; color: #E8DCFF; font-weight: 500;
     }
-    .nesa-option .opt-detail {
-      font-size: .78rem;
-      color: var(--subtle);
+
+    /* ── COMPARE TABLE ── */
+    .cmp-table {
+      background: var(--card);
+      border-radius: 20px; border: 1px solid var(--border);
+      overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.05);
     }
+    .cmp-table-head {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      background: #F8F4FF;
+      border-bottom: 1px solid var(--border);
+      padding: 13px 20px;
+    }
+    .cmp-table-head span { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+    .cmp-row {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      padding: 13px 20px; align-items: center;
+    }
+    .cmp-row:not(:last-child) { border-bottom: 1px solid var(--border); }
+    .cmp-row.prime-row { background: var(--violet-bg); }
+    .cmp-row span { font-size: 0.82rem; }
+    .cmp-row span:nth-child(2),
+    .cmp-row span:nth-child(3) { text-align: center; }
+
+    /* ── SEGUIMIENTO ── */
+    .seg-list { display: flex; flex-direction: column; gap: 18px; }
+    .seg-card {
+      background: var(--card); border-radius: 20px;
+      border: 1px solid var(--border);
+      overflow: hidden; box-shadow: 0 2px 14px rgba(0,0,0,0.04);
+    }
+    .seg-bar { height: 3px; }
+    .seg-body { padding: 22px 26px; }
+    .seg-header {
+      display: flex; align-items: flex-start; gap: 14px;
+      margin-bottom: 14px; flex-wrap: wrap;
+    }
+    .seg-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .seg-icon svg { width: 18px; height: 18px; }
+    .seg-meta { flex: 1; min-width: 0; }
+    .seg-title {
+      font-size: 1.15rem; font-weight: 600; color: var(--dark); line-height: 1.2; margin-bottom: 3px;
+    }
+    .seg-subtitle { color: var(--light); font-size: 0.76rem; }
+    .seg-badge-wrap { text-align: right; flex-shrink: 0; }
+    .seg-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      border-radius: 9999px; padding: 5px 12px; margin-bottom: 3px;
+    }
+    .seg-badge span { font-size: 0.78rem; font-weight: 600; }
+    .seg-when { font-size: 0.72rem; color: var(--light); }
+    .seg-desc { color: var(--mid); font-size: 0.875rem; line-height: 1.7; }
+    .seg-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin-top: 16px; }
+    .seg-option {
+      background: var(--rose-bg); border: 1px solid rgba(184,96,126,0.15);
+      border-radius: 13px; padding: 14px;
+    }
+    .seg-option-head { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+    .seg-option-name { font-size: 0.9rem; font-weight: 700; color: var(--dark); }
+    .seg-option-detail { font-size: 0.74rem; color: var(--light); margin-left: auto; }
+    .seg-option-desc { font-size: 0.82rem; color: var(--mid); line-height: 1.5; }
 
     .seg-summary {
-      background: var(--mist);
-      border-radius: 8px;
-      padding: 1.75rem;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      text-align: center;
+      margin-top: 28px; background: var(--card);
+      border-radius: 16px; border: 1px solid var(--border); padding: 22px 26px;
     }
-    .seg-summary-item .label {
-      font-size: .7rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--subtle);
-      margin-bottom: .25rem;
+    .seg-summary-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--light); margin-bottom: 12px;
     }
-    .seg-summary-item .value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--ink);
+    .seg-summary-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 12px;
     }
+    .seg-summary-item { display: flex; align-items: flex-start; gap: 8px; }
+    .seg-summary-item p:first-of-type { font-size: 0.875rem; font-weight: 600; color: var(--dark); line-height: 1.3; }
+    .seg-summary-item p:last-of-type { font-size: 0.75rem; color: var(--light); }
 
-    /* ─── FOOTER ────────────────────────────────────────── */
+    /* ── FOOTER ── */
     footer {
-      background: var(--ink);
-      color: rgba(255,255,255,.7);
-      padding: 3.5rem 2rem;
+      background: linear-gradient(160deg, #1C1A2E 0%, #2A2040 100%);
+      color: #E8DDF5; padding: 52px 24px 44px; text-align: center;
     }
-    .footer-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: start;
+    .footer-inner { max-width: 540px; margin: 0 auto; }
+    .footer-icon {
+      width: 50px; height: 50px; border-radius: 15px;
+      background: rgba(184,96,126,0.2); border: 1px solid rgba(184,96,126,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
     }
-    footer h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 300;
-      color: #fff;
-      margin-bottom: .4rem;
-    }
-    footer .footer-sub {
-      font-size: .85rem;
-      color: rgba(255,255,255,.55);
-      margin-bottom: 1rem;
-    }
-    footer p {
-      font-size: .85rem;
-      line-height: 1.7;
-      max-width: 380px;
-    }
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-      text-align: right;
-    }
-    .footer-links a {
-      text-decoration: none;
-      font-size: .82rem;
-      color: rgba(255,255,255,.55);
-      transition: color .2s;
-    }
-    .footer-links a:hover { color: #fff; }
-    .footer-copy {
-      max-width: 900px;
-      margin: 2rem auto 0;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,.1);
-      font-size: .75rem;
-      color: rgba(255,255,255,.35);
-    }
+    .footer-icon svg { width: 22px; height: 22px; color: var(--rose); }
+    .footer h3 { font-size: clamp(1.4rem, 5vw, 1.9rem); font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .footer-city { font-style: italic; color: #B0A0C8; font-size: 0.95rem; margin-bottom: 18px; }
+    .footer-desc { color: #8A7A9A; font-size: 0.875rem; line-height: 1.75; margin-bottom: 28px; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+    .footer-links a { color: var(--rose); font-size: 0.82rem; font-weight: 600; text-decoration: none; opacity: 0.85; }
+    .footer-links a:hover { opacity: 1; }
+    .footer-copy { color: #3A3050; font-size: 0.75rem; letter-spacing: 0.1em; }
 
-    /* ─── RESPONSIVE ────────────────────────────────────── */
-    @media (max-width: 680px) {
-      .compare-grid,
-      .seguimiento-grid,
-      .emsculpt-stats,
-      .nesa-options { grid-template-columns: 1fr; }
-      .seg-summary { grid-template-columns: 1fr 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .footer-links { text-align: left; }
-      .treatment-block { grid-template-columns: 1fr; }
-      .treatment-num { font-size: 1.5rem; padding: 0; }
-      .nav-links { display: none; }
+    /* ── COMPARE TABLE RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .cmp-table-head, .cmp-row { grid-template-columns: 1.6fr 1fr 1fr; padding: 10px 14px; }
+      .tx-body { padding: 20px 18px 18px; }
+      .seg-body { padding: 18px 20px; }
+      .emsculpt-hero { padding: 22px 18px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ──────────────────────────────────────────────── -->
-<nav>
-  <div class="nav-inner">
-    <span class="nav-brand">Clínica Montesinos · Valencia</span>
-    <ul class="nav-links">
-      <li><a href="#balance">Woman Balance</a></li>
-      <li><a href="#prime">Prime</a></li>
-      <li><a href="#seguimiento">Seguimiento</a></li>
-    </ul>
+<!-- ══ HERO ══════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="clinic-badge">Clínica Montesinos · Valencia</div>
+    <h1 class="serif">Woman Balance</h1>
+    <p class="hero-tagline serif">Programas de bienestar integral femenino</p>
+    <p class="hero-desc">
+      Un equipo de especialistas trabajando de forma coordinada para equilibrar
+      tu cuerpo, hormonas y energía.
+    </p>
+    <nav class="nav-pills" aria-label="Navegación rápida">
+      <a href="#woman-balance" class="pill pill-rose">
+        Woman Balance
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#woman-balance-prime" class="pill pill-violet">
+        Woman Balance Prime ★
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#seguimiento" class="pill pill-teal">
+        Seguimiento
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<!-- ── HERO ──────────────────────────────────────────────── -->
-<section class="hero">
-  <p class="hero-eyebrow">Clínica Montesinos · Valencia</p>
-  <h1>Woman Balance</h1>
-  <p>Programas de bienestar integral femenino. Un equipo de especialistas trabajando de forma coordinada para equilibrar tu cuerpo, hormonas y energía.</p>
-  <div class="hero-ctas">
-    <a href="#balance" class="btn btn-rose">Woman Balance</a>
-    <a href="#prime"   class="btn btn-violet">Woman Balance Prime ★</a>
-    <a href="#seguimiento" class="btn btn-outline">Seguimiento</a>
-  </div>
-</section>
-
-<!-- ── COMPARATIVA RÁPIDA ─────────────────────────────────── -->
-<section class="quick-compare" id="comparativa">
-  <div class="container">
-    <p class="section-label">De un vistazo</p>
-    <h2 class="section-title">Dos programas, un mismo objetivo</h2>
-    <p class="section-lead">Ambos trabajan tu bienestar de forma integral y coordinada. La diferencia está en la profundidad y en el Emsculpt Neo.</p>
-
+<!-- ══ DE UN VISTAZO ═════════════════════════════ -->
+<section>
+  <div class="inner">
+    <div class="section-head" style="text-align:center">
+      <div class="section-label" style="justify-content:center">
+        <span style="background:var(--light)"></span>
+        <span style="color:var(--light)">De un vistazo</span>
+      </div>
+      <h2 class="serif section-title">Dos programas, un mismo objetivo</h2>
+      <p class="section-desc" style="margin:12px auto 0">
+        Ambos trabajan tu bienestar de forma integral y coordinada. La diferencia está en la profundidad y en el Emsculpt Neo.
+      </p>
+    </div>
     <div class="compare-grid">
-      <!-- Balance -->
-      <div class="compare-card">
-        <h3>Woman Balance</h3>
-        <p class="sub">Programa completo de bienestar</p>
-        <ul class="treatment-list">
-          <li>Terapia NESA <span>8 sesiones × 50′</span></li>
-          <li>Ginecología <span>2 consultas × 20′</span></li>
-          <li>Nutrición <span>2 consultas × 50′</span></li>
-          <li>Suelo Pélvico <span>1 consulta × 55′</span></li>
-        </ul>
-        <a href="#balance" class="btn btn-rose">Ver tratamientos →</a>
+      <!-- WB -->
+      <div class="cmp-card">
+        <div class="cmp-bar" style="background:linear-gradient(90deg,var(--rose),#D4909A)"></div>
+        <div class="cmp-body">
+          <h3 class="serif cmp-title">Woman Balance</h3>
+          <p class="cmp-sub">Programa completo de bienestar</p>
+          <ul class="cmp-list">
+            <li>
+              <div class="cmp-dot"><span class="dot" style="background:var(--rose)"></span><span class="cmp-label">Terapia NESA</span></div>
+              <span class="cmp-detail">8 sesiones × 50&prime;</span>
+            </li>
+            <li>
+              <div class="cmp-dot"><span class="dot" style="background:var(--violet)"></span><span class="cmp-label">Ginecología</span></div>
+              <span class="cmp-detail">2 consultas × 20&prime;</span>
+            </li>
+            <li>
+              <div class="cmp-dot"><span class="dot" style="background:var(--gold)"></span><span class="cmp-label">Nutrición</span></div>
+              <span class="cmp-detail">2 consultas × 50&prime;</span>
+            </li>
+            <li>
+              <div class="cmp-dot"><span class="dot" style="background:var(--teal)"></span><span class="cmp-label">Suelo Pélvico</span></div>
+              <span class="cmp-detail">1 consulta × 55&prime;</span>
+            </li>
+          </ul>
+          <a href="#woman-balance" class="cmp-btn cmp-btn-rose">Ver tratamientos →</a>
+        </div>
       </div>
-
-      <!-- Prime -->
-      <div class="compare-card is-prime">
-        <span class="badge">★ Prime</span>
-        <h3>Woman Balance Prime</h3>
-        <p class="sub">Todo lo anterior + Emsculpt Neo</p>
-        <ul class="treatment-list">
-          <li>Terapia NESA <span>10 sesiones × 50′</span></li>
-          <li>Emsculpt Neo ★ <span>5 sesiones × 30′</span></li>
-          <li>Ginecología <span>3 consultas × 20′</span></li>
-          <li>Nutrición <span>3 consultas × 50′</span></li>
-          <li>Suelo Pélvico <span>2 consultas × 55′</span></li>
-        </ul>
-        <a href="#prime" class="btn btn-violet">Ver tratamientos →</a>
+      <!-- WBP -->
+      <div class="cmp-card">
+        <div class="cmp-bar" style="background:linear-gradient(90deg,var(--violet),var(--rose))"></div>
+        <div class="cmp-body">
+          <span class="prime-badge-abs">★ Prime</span>
+          <h3 class="serif cmp-title" style="padding-right:64px">Woman Balance Prime</h3>
+          <p class="cmp-sub">Todo lo anterior + Emsculpt Neo</p>
+          <ul class="cmp-list">
+            <li>
+              <div class="cmp-dot"><span class="dot" style="background:var(--rose)"></span><span class="cmp-label">Terapia NESA</span></div>
+              <span class="cmp-detail">10 sesiones × 50&prime;</span>
+            </li>
+            <li>
+              <div class="cmp-dot"><span class="dot" style="background:var(--violet)"></span><span class="cmp-label prime-label" style="color:var(--violet)">Emsculpt Neo ★</span></div>
+              <span class="cmp-detail">5 sesiones × 30&prime;</span>
+            </li>
+            <li>
+              <div class="cmp-dot"><span class="dot" style="background:var(--rose)"></span><span class="cmp-label">Ginecología</span></div>
+              <span class="cmp-detail">3 consultas × 20&prime;</span>
+            </li>
+            <li>
+              <div class="cmp-dot"><span class="dot" style="background:var(--gold)"></span><span class="cmp-label">Nutrición</span></div>
+              <span class="cmp-detail">3 consultas × 50&prime;</span>
+            </li>
+            <li>
+              <div class="cmp-dot"><span class="dot" style="background:var(--teal)"></span><span class="cmp-label">Suelo Pélvico</span></div>
+              <span class="cmp-detail">2 consultas × 55&prime;</span>
+            </li>
+          </ul>
+          <a href="#woman-balance-prime" class="cmp-btn cmp-btn-violet">Ver tratamientos →</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── WOMAN BALANCE ──────────────────────────────────────── -->
-<section class="treatments-section" id="balance">
-  <div class="container">
-    <p class="section-label">Programa</p>
-    <h2 class="section-title">Woman Balance</h2>
-    <p class="section-lead">Un programa integral de 4 tratamientos especializados que trabajan de forma coordinada para equilibrar tu sistema nervioso, salud hormonal, alimentación y suelo pélvico.</p>
+<!-- ══ WOMAN BALANCE ═════════════════════════════ -->
+<section id="woman-balance" class="bg-rose-soft" style="scroll-margin-top:24px">
+  <div class="inner">
+    <div class="section-head">
+      <div class="section-label"><span style="background:var(--rose)"></span><span style="color:var(--rose)">Programa</span></div>
+      <h2 class="serif section-title">Woman Balance</h2>
+      <p class="section-desc">
+        Un programa integral de 4 tratamientos especializados que trabajan de forma coordinada para equilibrar tu sistema nervioso, salud hormonal, alimentación y suelo pélvico.
+      </p>
+    </div>
+    <div class="tx-grid">
 
-    <!-- 01 NESA -->
-    <div class="treatment-block">
-      <div class="treatment-num">01</div>
-      <div class="treatment-body">
-        <div class="treatment-meta">
-          <span class="tag tag-rose">Terapia NESA</span>
-          <span class="treatment-duration">8 sesiones · 50 min</span>
-          <span class="treatment-specialist">· Ana / Teresa</span>
+      <!-- 01 NESA -->
+      <div class="tx-card">
+        <div class="tx-bar" style="background:var(--rose)"></div>
+        <div class="tx-body">
+          <div class="tx-header">
+            <div class="tx-icon" style="background:var(--rose-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2a2.5 2.5 0 1 1 5 0v7.5a2.5 2.5 0 0 1-5 0V2z"/><path d="M14.5 9.5a2.5 2.5 0 1 1 0 5H7a2.5 2.5 0 0 1 0-5h7.5z"/><path d="M9.5 14.5a2.5 2.5 0 1 1 5 0V22a2.5 2.5 0 0 1-5 0v-7.5z"/><path d="M4.5 9.5a2.5 2.5 0 1 1 0 5"/></svg>
+            </div>
+            <div class="tx-meta">
+              <div class="tx-title serif">Terapia NESA</div>
+              <div class="tx-subtitle">Neuroestimulación Sistémica Adaptativa</div>
+            </div>
+            <span class="tx-num serif" style="color:var(--rose)">01</span>
+          </div>
+          <div class="tx-session-badge" style="background:var(--rose-bg)">
+            <span class="tx-session-dot" style="background:var(--rose)"></span>
+            <span class="tx-session-label" style="color:var(--rose)">8 sesiones · 50 min</span>
+            <span class="tx-session-who">· Ana / Teresa</span>
+          </div>
+          <p class="tx-desc">Como darle un reset al sistema nervioso. Electrodos suaves en muñecas y tobillos emiten una microcorriente que equilibra tu sistema nervioso autónomo — sin dolor, sin agujas, sin incomodidad. La mayoría de pacientes salen con sensación de calma y ligereza.</p>
+          <ul class="tx-benefits">
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Mejora del dolor crónico y tensión muscular</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Regulación del estrés y la ansiedad</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Sueño más profundo y reparador</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Apoyo al suelo pélvico y equilibrio hormonal</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Más energía y bienestar general</span></li>
+          </ul>
         </div>
-        <h3>Neuroestimulación Sistémica Adaptativa</h3>
-        <p class="subtitle">Como darle un reset al sistema nervioso</p>
-        <p>Electrodos suaves en muñecas y tobillos emiten una microcorriente que equilibra tu sistema nervioso autónomo — sin dolor, sin agujas, sin incomodidad. La mayoría de pacientes salen con sensación de calma y ligereza.</p>
-        <ul class="benefit-list">
-          <li>Mejora del dolor crónico y tensión muscular</li>
-          <li>Regulación del estrés y la ansiedad</li>
-          <li>Sueño más profundo y reparador</li>
-          <li>Apoyo al suelo pélvico y equilibrio hormonal</li>
-          <li>Más energía y bienestar general</li>
-        </ul>
+      </div>
+
+      <!-- 02 GINECO -->
+      <div class="tx-card">
+        <div class="tx-bar" style="background:var(--violet)"></div>
+        <div class="tx-body">
+          <div class="tx-header">
+            <div class="tx-icon" style="background:var(--violet-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="tx-meta">
+              <div class="tx-title serif">Consulta Ginecológica</div>
+              <div class="tx-subtitle">Valoración hormonal + seguimiento coordinado</div>
+            </div>
+            <span class="tx-num serif" style="color:var(--violet)">02</span>
+          </div>
+          <div class="tx-session-badge" style="background:var(--violet-bg)">
+            <span class="tx-session-dot" style="background:var(--violet)"></span>
+            <span class="tx-session-label" style="color:var(--violet)">2 consultas · 20 min</span>
+            <span class="tx-session-who">· Laura</span>
+          </div>
+          <p class="tx-desc">Laura realiza una valoración completa de tu salud ginecológica y hormonal, coordinada con todo el equipo. No es una revisión rutinaria — es el punto de partida para entender qué está pasando en tu cuerpo y adaptar el programa exactamente a ti.</p>
+          <ul class="tx-benefits">
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Historia clínica ginecológica completa</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Valoración del ciclo y sintomatología hormonal</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Analítica hormonal si la necesitas</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Seguimiento a mitad del programa (semana 7)</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Coordinación directa con nutrición y suelo pélvico</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 03 NUTRICION -->
+      <div class="tx-card">
+        <div class="tx-bar" style="background:var(--gold)"></div>
+        <div class="tx-body">
+          <div class="tx-header">
+            <div class="tx-icon" style="background:var(--gold-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.34A1 1 0 0 0 4.72 21h14.56a1 1 0 0 0 .9-1.37C18.7 16.38 16.5 10.5 17 8z"/><path d="M17 8c0-2.5-2.5-5-5-5C9.5 3 7 5.5 7 8"/></svg>
+            </div>
+            <div class="tx-meta">
+              <div class="tx-title serif">Consulta de Nutrición</div>
+              <div class="tx-subtitle">Plan nutricional para tu salud hormonal</div>
+            </div>
+            <span class="tx-num serif" style="color:var(--gold)">03</span>
+          </div>
+          <div class="tx-session-badge" style="background:var(--gold-bg)">
+            <span class="tx-session-dot" style="background:var(--gold)"></span>
+            <span class="tx-session-label" style="color:var(--gold)">2 consultas · 50 min</span>
+            <span class="tx-session-who">· Alexandra</span>
+          </div>
+          <p class="tx-desc">Alexandra diseña un plan real que puedas seguir en tu día a día. No va de dietas restrictivas — va de entender cómo tu alimentación afecta tu energía, ciclo menstrual, inflamación y bienestar. Un enfoque funcional y muy práctico.</p>
+          <ul class="tx-benefits">
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Valoración nutricional completa</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Plan personalizado para tu salud hormonal</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Pautas prácticas para el día a día</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Seguimiento y ajuste del plan a mitad (semana 4)</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>La alimentación como herramienta de bienestar</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 04 SUELO PELV -->
+      <div class="tx-card">
+        <div class="tx-bar" style="background:var(--teal)"></div>
+        <div class="tx-body">
+          <div class="tx-header">
+            <div class="tx-icon" style="background:var(--teal-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="tx-meta">
+              <div class="tx-title serif">Fisioterapia de Suelo Pélvico</div>
+              <div class="tx-subtitle">Valoración funcional completa</div>
+            </div>
+            <span class="tx-num serif" style="color:var(--teal)">04</span>
+          </div>
+          <div class="tx-session-badge" style="background:var(--teal-bg)">
+            <span class="tx-session-dot" style="background:var(--teal)"></span>
+            <span class="tx-session-label" style="color:var(--teal)">1 consulta · 55 min</span>
+            <span class="tx-session-who">· María</span>
+          </div>
+          <p class="tx-desc">El suelo pélvico afecta mucho más de lo que imaginamos: la postura, el dolor de espalda, el control de orina, las relaciones y hasta el sistema nervioso. María hace una evaluación funcional completa que orienta el trabajo de NESA y todo el equipo.</p>
+          <ul class="tx-benefits">
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Evaluación funcional completa del suelo pélvico</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Detección de tensiones, hipertonía o disfunciones</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Conexión directa con el plan de NESA</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Mejora del dolor pélvico y lumbar</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Pautas de autocuidado personalizadas</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ WOMAN BALANCE PRIME ════════════════════════ -->
+<section id="woman-balance-prime" class="bg-violet-soft" style="scroll-margin-top:24px">
+  <div class="inner">
+    <div class="section-head">
+      <div class="section-label"><span style="background:var(--violet)"></span><span style="color:var(--violet)">Programa Premium</span></div>
+      <div style="display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:12px">
+        <h2 class="serif section-title" style="margin-bottom:0">Woman Balance Prime</h2>
+        <span class="excl-badge" style="align-self:center;flex-shrink:0">★ Prime</span>
+      </div>
+      <p class="section-desc">
+        Todo lo del programa Woman Balance, con mayor profundidad en cada tratamiento
+        y la incorporación del <strong style="color:var(--violet)">Emsculpt Neo</strong> —
+        la tecnología más avanzada para remodelar el cuerpo sin cirugía.
+      </p>
+    </div>
+
+    <!-- Emsculpt highlight -->
+    <div class="emsculpt-hero">
+      <div class="emsculpt-inner">
+        <div class="emsculpt-eyebrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Exclusivo Prime
+        </div>
+        <h3 class="serif emsculpt-title">Emsculpt Neo</h3>
+        <p class="emsculpt-desc">
+          La única tecnología que combina radiofrecuencia (reduce grasa) y estimulación electromagnética de alta intensidad (tonifica el músculo) — todo en 30 minutos, sin cirugía, sin agujas, sin recuperación.
+        </p>
+        <div class="emsculpt-tags">
+          <span class="emsculpt-tag">−30% grasa localizada</span>
+          <span class="emsculpt-tag">+25% masa muscular</span>
+          <span class="emsculpt-tag">Visible desde la 3ª sesión</span>
+          <span class="emsculpt-tag">Sin cirugía · Sin agujas</span>
+        </div>
       </div>
     </div>
 
-    <!-- 02 GINECOLOGÍA -->
-    <div class="treatment-block">
-      <div class="treatment-num">02</div>
-      <div class="treatment-body">
-        <div class="treatment-meta">
-          <span class="tag tag-teal">Ginecología</span>
-          <span class="treatment-duration">2 consultas · 20 min</span>
-          <span class="treatment-specialist">· Laura</span>
-        </div>
-        <h3>Consulta Ginecológica</h3>
-        <p class="subtitle">Valoración hormonal + seguimiento coordinado</p>
-        <p>Laura realiza una valoración completa de tu salud ginecológica y hormonal, coordinada con todo el equipo. No es una revisión rutinaria — es el punto de partida para entender qué está pasando en tu cuerpo y adaptar el programa exactamente a ti.</p>
-        <ul class="benefit-list">
-          <li>Historia clínica ginecológica completa</li>
-          <li>Valoración del ciclo y sintomatología hormonal</li>
-          <li>Analítica hormonal si la necesitas</li>
-          <li>Seguimiento a mitad del programa (semana 7)</li>
-          <li>Coordinación directa con nutrición y suelo pélvico</li>
-        </ul>
-      </div>
-    </div>
+    <div class="tx-grid">
 
-    <!-- 03 NUTRICIÓN -->
-    <div class="treatment-block">
-      <div class="treatment-num">03</div>
-      <div class="treatment-body">
-        <div class="treatment-meta">
-          <span class="tag tag-gold">Nutrición</span>
-          <span class="treatment-duration">2 consultas · 50 min</span>
-          <span class="treatment-specialist">· Alexandra</span>
+      <!-- 01 NESA PRIME -->
+      <div class="tx-card">
+        <div class="tx-bar" style="background:var(--rose)"></div>
+        <div class="tx-body">
+          <div class="tx-header">
+            <div class="tx-icon" style="background:var(--rose-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2a2.5 2.5 0 1 1 5 0v7.5a2.5 2.5 0 0 1-5 0V2z"/><path d="M14.5 9.5a2.5 2.5 0 1 1 0 5H7a2.5 2.5 0 0 1 0-5h7.5z"/><path d="M9.5 14.5a2.5 2.5 0 1 1 5 0V22a2.5 2.5 0 0 1-5 0v-7.5z"/><path d="M4.5 9.5a2.5 2.5 0 1 1 0 5"/></svg>
+            </div>
+            <div class="tx-meta">
+              <div class="tx-title serif">Terapia NESA</div>
+              <div class="tx-subtitle">2 sesiones adicionales para mayor consolidación</div>
+            </div>
+            <span class="tx-num serif" style="color:var(--rose)">01</span>
+          </div>
+          <div class="tx-session-badge" style="background:var(--rose-bg)">
+            <span class="tx-session-dot" style="background:var(--rose)"></span>
+            <span class="tx-session-label" style="color:var(--rose)">10 sesiones · 50 min</span>
+            <span class="tx-session-who">· Ana / Teresa</span>
+          </div>
+          <div class="tx-prime-note"><p>2 sesiones más que en Woman Balance para consolidar los cambios en mayor profundidad.</p></div>
+          <p class="tx-desc">Todo lo de Woman Balance, con 2 sesiones adicionales que permiten consolidar los cambios con mayor profundidad. Las últimas sesiones actúan como mantenimiento y fijación de resultados.</p>
+          <ul class="tx-benefits">
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>10 sesiones de trabajo neurológico profundo</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Mayor consolidación del equilibrio nervioso</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Mejor integración con los resultados del Emsculpt</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Resultados más estables a largo plazo</span></li>
+          </ul>
         </div>
-        <h3>Consulta de Nutrición</h3>
-        <p class="subtitle">Plan nutricional para tu salud hormonal</p>
-        <p>Alexandra diseña un plan real que puedas seguir en tu día a día. No va de dietas restrictivas — va de entender cómo tu alimentación afecta tu energía, ciclo menstrual, inflamación y bienestar. Un enfoque funcional y muy práctico.</p>
-        <ul class="benefit-list">
-          <li>Valoración nutricional completa</li>
-          <li>Plan personalizado para tu salud hormonal</li>
-          <li>Pautas prácticas para el día a día</li>
-          <li>Seguimiento y ajuste del plan a mitad (semana 4)</li>
-          <li>La alimentación como herramienta de bienestar</li>
-        </ul>
       </div>
-    </div>
 
-    <!-- 04 SUELO PÉLVICO -->
-    <div class="treatment-block">
-      <div class="treatment-num">04</div>
-      <div class="treatment-body">
-        <div class="treatment-meta">
-          <span class="tag tag-violet">Suelo Pélvico</span>
-          <span class="treatment-duration">1 consulta · 55 min</span>
-          <span class="treatment-specialist">· María</span>
+      <!-- 02 EMSCULPT -->
+      <div class="tx-card">
+        <div class="tx-bar" style="background:var(--violet)"></div>
+        <div class="tx-body">
+          <div class="tx-header">
+            <div class="tx-icon" style="background:var(--violet-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div class="tx-meta">
+              <div class="tx-title serif">
+                Emsculpt Neo
+                <span class="excl-badge" style="font-size:9px">★ Prime</span>
+              </div>
+              <div class="tx-subtitle">Remodelación corporal sin cirugía</div>
+            </div>
+            <span class="tx-num serif" style="color:var(--violet)">02</span>
+          </div>
+          <div class="tx-session-badge" style="background:var(--violet-bg)">
+            <span class="tx-session-dot" style="background:var(--violet)"></span>
+            <span class="tx-session-label" style="color:var(--violet)">5 sesiones · 30 min</span>
+            <span class="tx-session-who">· Ana</span>
+          </div>
+          <p class="tx-desc">Lo más avanzado para remodelar el cuerpo sin cirugía. En 30 minutos combina radiofrecuencia (reduce grasa) y estimulación electromagnética de alta intensidad (tonifica el músculo). Una sesión ≈ 20.000 contracciones musculares supramáximas.</p>
+          <ul class="tx-benefits">
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Hasta 30% de reducción de grasa localizada</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Hasta 25% de aumento de masa muscular</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Sin cirugía · Sin agujas · Sin recuperación</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Resultados visibles desde la 3ª sesión</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Complementa y potencia tu ejercicio habitual</span></li>
+          </ul>
         </div>
-        <h3>Fisioterapia de Suelo Pélvico</h3>
-        <p class="subtitle">Valoración funcional completa</p>
-        <p>El suelo pélvico afecta mucho más de lo que imaginamos: la postura, el dolor de espalda, el control de orina, las relaciones y hasta el sistema nervioso. María hace una evaluación funcional completa que orienta el trabajo de NESA y todo el equipo.</p>
-        <ul class="benefit-list">
-          <li>Evaluación funcional completa del suelo pélvico</li>
-          <li>Detección de tensiones, hipertonía o disfunciones</li>
-          <li>Conexión directa con el plan de NESA</li>
-          <li>Mejora del dolor pélvico y lumbar</li>
-          <li>Pautas de autocuidado personalizadas</li>
-        </ul>
+      </div>
+
+      <!-- 03 GINECO PRIME -->
+      <div class="tx-card">
+        <div class="tx-bar" style="background:var(--rose)"></div>
+        <div class="tx-body">
+          <div class="tx-header">
+            <div class="tx-icon" style="background:var(--rose-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="tx-meta">
+              <div class="tx-title serif">Consulta Ginecológica</div>
+              <div class="tx-subtitle">Valoración + 2 seguimientos coordinados</div>
+            </div>
+            <span class="tx-num serif" style="color:var(--rose)">03</span>
+          </div>
+          <div class="tx-session-badge" style="background:var(--rose-bg)">
+            <span class="tx-session-dot" style="background:var(--rose)"></span>
+            <span class="tx-session-label" style="color:var(--rose)">3 consultas · 20 min</span>
+            <span class="tx-session-who">· Laura</span>
+          </div>
+          <div class="tx-prime-note"><p>Laura te acompaña en tres momentos del programa en lugar de dos.</p></div>
+          <p class="tx-desc">En el Prime tienes a Laura al inicio, a mitad y al final del programa. No solo hace la valoración inicial — ve cómo vas evolucionando y ajusta las recomendaciones según tus resultados reales.</p>
+          <ul class="tx-benefits">
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Valoración ginecológica completa al inicio</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Seguimiento a mitad del programa (semana 8)</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Valoración final con recomendaciones de continuidad</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Acompañamiento ginecológico real durante todo el programa</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 04 NUTRI PRIME -->
+      <div class="tx-card">
+        <div class="tx-bar" style="background:var(--gold)"></div>
+        <div class="tx-body">
+          <div class="tx-header">
+            <div class="tx-icon" style="background:var(--gold-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.34A1 1 0 0 0 4.72 21h14.56a1 1 0 0 0 .9-1.37C18.7 16.38 16.5 10.5 17 8z"/><path d="M17 8c0-2.5-2.5-5-5-5C9.5 3 7 5.5 7 8"/></svg>
+            </div>
+            <div class="tx-meta">
+              <div class="tx-title serif">Consulta de Nutrición</div>
+              <div class="tx-subtitle">Plan optimizado para el Emsculpt Neo</div>
+            </div>
+            <span class="tx-num serif" style="color:var(--gold)">04</span>
+          </div>
+          <div class="tx-session-badge" style="background:var(--gold-bg)">
+            <span class="tx-session-dot" style="background:var(--gold)"></span>
+            <span class="tx-session-label" style="color:var(--gold)">3 consultas · 50 min</span>
+            <span class="tx-session-who">· Alexandra</span>
+          </div>
+          <div class="tx-prime-note"><p>El plan nutricional se optimiza también para potenciar los resultados del Emsculpt.</p></div>
+          <p class="tx-desc">La nutrición en el Prime no solo trabaja el equilibrio hormonal — también se optimiza para el Emsculpt Neo. La proteína adecuada y el ajuste calórico correcto multiplican el efecto del programa.</p>
+          <ul class="tx-benefits">
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Todo lo de Woman Balance</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Optimización nutricional para Emsculpt Neo</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Seguimiento adicional al final del programa</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>La nutrición correcta multiplica los resultados</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 05 SUELO PRIME -->
+      <div class="tx-card">
+        <div class="tx-bar" style="background:var(--teal)"></div>
+        <div class="tx-body">
+          <div class="tx-header">
+            <div class="tx-icon" style="background:var(--teal-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="tx-meta">
+              <div class="tx-title serif">Fisioterapia de Suelo Pélvico</div>
+              <div class="tx-subtitle">Valoración + sesión de trabajo terapéutico</div>
+            </div>
+            <span class="tx-num serif" style="color:var(--teal)">05</span>
+          </div>
+          <div class="tx-session-badge" style="background:var(--teal-bg)">
+            <span class="tx-session-dot" style="background:var(--teal)"></span>
+            <span class="tx-session-label" style="color:var(--teal)">2 consultas · 55 min</span>
+            <span class="tx-session-who">· María</span>
+          </div>
+          <div class="tx-prime-note"><p>En semana 5, María trabaja directamente el suelo pélvico además de la valoración inicial.</p></div>
+          <p class="tx-desc">En el Prime María no solo hace la valoración inicial. En la semana 5 vuelves a trabajar con ella directamente — tratamiento manual, reeducación y ejercicio terapéutico. En ese punto ya llevas semanas de NESA y el cuerpo está más receptivo.</p>
+          <ul class="tx-benefits">
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Valoración inicial completa (semana 1)</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Sesión de trabajo terapéutico en semana 5</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Tratamiento manual y reeducación pélvica</span></li>
+            <li><svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Coordinación óptima con el Emsculpt</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ TABLA COMPARATIVA ══════════════════════════ -->
+<section>
+  <div class="inner-sm">
+    <div class="section-head" style="text-align:center">
+      <div class="section-label" style="justify-content:center">
+        <span style="background:var(--light)"></span>
+        <span style="color:var(--light)">Comparativa</span>
+      </div>
+      <h2 class="serif section-title">¿Cuál es la diferencia?</h2>
+    </div>
+    <div class="cmp-table">
+      <div class="cmp-table-head">
+        <span style="color:var(--light)">Tratamiento</span>
+        <span style="color:var(--rose);text-align:center">Balance</span>
+        <span style="color:var(--violet);text-align:center">Prime</span>
+      </div>
+      <div class="cmp-row">
+        <span style="font-weight:500;color:var(--dark)">Terapia NESA</span>
+        <span style="color:var(--mid)">8 × 50&prime;</span>
+        <span style="color:var(--mid)">10 × 50&prime;</span>
+      </div>
+      <div class="cmp-row prime-row">
+        <span style="font-weight:700;color:var(--violet)">Emsculpt Neo ★</span>
+        <span style="color:var(--light);font-style:italic">—</span>
+        <span style="font-weight:700;color:var(--violet)">5 × 30&prime;</span>
+      </div>
+      <div class="cmp-row">
+        <span style="font-weight:500;color:var(--dark)">Ginecología</span>
+        <span style="color:var(--mid)">2 × 20&prime;</span>
+        <span style="color:var(--mid)">3 × 20&prime;</span>
+      </div>
+      <div class="cmp-row">
+        <span style="font-weight:500;color:var(--dark)">Nutrición</span>
+        <span style="color:var(--mid)">2 × 50&prime;</span>
+        <span style="color:var(--mid)">3 × 50&prime;</span>
+      </div>
+      <div class="cmp-row">
+        <span style="font-weight:500;color:var(--dark)">Suelo Pélvico</span>
+        <span style="color:var(--mid)">1 × 55&prime;</span>
+        <span style="color:var(--mid)">2 × 55&prime;</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── WOMAN BALANCE PRIME ────────────────────────────────── -->
-<section class="prime-section" id="prime">
-  <div class="container">
-    <p class="section-label">Programa Premium</p>
-    <h2 class="section-title">Woman Balance Prime</h2>
-    <p class="section-lead">Todo lo del programa Woman Balance, con mayor profundidad en cada tratamiento y la incorporación del Emsculpt Neo — la tecnología más avanzada para remodelar el cuerpo sin cirugía.</p>
-
-    <!-- EMSCULPT HIGHLIGHT -->
-    <div class="emsculpt-highlight">
-      <p class="prime-eye">Exclusivo Prime</p>
-      <h3>Emsculpt Neo</h3>
-      <p>La única tecnología que combina radiofrecuencia (reduce grasa) y estimulación electromagnética de alta intensidad (tonifica el músculo) — todo en 30 minutos, sin cirugía, sin agujas, sin recuperación.</p>
-      <div class="emsculpt-stats">
-        <div class="emsculpt-stat"><span class="val">−30%</span><span class="lbl">Grasa localizada</span></div>
-        <div class="emsculpt-stat"><span class="val">+25%</span><span class="lbl">Masa muscular</span></div>
-        <div class="emsculpt-stat"><span class="val">3ª</span><span class="lbl">Visible desde la 3ª sesión</span></div>
-        <div class="emsculpt-stat"><span class="val">0</span><span class="lbl">Sin cirugía · Sin agujas</span></div>
-      </div>
+<!-- ══ SEGUIMIENTO ════════════════════════════════ -->
+<section id="seguimiento" class="bg-teal-soft" style="scroll-margin-top:24px">
+  <div class="inner">
+    <div class="section-head">
+      <div class="section-label"><span style="background:var(--teal)"></span><span style="color:var(--teal)">Después del programa</span></div>
+      <h2 class="serif section-title">Programa de Seguimiento</h2>
+      <p class="section-desc">
+        Al finalizar el programa principal — ya sea Woman Balance o Prime — existe un programa de seguimiento para consolidar los resultados y acompañarte en el mantenimiento a largo plazo.
+      </p>
     </div>
 
-    <!-- 01 NESA PRIME -->
-    <div class="treatment-block">
-      <div class="treatment-num">01</div>
-      <div class="treatment-body">
-        <div class="treatment-meta">
-          <span class="tag tag-rose">Terapia NESA</span>
-          <span class="treatment-duration">10 sesiones · 50 min</span>
-          <span class="treatment-specialist">· Ana / Teresa</span>
-        </div>
-        <h3>Neuroestimulación Sistémica Adaptativa</h3>
-        <p class="subtitle">2 sesiones adicionales para mayor consolidación</p>
-        <p>Todo lo de Woman Balance, con 2 sesiones adicionales que permiten consolidar los cambios con mayor profundidad. Las últimas sesiones actúan como mantenimiento y fijación de resultados.</p>
-        <ul class="benefit-list">
-          <li>10 sesiones de trabajo neurológico profundo</li>
-          <li>Mayor consolidación del equilibrio nervioso</li>
-          <li>Mejor integración con los resultados del Emsculpt</li>
-          <li>Resultados más estables a largo plazo</li>
-        </ul>
-      </div>
-    </div>
+    <div class="seg-list">
 
-    <!-- 02 EMSCULPT -->
-    <div class="treatment-block">
-      <div class="treatment-num">02</div>
-      <div class="treatment-body">
-        <div class="treatment-meta">
-          <span class="tag tag-prime">★ Emsculpt Neo</span>
-          <span class="treatment-duration">5 sesiones · 30 min</span>
-          <span class="treatment-specialist">· Ana</span>
-        </div>
-        <h3>Emsculpt Neo</h3>
-        <p class="subtitle">Remodelación corporal sin cirugía</p>
-        <p>Lo más avanzado para remodelar el cuerpo sin cirugía. En 30 minutos combina radiofrecuencia (reduce grasa) y estimulación electromagnética de alta intensidad (tonifica el músculo). Una sesión ≈ 20.000 contracciones musculares supramáximas.</p>
-        <ul class="benefit-list">
-          <li>Hasta 30% de reducción de grasa localizada</li>
-          <li>Hasta 25% de aumento de masa muscular</li>
-          <li>Sin cirugía · Sin agujas · Sin recuperación</li>
-          <li>Resultados visibles desde la 3ª sesión</li>
-          <li>Complementa y potencia tu ejercicio habitual</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 03 GINECOLOGÍA PRIME -->
-    <div class="treatment-block">
-      <div class="treatment-num">03</div>
-      <div class="treatment-body">
-        <div class="treatment-meta">
-          <span class="tag tag-teal">Ginecología</span>
-          <span class="treatment-duration">3 consultas · 20 min</span>
-          <span class="treatment-specialist">· Laura</span>
-        </div>
-        <h3>Consulta Ginecológica</h3>
-        <p class="subtitle">Valoración + 2 seguimientos coordinados</p>
-        <p>En el Prime tienes a Laura al inicio, a mitad y al final del programa. No solo hace la valoración inicial — ve cómo vas evolucionando y ajusta las recomendaciones según tus resultados reales.</p>
-        <ul class="benefit-list">
-          <li>Valoración ginecológica completa al inicio</li>
-          <li>Seguimiento a mitad del programa (semana 8)</li>
-          <li>Valoración final con recomendaciones de continuidad</li>
-          <li>Acompañamiento ginecológico real durante todo el programa</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 04 NUTRICIÓN PRIME -->
-    <div class="treatment-block">
-      <div class="treatment-num">04</div>
-      <div class="treatment-body">
-        <div class="treatment-meta">
-          <span class="tag tag-gold">Nutrición</span>
-          <span class="treatment-duration">3 consultas · 50 min</span>
-          <span class="treatment-specialist">· Alexandra</span>
-        </div>
-        <h3>Consulta de Nutrición</h3>
-        <p class="subtitle">Plan optimizado para el Emsculpt Neo</p>
-        <p>La nutrición en el Prime no solo trabaja el equilibrio hormonal — también se optimiza para el Emsculpt Neo. La proteína adecuada y el ajuste calórico correcto multiplican el efecto del programa.</p>
-        <ul class="benefit-list">
-          <li>Todo lo de Woman Balance</li>
-          <li>Optimización nutricional para Emsculpt Neo</li>
-          <li>Seguimiento adicional al final del programa</li>
-          <li>La nutrición correcta multiplica los resultados</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 05 SUELO PÉLVICO PRIME -->
-    <div class="treatment-block">
-      <div class="treatment-num">05</div>
-      <div class="treatment-body">
-        <div class="treatment-meta">
-          <span class="tag tag-violet">Suelo Pélvico</span>
-          <span class="treatment-duration">2 consultas · 55 min</span>
-          <span class="treatment-specialist">· María</span>
-        </div>
-        <h3>Fisioterapia de Suelo Pélvico</h3>
-        <p class="subtitle">Valoración + sesión de trabajo terapéutico</p>
-        <p>En el Prime María no solo hace la valoración inicial. En la semana 5 vuelves a trabajar con ella directamente — tratamiento manual, reeducación y ejercicio terapéutico. En ese punto ya llevas semanas de NESA y el cuerpo está más receptivo.</p>
-        <ul class="benefit-list">
-          <li>Valoración inicial completa (semana 1)</li>
-          <li>Sesión de trabajo terapéutico en semana 5</li>
-          <li>Tratamiento manual y reeducación pélvica</li>
-          <li>Coordinación óptima con el Emsculpt</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── TABLA COMPARATIVA ───────────────────────────────────── -->
-<section class="compare-table-section" id="tabla">
-  <div class="container">
-    <p class="section-label">Comparativa</p>
-    <h2 class="section-title">¿Cuál es la diferencia?</h2>
-
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Tratamiento</th>
-          <th>Balance</th>
-          <th>Prime ★</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Terapia NESA</td>
-          <td>8 × 50′</td>
-          <td>10 × 50′</td>
-        </tr>
-        <tr>
-          <td>Emsculpt Neo</td>
-          <td>—</td>
-          <td><span class="star">★</span> 5 × 30′</td>
-        </tr>
-        <tr>
-          <td>Ginecología</td>
-          <td>2 × 20′</td>
-          <td>3 × 20′</td>
-        </tr>
-        <tr>
-          <td>Nutrición</td>
-          <td>2 × 50′</td>
-          <td>3 × 50′</td>
-        </tr>
-        <tr>
-          <td>Suelo Pélvico</td>
-          <td>1 × 55′</td>
-          <td>2 × 55′</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- ── SEGUIMIENTO ────────────────────────────────────────── -->
-<section class="seguimiento-section" id="seguimiento">
-  <div class="container">
-    <p class="section-label">Después del programa</p>
-    <h2 class="section-title">Programa de Seguimiento</h2>
-    <p class="section-lead">Al finalizar el programa principal — ya sea Woman Balance o Prime — existe un programa de seguimiento para consolidar los resultados y acompañarte en el mantenimiento a largo plazo.</p>
-
-    <!-- NESA o Neosculpt -->
-    <div class="seg-nesa">
-      <p class="seg-week">5 sesiones · Sem. 3·6·9·12·15</p>
-      <h4>NESA o Neosculpt</h4>
-      <p>Elige la modalidad que mejor encaje con tus objetivos en cada sesión. No tienes que decidirlo de antemano.</p>
-      <div class="nesa-options">
-        <div class="nesa-option">
-          <div class="opt-name">NESA — 50 min · Ana / Teresa</div>
-          <div class="opt-detail">Para consolidar el equilibrio nervioso. Dolor, sueño, energía, suelo pélvico.</div>
-        </div>
-        <div class="nesa-option">
-          <div class="opt-name">Neosculpt — 30 min · Ana</div>
-          <div class="opt-detail">Para mantener el tono muscular y la composición corporal conseguida.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="seguimiento-grid">
-      <!-- Suelo Pélvico -->
+      <!-- NESA / Neosculpt -->
       <div class="seg-card">
-        <p class="seg-week">Semana 1 · 55 min</p>
-        <h4>Sesión de Suelo Pélvico</h4>
-        <p class="seg-who">Continuidad terapéutica · María</p>
-        <p>María ya te conoce y sabe exactamente en qué punto está tu suelo pélvico. Esta sesión no es una nueva valoración — es trabajo terapéutico directo: revisión de evolución, tratamiento manual y pautas de autocuidado actualizadas.</p>
+        <div class="seg-bar" style="background:var(--rose)"></div>
+        <div class="seg-body">
+          <div class="seg-header">
+            <div class="seg-icon" style="background:var(--rose-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/><path d="M20 3v4M22 5h-4"/></svg>
+            </div>
+            <div class="seg-meta">
+              <div class="seg-title serif">NESA o Neosculpt</div>
+              <div class="seg-subtitle">Tú eliges según tus objetivos · antes de cada sesión</div>
+            </div>
+            <div class="seg-badge-wrap">
+              <div class="seg-badge" style="background:var(--rose-bg)">
+                <span style="width:6px;height:6px;border-radius:50%;background:var(--rose);flex-shrink:0;display:inline-block"></span>
+                <span style="color:var(--rose)">5 sesiones</span>
+              </div>
+              <div class="seg-when">Sem. 3·6·9·12·15</div>
+            </div>
+          </div>
+          <p class="seg-desc">Elige la modalidad que mejor encaje con tus objetivos en cada sesión. No tienes que decidirlo de antemano.</p>
+          <div class="seg-options">
+            <div class="seg-option">
+              <div class="seg-option-head">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--rose);flex-shrink:0;display:inline-block"></span>
+                <span class="seg-option-name">NESA</span>
+                <span class="seg-option-detail">50 min · Ana / Teresa</span>
+              </div>
+              <p class="seg-option-desc">Para consolidar el equilibrio nervioso. Dolor, sueño, energía, suelo pélvico.</p>
+            </div>
+            <div class="seg-option">
+              <div class="seg-option-head">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--violet);flex-shrink:0;display:inline-block"></span>
+                <span class="seg-option-name">Neosculpt</span>
+                <span class="seg-option-detail">30 min · Ana</span>
+              </div>
+              <p class="seg-option-desc">Para mantener el tono muscular y la composición corporal conseguida.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suelo pélvico -->
+      <div class="seg-card">
+        <div class="seg-bar" style="background:var(--teal)"></div>
+        <div class="seg-body">
+          <div class="seg-header">
+            <div class="seg-icon" style="background:var(--teal-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="seg-meta">
+              <div class="seg-title serif">Sesión de Suelo Pélvico</div>
+              <div class="seg-subtitle">Continuidad terapéutica · María</div>
+            </div>
+            <div class="seg-badge-wrap">
+              <div class="seg-badge" style="background:var(--teal-bg)">
+                <span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;display:inline-block"></span>
+                <span style="color:var(--teal)">1 sesión · 55 min</span>
+              </div>
+              <div class="seg-when">Semana 1</div>
+            </div>
+          </div>
+          <p class="seg-desc">María ya te conoce y sabe exactamente en qué punto está tu suelo pélvico. Esta sesión no es una nueva valoración — es trabajo terapéutico directo: revisión de evolución, tratamiento manual y pautas de autocuidado actualizadas.</p>
+        </div>
       </div>
 
       <!-- Nutrición -->
       <div class="seg-card">
-        <p class="seg-week">Semana 2 · 50 min</p>
-        <h4>Consulta de Nutrición</h4>
-        <p class="seg-who">Ajuste del plan · Alexandra</p>
-        <p>Alexandra revisa cómo has mantenido los hábitos alimentarios y ajusta el plan para la fase de mantenimiento. No es empezar de nuevo — es afinar lo que ya funciona y darte herramientas para seguir sola con confianza.</p>
+        <div class="seg-bar" style="background:var(--gold)"></div>
+        <div class="seg-body">
+          <div class="seg-header">
+            <div class="seg-icon" style="background:var(--gold-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 19.34A1 1 0 0 0 4.72 21h14.56a1 1 0 0 0 .9-1.37C18.7 16.38 16.5 10.5 17 8z"/><path d="M17 8c0-2.5-2.5-5-5-5C9.5 3 7 5.5 7 8"/></svg>
+            </div>
+            <div class="seg-meta">
+              <div class="seg-title serif">Consulta de Nutrición</div>
+              <div class="seg-subtitle">Ajuste del plan · Alexandra</div>
+            </div>
+            <div class="seg-badge-wrap">
+              <div class="seg-badge" style="background:var(--gold-bg)">
+                <span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;display:inline-block"></span>
+                <span style="color:var(--gold)">1 consulta · 50 min</span>
+              </div>
+              <div class="seg-when">Semana 2</div>
+            </div>
+          </div>
+          <p class="seg-desc">Alexandra revisa cómo has mantenido los hábitos alimentarios y ajusta el plan para la fase de mantenimiento. No es empezar de nuevo — es afinar lo que ya funciona y darte herramientas para seguir sola con confianza.</p>
+        </div>
       </div>
 
       <!-- Ginecología cierre -->
-      <div class="seg-card" style="grid-column: 1 / -1;">
-        <p class="seg-week">Semana 15 · 20 min</p>
-        <h4>Consulta Ginecológica de Cierre</h4>
-        <p class="seg-who">Valoración final del ciclo completo · Laura</p>
-        <p>Al final del seguimiento, Laura hace una valoración de cierre para ver cómo has evolucionado en todos estos meses. El equipo te da las recomendaciones finales y te quedas con un plan claro para seguir sola.</p>
+      <div class="seg-card">
+        <div class="seg-bar" style="background:var(--violet)"></div>
+        <div class="seg-body">
+          <div class="seg-header">
+            <div class="seg-icon" style="background:var(--violet-bg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="seg-meta">
+              <div class="seg-title serif">Consulta Ginecológica de Cierre</div>
+              <div class="seg-subtitle">Valoración final del ciclo completo · Laura</div>
+            </div>
+            <div class="seg-badge-wrap">
+              <div class="seg-badge" style="background:var(--violet-bg)">
+                <span style="width:6px;height:6px;border-radius:50%;background:var(--violet);flex-shrink:0;display:inline-block"></span>
+                <span style="color:var(--violet)">1 consulta · 20 min</span>
+              </div>
+              <div class="seg-when">Semana 15</div>
+            </div>
+          </div>
+          <p class="seg-desc">Al final del seguimiento, Laura hace una valoración de cierre para ver cómo has evolucionado en todos estos meses. El equipo te da las recomendaciones finales y te quedas con un plan claro para seguir sola.</p>
+        </div>
       </div>
+
     </div>
 
-    <!-- Resumen -->
+    <!-- Summary -->
     <div class="seg-summary">
-      <div class="seg-summary-item">
-        <div class="label">NESA o Neosculpt</div>
-        <div class="value">Sem. 3·6·9·12·15</div>
-      </div>
-      <div class="seg-summary-item">
-        <div class="label">Suelo pélvico</div>
-        <div class="value">Semana 1 · 55 min</div>
-      </div>
-      <div class="seg-summary-item">
-        <div class="label">Nutrición</div>
-        <div class="value">Semana 2 · 50 min</div>
-      </div>
-      <div class="seg-summary-item">
-        <div class="label">Ginecología cierre</div>
-        <div class="value">Semana 15 · 20 min</div>
+      <p class="seg-summary-label">Resumen del seguimiento</p>
+      <div class="seg-summary-grid">
+        <div class="seg-summary-item">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:4px;display:inline-block"></span>
+          <div><p>NESA o Neosculpt</p><p>Sem. 3·6·9·12·15</p></div>
+        </div>
+        <div class="seg-summary-item">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:4px;display:inline-block"></span>
+          <div><p>Suelo pélvico</p><p>Semana 1 · 55 min</p></div>
+        </div>
+        <div class="seg-summary-item">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:4px;display:inline-block"></span>
+          <div><p>Nutrición</p><p>Semana 2 · 50 min</p></div>
+        </div>
+        <div class="seg-summary-item">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--violet);flex-shrink:0;margin-top:4px;display:inline-block"></span>
+          <div><p>Ginecología cierre</p><p>Semana 15 · 20 min</p></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<!-- ══ FOOTER ═════════════════════════════════════ -->
 <footer>
   <div class="footer-inner">
-    <div>
-      <h2>Clínica Montesinos</h2>
-      <p class="footer-sub">Valencia</p>
-      <p>¿Tienes dudas sobre tu programa? Habla directamente con tu equipo — están para ayudarte en cada paso del proceso.</p>
+    <div class="footer-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
     </div>
+    <h3 class="serif">Clínica Montesinos</h3>
+    <p class="serif footer-city">Valencia</p>
+    <p class="footer-desc">¿Tienes dudas sobre tu programa? Habla directamente con tu equipo — están para ayudarte en cada paso del proceso.</p>
     <div class="footer-links">
-      <a href="#balance">Woman Balance</a>
-      <a href="#prime">Prime</a>
+      <a href="#woman-balance">Woman Balance</a>
+      <a href="#woman-balance-prime">Prime</a>
       <a href="#seguimiento">Seguimiento</a>
     </div>
+    <p class="footer-copy">© 2026 · Clínica Montesinos · Todos los derechos reservados</p>
   </div>
-  <p class="footer-copy">© 2026 · Clínica Montesinos · Todos los derechos reservados</p>
 </footer>
 
 </body>
