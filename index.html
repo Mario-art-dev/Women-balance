@@ -453,32 +453,6 @@
     .seg-opt-detail { font-size: .7rem; color: var(--muted); margin-bottom: .35rem; }
     .seg-opt-desc { font-size: .77rem; color: var(--body); line-height: 1.52; }
 
-    /* ── TX PROGRAMS COMPARE ───────────────────── */
-    .tx-programs {
-      display: flex; margin: .65rem 0 .9rem;
-      border-radius: 10px; overflow: hidden;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.55);
-      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-    }
-    .tx-prog {
-      flex: 1; padding: .6rem .9rem;
-      display: flex; flex-direction: column; gap: .12rem;
-    }
-    .tx-prog:not(:last-child) { border-right: 1px solid var(--line); }
-    .tx-prog-name {
-      font-size: .58rem; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-    }
-    .tx-prog-sessions { font-size: .83rem; font-weight: 500; color: var(--body); }
-    .tx-prime-note {
-      font-size: .8rem; color: var(--violet);
-      background: rgba(115,85,176,.07);
-      border-left: 2.5px solid var(--violet-l);
-      padding: .55rem .85rem; border-radius: 0 8px 8px 0;
-      margin-bottom: .9rem;
-    }
-
     /* ── SEG ITEM CHILDREN ──────────────────────── */
     .seg-item.visible .seg-week {
       animation: slideRight .8s cubic-bezier(.16,1,.3,1) .15s both;
@@ -538,39 +512,227 @@
   </div>
 </div>
 
-<!-- ── ELIGE TU PROGRAMA ──────────────────────────────────── -->
-<div class="section-wrap" id="programas">
-  <div class="label reveal" style="color:var(--rose)"><span class="label-dot" style="background:var(--rose)"></span>Empieza aqu&iacute;</div>
-  <h2 class="section-title reveal reveal-delay-1">Elige tu programa</h2>
-  <p class="section-sub reveal reveal-delay-2">Ambos comparten los mismos 4 especialistas. La diferencia est&aacute; en la intensidad de cada tratamiento y en el Emsculpt Neo, exclusivo de Prime.</p>
-  <div class="prog-grid">
-    <div class="prog-card reveal reveal-delay-1">
-      <div class="prog-card-bar" style="background:linear-gradient(90deg,var(--rose),var(--rose-l))"></div>
-      <div class="prog-card-body">
-        <div class="prog-card-name">Woman Balance</div>
-        <ul class="prog-items">
-          <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--rose)"></span>Terapia NESA</div><span class="prog-item-right">8 &times; 50&prime;</span></li>
-          <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet)"></span>Ginecolog&iacute;a</div><span class="prog-item-right">2 &times; 20&prime;</span></li>
-          <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--gold)"></span>Nutrici&oacute;n</div><span class="prog-item-right">2 &times; 50&prime;</span></li>
-          <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--teal)"></span>Suelo P&eacute;lvico</div><span class="prog-item-right">1 &times; 55&prime;</span></li>
-        </ul>
+<!-- ── DE UN VISTAZO ─────────────────────────────────────── -->
+<div class="section-wrap">
+  <div class="wrap-inner reveal">
+    <div class="label" style="color:var(--muted)"><span class="label-dot" style="background:var(--muted)"></span>De un vistazo</div>
+    <h2 class="section-title">Dos programas</h2>
+    <p class="section-sub">Ambos trabajan de forma coordinada. La diferencia est&aacute; en la intensidad de cada tratamiento y en la incorporaci&oacute;n del Emsculpt Neo.</p>
+    <div class="prog-grid">
+      <div class="prog-card reveal reveal-delay-1">
+        <div class="prog-card-bar" style="background:linear-gradient(90deg,var(--rose),var(--rose-l))"></div>
+        <div class="prog-card-body">
+          <div class="prog-card-name">Woman Balance</div>
+          <ul class="prog-items">
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--rose)"></span>Terapia NESA</div><span class="prog-item-right">8 &times; 50&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet)"></span>Ginecolog&iacute;a</div><span class="prog-item-right">2 &times; 20&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--gold)"></span>Nutrici&oacute;n</div><span class="prog-item-right">2 &times; 50&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--teal)"></span>Suelo P&eacute;lvico</div><span class="prog-item-right">1 &times; 55&prime;</span></li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="prog-card reveal reveal-delay-2">
-      <div class="prog-card-bar" style="background:linear-gradient(90deg,var(--violet),var(--rose-l))"></div>
-      <div class="prog-card-body">
-        <div class="prog-card-name">Woman Balance Prime <span class="prime-tag">&#9733; Prime</span></div>
-        <ul class="prog-items">
-          <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--rose)"></span>Terapia NESA</div><span class="prog-item-right">10 &times; 50&prime;</span></li>
-          <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet-l)"></span>Emsculpt Neo &#9733;</div><span class="prog-item-right">5 &times; 30&prime;</span></li>
-          <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet)"></span>Ginecolog&iacute;a</div><span class="prog-item-right">3 &times; 20&prime;</span></li>
-          <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--gold)"></span>Nutrici&oacute;n</div><span class="prog-item-right">3 &times; 50&prime;</span></li>
-          <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--teal)"></span>Suelo P&eacute;lvico</div><span class="prog-item-right">2 &times; 55&prime;</span></li>
-        </ul>
+      <div class="prog-card reveal reveal-delay-2">
+        <div class="prog-card-bar" style="background:linear-gradient(90deg,var(--violet),var(--rose-l))"></div>
+        <div class="prog-card-body">
+          <div class="prog-card-name">Woman Balance Prime <span class="prime-tag">&#9733; Prime</span></div>
+          <ul class="prog-items">
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--rose)"></span>Terapia NESA</div><span class="prog-item-right">10 &times; 50&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet-l)"></span>Emsculpt Neo &#9733;</div><span class="prog-item-right">5 &times; 30&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet)"></span>Ginecolog&iacute;a</div><span class="prog-item-right">3 &times; 20&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--gold)"></span>Nutrici&oacute;n</div><span class="prog-item-right">3 &times; 50&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--teal)"></span>Suelo P&eacute;lvico</div><span class="prog-item-right">2 &times; 55&prime;</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-  <div class="cmp-wrap reveal" style="margin-top:1.5rem">
+</div>
+
+<!-- ── WOMAN BALANCE ──────────────────────────────────────── -->
+<div class="section-wrap" id="balance">
+  <div class="label reveal" style="color:var(--rose)"><span class="label-dot" style="background:var(--rose)"></span>Programa</div>
+  <h2 class="section-title reveal reveal-delay-1">Woman Balance</h2>
+  <p class="section-sub reveal reveal-delay-2">4 tratamientos especializados que trabajan juntos para equilibrar el sistema nervioso, la salud hormonal, la alimentaci&oacute;n y el suelo p&eacute;lvico.</p>
+  <div class="tx-list">
+
+    <div class="tx-block reveal" style="--accent:var(--rose)">
+      <style>.tx-block[style*='--accent:var(--rose)']::before { background: linear-gradient(to bottom, var(--rose), var(--rose-l)); }</style>
+      <div class="tx-num" style="color:rgba(196,86,106,.55)">01</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#FDEEF2;color:var(--rose)">NESA</span><span class="tx-session">8 sesiones &middot; 50 min</span><span class="tx-specialist">Ana / Teresa</span></div>
+        <div class="tx-name">Terapia NESA</div>
+        <div class="tx-subtitle">Neuroestimulaci&oacute;n Sist&eacute;mica Adaptativa</div>
+        <p class="tx-desc">Electrodos suaves en mu&ntilde;ecas y tobillos emiten una microcorriente que equilibra el sistema nervioso aut&oacute;nomo &mdash; sin dolor, sin agujas. La mayor&iacute;a de pacientes salen con sensaci&oacute;n de calma y ligereza desde la primera sesi&oacute;n.</p>
+        <ul class="tx-benefits">
+          <li>Mejora del dolor cr&oacute;nico y tensi&oacute;n muscular</li>
+          <li>Regulaci&oacute;n del estr&eacute;s y la ansiedad</li>
+          <li>Sue&ntilde;o m&aacute;s profundo y reparador</li>
+          <li>Apoyo al suelo p&eacute;lvico y equilibrio hormonal</li>
+          <li>M&aacute;s energ&iacute;a y bienestar general</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tx-block reveal">
+      <div class="tx-num" style="color:rgba(115,85,176,.55)">02</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#F0EAFF;color:var(--violet)">Ginecolog&iacute;a</span><span class="tx-session">2 consultas &middot; 20 min</span><span class="tx-specialist">Laura</span></div>
+        <div class="tx-name">Consulta Ginecol&oacute;gica</div>
+        <div class="tx-subtitle">Valoraci&oacute;n hormonal + seguimiento coordinado</div>
+        <p class="tx-desc">No es una revisi&oacute;n rutinaria. Laura hace una valoraci&oacute;n completa de la salud ginecol&oacute;gica y hormonal, coordinada con todo el equipo, para adaptar el programa exactamente a cada persona.</p>
+        <ul class="tx-benefits">
+          <li>Historia cl&iacute;nica ginecol&oacute;gica completa</li>
+          <li>Valoraci&oacute;n del ciclo y sintomatolog&iacute;a hormonal</li>
+          <li>Anal&iacute;tica hormonal si se necesita</li>
+          <li>Seguimiento a mitad del programa (semana 7)</li>
+          <li>Coordinaci&oacute;n directa con nutrici&oacute;n y suelo p&eacute;lvico</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tx-block reveal">
+      <div class="tx-num" style="color:rgba(184,137,58,.55)">03</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#FBF5E8;color:var(--gold)">Nutrici&oacute;n</span><span class="tx-session">2 consultas &middot; 50 min</span><span class="tx-specialist">Alexandra</span></div>
+        <div class="tx-name">Consulta de Nutrici&oacute;n</div>
+        <div class="tx-subtitle">Plan nutricional para la salud hormonal</div>
+        <p class="tx-desc">No va de dietas restrictivas &mdash; va de entender c&oacute;mo la alimentaci&oacute;n afecta la energ&iacute;a, el ciclo menstrual, la inflamaci&oacute;n y el bienestar. Un enfoque funcional y pr&aacute;ctico, dise&ntilde;ado para poder seguirlo en el d&iacute;a a d&iacute;a.</p>
+        <ul class="tx-benefits">
+          <li>Valoraci&oacute;n nutricional completa</li>
+          <li>Plan personalizado para la salud hormonal</li>
+          <li>Pautas pr&aacute;cticas para el d&iacute;a a d&iacute;a</li>
+          <li>Seguimiento y ajuste a mitad del programa (semana 4)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tx-block reveal">
+      <div class="tx-num" style="color:rgba(46,139,110,.55)">04</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E8F6F1;color:var(--teal)">Suelo P&eacute;lvico</span><span class="tx-session">1 consulta &middot; 55 min</span><span class="tx-specialist">Mar&iacute;a</span></div>
+        <div class="tx-name">Fisioterapia de Suelo P&eacute;lvico</div>
+        <div class="tx-subtitle">Valoraci&oacute;n funcional completa</div>
+        <p class="tx-desc">El suelo p&eacute;lvico afecta la postura, el dolor de espalda, el control de orina y el sistema nervioso. Mar&iacute;a hace una evaluaci&oacute;n funcional completa que orienta el trabajo de NESA y de todo el equipo.</p>
+        <ul class="tx-benefits">
+          <li>Evaluaci&oacute;n funcional completa del suelo p&eacute;lvico</li>
+          <li>Detecci&oacute;n de tensiones, hiperton&iacute;a o disfunciones</li>
+          <li>Conexi&oacute;n directa con el plan de NESA</li>
+          <li>Mejora del dolor p&eacute;lvico y lumbar</li>
+          <li>Pautas de autocuidado personalizadas</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── PRIME ──────────────────────────────────────────────── -->
+<div class="section-wrap" id="prime">
+  <div class="label reveal" style="color:var(--violet)"><span class="label-dot" style="background:var(--violet)"></span>Programa Premium</div>
+  <h2 class="section-title reveal reveal-delay-1">Woman Balance Prime</h2>
+  <p class="section-sub reveal reveal-delay-2">Todo lo del programa Woman Balance, con m&aacute;s profundidad en cada tratamiento y la incorporaci&oacute;n del Emsculpt Neo.</p>
+
+  <div class="emsculpt-box reveal">
+    <div class="emsculpt-inner">
+      <div class="emsculpt-label"><span class="emsculpt-label-star">&#9733;</span> Exclusivo Prime</div>
+      <div class="emsculpt-title">Emsculpt Neo</div>
+      <p class="emsculpt-desc">La &uacute;nica tecnolog&iacute;a que combina radiofrecuencia (reduce grasa) y estimulaci&oacute;n electromagn&eacute;tica de alta intensidad (tonifica el m&uacute;sculo) en 30 minutos, sin cirug&iacute;a, sin agujas y sin recuperaci&oacute;n. Una sesi&oacute;n equivale a 20.000 contracciones musculares supram&aacute;ximas.</p>
+      <div class="emsculpt-stats">
+        <div class="emsculpt-stat"><span class="val">&minus;30%</span><span class="lbl">Grasa localizada</span></div>
+        <div class="emsculpt-stat"><span class="val">+25%</span><span class="lbl">Masa muscular</span></div>
+        <div class="emsculpt-stat"><span class="val">3&ordf; ses.</span><span class="lbl">Visible desde</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tx-list">
+
+    <div class="tx-block reveal">
+      <div class="tx-num" style="color:rgba(196,86,106,.55)">01</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#FDEEF2;color:var(--rose)">NESA</span><span class="tx-session">10 sesiones &middot; 50 min</span><span class="tx-specialist">Ana / Teresa</span></div>
+        <div class="tx-name">Terapia NESA</div>
+        <div class="tx-subtitle">2 sesiones adicionales para mayor consolidaci&oacute;n</div>
+        <div class="prime-diff">2 sesiones m&aacute;s que en Woman Balance para consolidar los cambios en mayor profundidad y fijar resultados a largo plazo.</div>
+        <ul class="tx-benefits">
+          <li>10 sesiones de trabajo neurol&oacute;gico profundo</li>
+          <li>Mayor consolidaci&oacute;n del equilibrio nervioso</li>
+          <li>Mejor integraci&oacute;n con los resultados del Emsculpt</li>
+          <li>Resultados m&aacute;s estables a largo plazo</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tx-block reveal">
+      <div class="tx-num" style="color:rgba(115,85,176,.55)">02</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:linear-gradient(110deg,var(--violet),var(--rose));color:#fff">&#9733; Emsculpt Neo</span><span class="tx-session">5 sesiones &middot; 30 min</span><span class="tx-specialist">Ana</span></div>
+        <div class="tx-name">Emsculpt Neo</div>
+        <div class="tx-subtitle">Remodelaci&oacute;n corporal sin cirug&iacute;a</div>
+        <p class="tx-desc">En 30 minutos combina radiofrecuencia y estimulaci&oacute;n electromagn&eacute;tica de alta intensidad. Sin cirug&iacute;a, sin agujas, sin recuperaci&oacute;n. Los resultados son visibles desde la tercera sesi&oacute;n.</p>
+        <ul class="tx-benefits">
+          <li>Hasta 30% de reducci&oacute;n de grasa localizada</li>
+          <li>Hasta 25% de aumento de masa muscular</li>
+          <li>Sin cirug&iacute;a &middot; Sin agujas &middot; Sin recuperaci&oacute;n</li>
+          <li>Complementa y potencia el ejercicio habitual</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tx-block reveal">
+      <div class="tx-num" style="color:rgba(115,85,176,.55)">03</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#F0EAFF;color:var(--violet)">Ginecolog&iacute;a</span><span class="tx-session">3 consultas &middot; 20 min</span><span class="tx-specialist">Laura</span></div>
+        <div class="tx-name">Consulta Ginecol&oacute;gica</div>
+        <div class="tx-subtitle">Valoraci&oacute;n + 2 seguimientos coordinados</div>
+        <div class="prime-diff">Laura acompa&ntilde;a en tres momentos del programa en lugar de dos: inicio, mitad y final.</div>
+        <ul class="tx-benefits">
+          <li>Valoraci&oacute;n ginecol&oacute;gica completa al inicio</li>
+          <li>Seguimiento a mitad del programa (semana 8)</li>
+          <li>Valoraci&oacute;n final con recomendaciones de continuidad</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tx-block reveal">
+      <div class="tx-num" style="color:rgba(184,137,58,.55)">04</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#FBF5E8;color:var(--gold)">Nutrici&oacute;n</span><span class="tx-session">3 consultas &middot; 50 min</span><span class="tx-specialist">Alexandra</span></div>
+        <div class="tx-name">Consulta de Nutrici&oacute;n</div>
+        <div class="tx-subtitle">Plan optimizado para el Emsculpt Neo</div>
+        <div class="prime-diff">El plan nutricional se optimiza tambi&eacute;n para potenciar los resultados del Emsculpt Neo. La prote&iacute;na adecuada y el ajuste cal&oacute;rico correcto multiplican el efecto.</div>
+        <ul class="tx-benefits">
+          <li>Todo lo de Woman Balance</li>
+          <li>Optimizaci&oacute;n nutricional para Emsculpt Neo</li>
+          <li>Seguimiento adicional al final del programa</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tx-block reveal">
+      <div class="tx-num" style="color:rgba(46,139,110,.55)">05</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E8F6F1;color:var(--teal)">Suelo P&eacute;lvico</span><span class="tx-session">2 consultas &middot; 55 min</span><span class="tx-specialist">Mar&iacute;a</span></div>
+        <div class="tx-name">Fisioterapia de Suelo P&eacute;lvico</div>
+        <div class="tx-subtitle">Valoraci&oacute;n + sesi&oacute;n de trabajo terap&eacute;utico</div>
+        <div class="prime-diff">En semana 5, Mar&iacute;a trabaja directamente el suelo p&eacute;lvico adem&aacute;s de la valoraci&oacute;n inicial &mdash; en el momento en que el cuerpo ya lleva semanas de NESA y est&aacute; m&aacute;s receptivo.</div>
+        <ul class="tx-benefits">
+          <li>Valoraci&oacute;n inicial completa (semana 1)</li>
+          <li>Sesi&oacute;n de trabajo terap&eacute;utico en semana 5</li>
+          <li>Tratamiento manual y reeducaci&oacute;n p&eacute;lvica</li>
+          <li>Coordinaci&oacute;n &oacute;ptima con el Emsculpt</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── COMPARATIVA ────────────────────────────────────────── -->
+<div class="section-wrap" id="comparativa">
+  <div class="label reveal" style="color:var(--muted)"><span class="label-dot" style="background:var(--muted)"></span>Comparativa</div>
+  <h2 class="section-title reveal reveal-delay-1">Balance vs Prime</h2>
+  <div class="cmp-wrap reveal reveal-delay-2">
     <table class="cmp-table">
       <thead>
         <tr>
@@ -587,120 +749,6 @@
         <tr><td>Suelo P&eacute;lvico</td><td>1 &times; 55&prime;</td><td>2 &times; 55&prime;</td></tr>
       </tbody>
     </table>
-  </div>
-</div>
-
-<!-- ── LOS TRATAMIENTOS ───────────────────────────────────── -->
-<div class="section-wrap" id="tratamientos">
-  <div class="label reveal" style="color:var(--body)"><span class="label-dot" style="background:var(--body)"></span>Los tratamientos</div>
-  <h2 class="section-title reveal reveal-delay-1">Qu&eacute; hace cada especialista</h2>
-  <p class="section-sub reveal reveal-delay-2">Los 4 pilares que comparten ambos programas. El n&uacute;mero de sesiones var&iacute;a seg&uacute;n la opci&oacute;n elegida.</p>
-  <div class="tx-list">
-
-    <div class="tx-block reveal" style="--accent:var(--rose)">
-      <style>.tx-block[style*='--accent:var(--rose)']::before { background: linear-gradient(to bottom, var(--rose), var(--rose-l)); }</style>
-      <div class="tx-num" style="color:rgba(196,86,106,.55)">01</div>
-      <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#FDEEF2;color:var(--rose)">NESA</span><span class="tx-specialist">Ana / Teresa</span></div>
-        <div class="tx-name">Terapia NESA</div>
-        <div class="tx-subtitle">Neuroestimulaci&oacute;n Sist&eacute;mica Adaptativa</div>
-        <div class="tx-programs">
-          <div class="tx-prog"><span class="tx-prog-name" style="color:var(--rose)">Balance</span><span class="tx-prog-sessions">8 sesiones &middot; 50 min</span></div>
-          <div class="tx-prog"><span class="tx-prog-name" style="color:var(--violet)">Prime &#9733;</span><span class="tx-prog-sessions">10 sesiones &middot; 50 min</span></div>
-        </div>
-        <p class="tx-desc">Electrodos suaves en mu&ntilde;ecas y tobillos emiten una microcorriente que equilibra el sistema nervioso aut&oacute;nomo &mdash; sin dolor, sin agujas. La mayor&iacute;a de pacientes salen con sensaci&oacute;n de calma y ligereza desde la primera sesi&oacute;n.</p>
-        <ul class="tx-benefits">
-          <li>Mejora del dolor cr&oacute;nico y tensi&oacute;n muscular</li>
-          <li>Regulaci&oacute;n del estr&eacute;s y la ansiedad</li>
-          <li>Sue&ntilde;o m&aacute;s profundo y reparador</li>
-          <li>Apoyo al suelo p&eacute;lvico y equilibrio hormonal</li>
-          <li>M&aacute;s energ&iacute;a y bienestar general</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(115,85,176,.55)">02</div>
-      <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#F0EAFF;color:var(--violet)">Ginecolog&iacute;a</span><span class="tx-specialist">Laura</span></div>
-        <div class="tx-name">Consulta Ginecol&oacute;gica</div>
-        <div class="tx-subtitle">Valoraci&oacute;n hormonal + seguimiento coordinado</div>
-        <div class="tx-programs">
-          <div class="tx-prog"><span class="tx-prog-name" style="color:var(--rose)">Balance</span><span class="tx-prog-sessions">2 consultas &middot; 20 min</span></div>
-          <div class="tx-prog"><span class="tx-prog-name" style="color:var(--violet)">Prime &#9733;</span><span class="tx-prog-sessions">3 consultas &middot; 20 min</span></div>
-        </div>
-        <div class="tx-prime-note">En Prime, Laura acompa&ntilde;a en tres momentos: inicio, mitad y cierre del programa.</div>
-        <p class="tx-desc">No es una revisi&oacute;n rutinaria. Laura hace una valoraci&oacute;n completa de la salud ginecol&oacute;gica y hormonal, coordinada con todo el equipo, para adaptar el programa exactamente a cada persona.</p>
-        <ul class="tx-benefits">
-          <li>Historia cl&iacute;nica ginecol&oacute;gica completa</li>
-          <li>Valoraci&oacute;n del ciclo y sintomatolog&iacute;a hormonal</li>
-          <li>Anal&iacute;tica hormonal si se necesita</li>
-          <li>Seguimiento coordinado con nutrici&oacute;n y suelo p&eacute;lvico</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(184,137,58,.55)">03</div>
-      <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#FBF5E8;color:var(--gold)">Nutrici&oacute;n</span><span class="tx-specialist">Alexandra</span></div>
-        <div class="tx-name">Consulta de Nutrici&oacute;n</div>
-        <div class="tx-subtitle">Plan nutricional para la salud hormonal</div>
-        <div class="tx-programs">
-          <div class="tx-prog"><span class="tx-prog-name" style="color:var(--rose)">Balance</span><span class="tx-prog-sessions">2 consultas &middot; 50 min</span></div>
-          <div class="tx-prog"><span class="tx-prog-name" style="color:var(--violet)">Prime &#9733;</span><span class="tx-prog-sessions">3 consultas &middot; 50 min</span></div>
-        </div>
-        <div class="tx-prime-note">En Prime, el plan se optimiza adem&aacute;s para potenciar los resultados del Emsculpt Neo.</div>
-        <p class="tx-desc">No va de dietas restrictivas &mdash; va de entender c&oacute;mo la alimentaci&oacute;n afecta la energ&iacute;a, el ciclo menstrual, la inflamaci&oacute;n y el bienestar. Un enfoque funcional y pr&aacute;ctico.</p>
-        <ul class="tx-benefits">
-          <li>Valoraci&oacute;n nutricional completa</li>
-          <li>Plan personalizado para la salud hormonal</li>
-          <li>Pautas pr&aacute;cticas para el d&iacute;a a d&iacute;a</li>
-          <li>Seguimiento y ajuste a mitad del programa</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(46,139,110,.55)">04</div>
-      <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#E8F6F1;color:var(--teal)">Suelo P&eacute;lvico</span><span class="tx-specialist">Mar&iacute;a</span></div>
-        <div class="tx-name">Fisioterapia de Suelo P&eacute;lvico</div>
-        <div class="tx-subtitle">Valoraci&oacute;n funcional completa</div>
-        <div class="tx-programs">
-          <div class="tx-prog"><span class="tx-prog-name" style="color:var(--rose)">Balance</span><span class="tx-prog-sessions">1 consulta &middot; 55 min</span></div>
-          <div class="tx-prog"><span class="tx-prog-name" style="color:var(--violet)">Prime &#9733;</span><span class="tx-prog-sessions">2 consultas &middot; 55 min</span></div>
-        </div>
-        <div class="tx-prime-note">En Prime, Mar&iacute;a trabaja terap&eacute;uticamente en semana 5, cuando el cuerpo ya est&aacute; m&aacute;s receptivo tras semanas de NESA.</div>
-        <p class="tx-desc">El suelo p&eacute;lvico afecta la postura, el dolor de espalda, el control de orina y el sistema nervioso. Mar&iacute;a hace una evaluaci&oacute;n funcional completa que orienta el trabajo de todo el equipo.</p>
-        <ul class="tx-benefits">
-          <li>Evaluaci&oacute;n funcional completa del suelo p&eacute;lvico</li>
-          <li>Detecci&oacute;n de tensiones, hiperton&iacute;a o disfunciones</li>
-          <li>Mejora del dolor p&eacute;lvico y lumbar</li>
-          <li>Pautas de autocuidado personalizadas</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ── EXCLUSIVO PRIME: EMSCULPT ──────────────────────────── -->
-<div class="section-wrap" id="prime">
-  <div class="label reveal" style="color:var(--violet)"><span class="label-dot" style="background:var(--violet)"></span>Solo en Prime</div>
-  <h2 class="section-title reveal reveal-delay-1">Emsculpt Neo</h2>
-  <p class="section-sub reveal reveal-delay-2">La tecnolog&iacute;a que diferencia Woman Balance Prime. 5 sesiones de 30 minutos que combinan reducci&oacute;n de grasa y tonificaci&oacute;n muscular, sin cirug&iacute;a ni recuperaci&oacute;n.</p>
-  <div class="emsculpt-box reveal">
-    <div class="emsculpt-inner">
-      <div class="emsculpt-label"><span class="emsculpt-label-star">&#9733;</span> Exclusivo Prime</div>
-      <div class="emsculpt-title">Emsculpt Neo</div>
-      <p class="emsculpt-desc">La &uacute;nica tecnolog&iacute;a que combina radiofrecuencia (reduce grasa) y estimulaci&oacute;n electromagn&eacute;tica de alta intensidad (tonifica el m&uacute;sculo) en 30 minutos, sin cirug&iacute;a, sin agujas y sin recuperaci&oacute;n. Una sesi&oacute;n equivale a 20.000 contracciones musculares supram&aacute;ximas.</p>
-      <div class="emsculpt-stats">
-        <div class="emsculpt-stat"><span class="val">&minus;30%</span><span class="lbl">Grasa localizada</span></div>
-        <div class="emsculpt-stat"><span class="val">+25%</span><span class="lbl">Masa muscular</span></div>
-        <div class="emsculpt-stat"><span class="val">3&ordf; ses.</span><span class="lbl">Visible desde</span></div>
-      </div>
-    </div>
   </div>
 </div>
 
