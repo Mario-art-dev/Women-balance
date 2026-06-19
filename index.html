@@ -1,221 +1,1000 @@
-CLÍNICA MONTESINOS · VALENCIA
-Woman Balance
-Programas de bienestar integral femenino
-Un equipo de especialistas trabajando de forma coordinada para equilibrar tu cuerpo, hormonas y energía.
-Woman Balance
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Woman Balance · Clínica Montesinos Valencia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-Woman Balance Prime ★
+    :root {
+      --rose:   #B8607E;
+      --violet: #6B4A96;
+      --gold:   #A67C40;
+      --teal:   #3E7A68;
+      --ink:    #1a1a2e;
+      --mist:   #f7f5f8;
+      --white:  #ffffff;
+      --border: #e8e0ed;
+      --text:   #3d3450;
+      --subtle: #7a6d88;
+    }
 
-Seguimiento
+    html { scroll-behavior: smooth; }
 
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
 
-DE UN VISTAZO
-Dos programas, un mismo objetivo
-Ambos trabajan tu bienestar de forma integral y coordinada. La diferencia está en la profundidad y en el Emsculpt Neo.
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--subtle);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--rose); }
 
-Woman Balance
-Programa completo de bienestar
-	•	 Terapia NESA 8 sesiones × 50′  Ginecología 2 consultas × 20′  Nutrición 2 consultas × 50′  Suelo Pélvico 1 consulta × 55′ VER TRATAMIENTOS →
+    /* ─── HERO ─────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #f9f5fb 0%, #f0eaf7 50%, #f5f0f8 100%);
+      padding: 7rem 2rem 5rem;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+    .hero p {
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      color: var(--subtle);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: .75rem 1.75rem;
+      border-radius: 3px;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all .2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-rose    { background: var(--rose);   color: #fff; }
+    .btn-rose:hover  { background: #a4516e; }
+    .btn-violet  { background: var(--violet); color: #fff; }
+    .btn-violet:hover { background: #5a3b82; }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--rose);
+      color: var(--rose);
+    }
+    .btn-outline:hover { background: var(--rose); color: #fff; }
 
-★ PRIME
-Woman Balance Prime
-Todo lo anterior + Emsculpt Neo
-	•	 Terapia NESA 10 sesiones × 50′  Emsculpt Neo ★ 5 sesiones × 30′  Ginecología 3 consultas × 20′  Nutrición 3 consultas × 50′  Suelo Pélvico 2 consultas × 55′ VER TRATAMIENTOS →
+    /* ─── SECTIONS ─────────────────────────────────────── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 900px; margin: 0 auto; }
 
-PROGRAMA
-Woman Balance
-Un programa integral de 4 tratamientos especializados que trabajan de forma coordinada para equilibrar tu sistema nervioso, salud hormonal, alimentación y suelo pélvico.
+    .section-label {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: .75rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-lead {
+      color: var(--subtle);
+      font-size: 1rem;
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
 
+    /* ─── QUICK COMPARE ────────────────────────────────── */
+    .quick-compare { background: var(--mist); }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .compare-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem 1.75rem;
+      position: relative;
+    }
+    .compare-card.is-prime { border-color: var(--violet); }
+    .compare-card .badge {
+      position: absolute;
+      top: -12px;
+      left: 1.5rem;
+      background: var(--violet);
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: .25rem .7rem;
+      border-radius: 2px;
+    }
+    .compare-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: .35rem;
+    }
+    .compare-card .sub {
+      font-size: .8rem;
+      color: var(--subtle);
+      margin-bottom: 1.25rem;
+    }
+    .treatment-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .55rem;
+      margin-bottom: 1.75rem;
+    }
+    .treatment-list li {
+      font-size: .85rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+    }
+    .treatment-list li::before {
+      content: '·';
+      color: var(--rose);
+      font-size: 1.2rem;
+      line-height: 1;
+      margin-top: -.05rem;
+      flex-shrink: 0;
+    }
+    .treatment-list li span { color: var(--subtle); }
 
-Terapia NESA
-Neuroestimulación Sistémica Adaptativa
-01
+    /* ─── TREATMENT BLOCKS ─────────────────────────────── */
+    .treatments-section { background: var(--white); }
+    .prime-section { background: linear-gradient(135deg, #f9f5fb 0%, #f3eef8 100%); }
 
-8 sesiones · 50 min
-· Ana / Teresa
-Como darle un reset al sistema nervioso. Electrodos suaves en muñecas y tobillos emiten una microcorriente que equilibra tu sistema nervioso autónomo — sin dolor, sin agujas, sin incomodidad. La mayoría de pacientes salen con sensación de calma y ligereza.
-	•	 Mejora del dolor crónico y tensión muscular  Regulación del estrés y la ansiedad  Sueño más profundo y reparador  Apoyo al suelo pélvico y equilibrio hormonal  Más energía y bienestar general
+    .treatment-block {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 1.5rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .treatment-block:last-of-type { border-bottom: none; }
 
+    .treatment-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      padding-top: .15rem;
+    }
+    .treatment-body {}
+    .treatment-meta {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: .5rem;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .25rem .65rem;
+      border-radius: 2px;
+    }
+    .tag-rose   { background: #f9eef2; color: var(--rose); }
+    .tag-violet { background: #f0ecf8; color: var(--violet); }
+    .tag-teal   { background: #eaf4f1; color: var(--teal); }
+    .tag-gold   { background: #f8f3eb; color: var(--gold); }
+    .tag-prime  { background: var(--violet); color: #fff; }
 
-Consulta Ginecológica
-Valoración hormonal + seguimiento coordinado
-02
+    .treatment-duration {
+      font-size: .78rem;
+      color: var(--subtle);
+    }
+    .treatment-specialist {
+      font-size: .78rem;
+      color: var(--subtle);
+    }
+    .treatment-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: .2rem;
+    }
+    .treatment-body .subtitle {
+      font-size: .82rem;
+      color: var(--subtle);
+      margin-bottom: .9rem;
+    }
+    .treatment-body p {
+      font-size: .92rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .benefit-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+    .benefit-list li {
+      font-size: .83rem;
+      color: var(--subtle);
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+    }
+    .benefit-list li::before {
+      content: '✓';
+      color: var(--teal);
+      font-size: .8rem;
+      flex-shrink: 0;
+      margin-top: .05rem;
+    }
 
-2 consultas · 20 min
-· Laura
-Laura realiza una valoración completa de tu salud ginecológica y hormonal, coordinada con todo el equipo. No es una revisión rutinaria — es el punto de partida para entender qué está pasando en tu cuerpo y adaptar el programa exactamente a ti.
-	•	 Historia clínica ginecológica completa  Valoración del ciclo y sintomatología hormonal  Analítica hormonal si la necesitas  Seguimiento a mitad del programa (semana 7)  Coordinación directa con nutrición y suelo pélvico
+    /* ─── EMSCULPT HIGHLIGHT ────────────────────────────── */
+    .emsculpt-highlight {
+      background: linear-gradient(135deg, var(--violet) 0%, #4a3270 100%);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      color: #fff;
+      margin-bottom: 3rem;
+    }
+    .emsculpt-highlight .prime-eye {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      margin-bottom: .5rem;
+    }
+    .emsculpt-highlight h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: .75rem;
+    }
+    .emsculpt-highlight p {
+      font-size: .9rem;
+      color: rgba(255,255,255,.85);
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 1.5rem;
+    }
+    .emsculpt-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .emsculpt-stat {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 6px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .emsculpt-stat .val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #fff;
+      display: block;
+      margin-bottom: .2rem;
+    }
+    .emsculpt-stat .lbl {
+      font-size: .7rem;
+      color: rgba(255,255,255,.7);
+    }
 
+    /* ─── COMPARE TABLE ─────────────────────────────────── */
+    .compare-table-section { background: var(--mist); }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+    }
+    .compare-table thead th {
+      padding: 1.25rem 1.5rem;
+      text-align: left;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      background: var(--mist);
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table thead th:first-child { width: 40%; }
+    .compare-table thead th:nth-child(2) { color: var(--rose); }
+    .compare-table thead th:nth-child(3) { color: var(--violet); }
+    .compare-table tbody tr { border-bottom: 1px solid var(--border); }
+    .compare-table tbody tr:last-child { border-bottom: none; }
+    .compare-table tbody td {
+      padding: 1rem 1.5rem;
+      font-size: .88rem;
+      color: var(--text);
+    }
+    .compare-table tbody td:first-child { font-weight: 500; }
+    .compare-table tbody td:not(:first-child) { color: var(--subtle); }
+    .compare-table tbody td .star { color: var(--violet); }
+    .compare-table tbody tr:hover { background: #fcfafd; }
 
-Consulta de Nutrición
-Plan nutricional para tu salud hormonal
-03
+    /* ─── SEGUIMIENTO ───────────────────────────────────── */
+    .seguimiento-section { background: var(--white); }
+    .seguimiento-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .seg-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+    }
+    .seg-card .seg-week {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: .5rem;
+    }
+    .seg-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: .3rem;
+    }
+    .seg-card .seg-who {
+      font-size: .78rem;
+      color: var(--subtle);
+      margin-bottom: .75rem;
+    }
+    .seg-card p {
+      font-size: .85rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-2 consultas · 50 min
-· Alexandra
-Alexandra diseña un plan real que puedas seguir en tu día a día. No va de dietas restrictivas — va de entender cómo tu alimentación afecta tu energía, ciclo menstrual, inflamación y bienestar. Un enfoque funcional y muy práctico.
-	•	 Valoración nutricional completa  Plan personalizado para tu salud hormonal  Pautas prácticas para el día a día  Seguimiento y ajuste del plan a mitad (semana 4)  La alimentación como herramienta de bienestar
+    .seg-nesa {
+      background: linear-gradient(135deg, #f5f0f9, #ede6f5);
+      border-radius: 8px;
+      padding: 2rem 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .seg-nesa h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: .5rem;
+    }
+    .seg-nesa .seg-week { color: var(--teal); font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .5rem; }
+    .seg-nesa p { font-size: .85rem; color: var(--text); line-height: 1.65; margin-bottom: 1rem; }
+    .nesa-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .nesa-option {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 1rem;
+    }
+    .nesa-option .opt-name {
+      font-weight: 600;
+      font-size: .85rem;
+      color: var(--ink);
+      margin-bottom: .2rem;
+    }
+    .nesa-option .opt-detail {
+      font-size: .78rem;
+      color: var(--subtle);
+    }
 
+    .seg-summary {
+      background: var(--mist);
+      border-radius: 8px;
+      padding: 1.75rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    .seg-summary-item .label {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: .25rem;
+    }
+    .seg-summary-item .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
 
-Fisioterapia de Suelo Pélvico
-Valoración funcional completa
-04
+    /* ─── FOOTER ────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.7);
+      padding: 3.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+    }
+    footer h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: #fff;
+      margin-bottom: .4rem;
+    }
+    footer .footer-sub {
+      font-size: .85rem;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 1rem;
+    }
+    footer p {
+      font-size: .85rem;
+      line-height: 1.7;
+      max-width: 380px;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      text-align: right;
+    }
+    .footer-links a {
+      text-decoration: none;
+      font-size: .82rem;
+      color: rgba(255,255,255,.55);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy {
+      max-width: 900px;
+      margin: 2rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+      font-size: .75rem;
+      color: rgba(255,255,255,.35);
+    }
 
-1 consulta · 55 min
-· María
-El suelo pélvico afecta mucho más de lo que imaginamos: la postura, el dolor de espalda, el control de orina, las relaciones y hasta el sistema nervioso. María hace una evaluación funcional completa que orienta el trabajo de NESA y todo el equipo.
-	•	 Evaluación funcional completa del suelo pélvico  Detección de tensiones, hipertonía o disfunciones  Conexión directa con el plan de NESA  Mejora del dolor pélvico y lumbar  Pautas de autocuidado personalizadas
+    /* ─── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .compare-grid,
+      .seguimiento-grid,
+      .emsculpt-stats,
+      .nesa-options { grid-template-columns: 1fr; }
+      .seg-summary { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-links { text-align: left; }
+      .treatment-block { grid-template-columns: 1fr; }
+      .treatment-num { font-size: 1.5rem; padding: 0; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
 
-PROGRAMA PREMIUM
-Woman Balance Prime
-★ PRIME
-Todo lo del programa Woman Balance, con mayor profundidad en cada tratamiento y la incorporación del Emsculpt Neo — la tecnología más avanzada para remodelar el cuerpo sin cirugía.
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">Clínica Montesinos · Valencia</span>
+    <ul class="nav-links">
+      <li><a href="#balance">Woman Balance</a></li>
+      <li><a href="#prime">Prime</a></li>
+      <li><a href="#seguimiento">Seguimiento</a></li>
+    </ul>
+  </div>
+</nav>
 
-EXCLUSIVO PRIME
-Emsculpt Neo
-La única tecnología que combina radiofrecuencia (reduce grasa) y estimulación electromagnética de alta intensidad (tonifica el músculo) — todo en 30 minutos, sin cirugía, sin agujas, sin recuperación.
-−30% grasa localizada
-+25% masa muscular
-Visible desde la 3ª sesión
-Sin cirugía · Sin agujas
+<!-- ── HERO ──────────────────────────────────────────────── -->
+<section class="hero">
+  <p class="hero-eyebrow">Clínica Montesinos · Valencia</p>
+  <h1>Woman Balance</h1>
+  <p>Programas de bienestar integral femenino. Un equipo de especialistas trabajando de forma coordinada para equilibrar tu cuerpo, hormonas y energía.</p>
+  <div class="hero-ctas">
+    <a href="#balance" class="btn btn-rose">Woman Balance</a>
+    <a href="#prime"   class="btn btn-violet">Woman Balance Prime ★</a>
+    <a href="#seguimiento" class="btn btn-outline">Seguimiento</a>
+  </div>
+</section>
 
+<!-- ── COMPARATIVA RÁPIDA ─────────────────────────────────── -->
+<section class="quick-compare" id="comparativa">
+  <div class="container">
+    <p class="section-label">De un vistazo</p>
+    <h2 class="section-title">Dos programas, un mismo objetivo</h2>
+    <p class="section-lead">Ambos trabajan tu bienestar de forma integral y coordinada. La diferencia está en la profundidad y en el Emsculpt Neo.</p>
 
-Terapia NESA
-2 sesiones adicionales para mayor consolidación
-01
+    <div class="compare-grid">
+      <!-- Balance -->
+      <div class="compare-card">
+        <h3>Woman Balance</h3>
+        <p class="sub">Programa completo de bienestar</p>
+        <ul class="treatment-list">
+          <li>Terapia NESA <span>8 sesiones × 50′</span></li>
+          <li>Ginecología <span>2 consultas × 20′</span></li>
+          <li>Nutrición <span>2 consultas × 50′</span></li>
+          <li>Suelo Pélvico <span>1 consulta × 55′</span></li>
+        </ul>
+        <a href="#balance" class="btn btn-rose">Ver tratamientos →</a>
+      </div>
 
-10 sesiones · 50 min
-· Ana / Teresa
-2 sesiones más que en Woman Balance para consolidar los cambios en mayor profundidad.
-Todo lo de Woman Balance, con 2 sesiones adicionales que permiten consolidar los cambios con mayor profundidad. Las últimas sesiones actúan como mantenimiento y fijación de resultados.
-	•	 10 sesiones de trabajo neurológico profundo  Mayor consolidación del equilibrio nervioso  Mejor integración con los resultados del Emsculpt  Resultados más estables a largo plazo
+      <!-- Prime -->
+      <div class="compare-card is-prime">
+        <span class="badge">★ Prime</span>
+        <h3>Woman Balance Prime</h3>
+        <p class="sub">Todo lo anterior + Emsculpt Neo</p>
+        <ul class="treatment-list">
+          <li>Terapia NESA <span>10 sesiones × 50′</span></li>
+          <li>Emsculpt Neo ★ <span>5 sesiones × 30′</span></li>
+          <li>Ginecología <span>3 consultas × 20′</span></li>
+          <li>Nutrición <span>3 consultas × 50′</span></li>
+          <li>Suelo Pélvico <span>2 consultas × 55′</span></li>
+        </ul>
+        <a href="#prime" class="btn btn-violet">Ver tratamientos →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ── WOMAN BALANCE ──────────────────────────────────────── -->
+<section class="treatments-section" id="balance">
+  <div class="container">
+    <p class="section-label">Programa</p>
+    <h2 class="section-title">Woman Balance</h2>
+    <p class="section-lead">Un programa integral de 4 tratamientos especializados que trabajan de forma coordinada para equilibrar tu sistema nervioso, salud hormonal, alimentación y suelo pélvico.</p>
 
-Emsculpt Neo
-★ PRIME
-Remodelación corporal sin cirugía
-02
+    <!-- 01 NESA -->
+    <div class="treatment-block">
+      <div class="treatment-num">01</div>
+      <div class="treatment-body">
+        <div class="treatment-meta">
+          <span class="tag tag-rose">Terapia NESA</span>
+          <span class="treatment-duration">8 sesiones · 50 min</span>
+          <span class="treatment-specialist">· Ana / Teresa</span>
+        </div>
+        <h3>Neuroestimulación Sistémica Adaptativa</h3>
+        <p class="subtitle">Como darle un reset al sistema nervioso</p>
+        <p>Electrodos suaves en muñecas y tobillos emiten una microcorriente que equilibra tu sistema nervioso autónomo — sin dolor, sin agujas, sin incomodidad. La mayoría de pacientes salen con sensación de calma y ligereza.</p>
+        <ul class="benefit-list">
+          <li>Mejora del dolor crónico y tensión muscular</li>
+          <li>Regulación del estrés y la ansiedad</li>
+          <li>Sueño más profundo y reparador</li>
+          <li>Apoyo al suelo pélvico y equilibrio hormonal</li>
+          <li>Más energía y bienestar general</li>
+        </ul>
+      </div>
+    </div>
 
-5 sesiones · 30 min
-· Ana
-Lo más avanzado para remodelar el cuerpo sin cirugía. En 30 minutos combina radiofrecuencia (reduce grasa) y estimulación electromagnética de alta intensidad (tonifica el músculo). Una sesión ≈ 20.000 contracciones musculares supramáximas.
-	•	 Hasta 30% de reducción de grasa localizada  Hasta 25% de aumento de masa muscular  Sin cirugía · Sin agujas · Sin recuperación  Resultados visibles desde la 3ª sesión  Complementa y potencia tu ejercicio habitual
+    <!-- 02 GINECOLOGÍA -->
+    <div class="treatment-block">
+      <div class="treatment-num">02</div>
+      <div class="treatment-body">
+        <div class="treatment-meta">
+          <span class="tag tag-teal">Ginecología</span>
+          <span class="treatment-duration">2 consultas · 20 min</span>
+          <span class="treatment-specialist">· Laura</span>
+        </div>
+        <h3>Consulta Ginecológica</h3>
+        <p class="subtitle">Valoración hormonal + seguimiento coordinado</p>
+        <p>Laura realiza una valoración completa de tu salud ginecológica y hormonal, coordinada con todo el equipo. No es una revisión rutinaria — es el punto de partida para entender qué está pasando en tu cuerpo y adaptar el programa exactamente a ti.</p>
+        <ul class="benefit-list">
+          <li>Historia clínica ginecológica completa</li>
+          <li>Valoración del ciclo y sintomatología hormonal</li>
+          <li>Analítica hormonal si la necesitas</li>
+          <li>Seguimiento a mitad del programa (semana 7)</li>
+          <li>Coordinación directa con nutrición y suelo pélvico</li>
+        </ul>
+      </div>
+    </div>
 
+    <!-- 03 NUTRICIÓN -->
+    <div class="treatment-block">
+      <div class="treatment-num">03</div>
+      <div class="treatment-body">
+        <div class="treatment-meta">
+          <span class="tag tag-gold">Nutrición</span>
+          <span class="treatment-duration">2 consultas · 50 min</span>
+          <span class="treatment-specialist">· Alexandra</span>
+        </div>
+        <h3>Consulta de Nutrición</h3>
+        <p class="subtitle">Plan nutricional para tu salud hormonal</p>
+        <p>Alexandra diseña un plan real que puedas seguir en tu día a día. No va de dietas restrictivas — va de entender cómo tu alimentación afecta tu energía, ciclo menstrual, inflamación y bienestar. Un enfoque funcional y muy práctico.</p>
+        <ul class="benefit-list">
+          <li>Valoración nutricional completa</li>
+          <li>Plan personalizado para tu salud hormonal</li>
+          <li>Pautas prácticas para el día a día</li>
+          <li>Seguimiento y ajuste del plan a mitad (semana 4)</li>
+          <li>La alimentación como herramienta de bienestar</li>
+        </ul>
+      </div>
+    </div>
 
-Consulta Ginecológica
-Valoración + 2 seguimientos coordinados
-03
+    <!-- 04 SUELO PÉLVICO -->
+    <div class="treatment-block">
+      <div class="treatment-num">04</div>
+      <div class="treatment-body">
+        <div class="treatment-meta">
+          <span class="tag tag-violet">Suelo Pélvico</span>
+          <span class="treatment-duration">1 consulta · 55 min</span>
+          <span class="treatment-specialist">· María</span>
+        </div>
+        <h3>Fisioterapia de Suelo Pélvico</h3>
+        <p class="subtitle">Valoración funcional completa</p>
+        <p>El suelo pélvico afecta mucho más de lo que imaginamos: la postura, el dolor de espalda, el control de orina, las relaciones y hasta el sistema nervioso. María hace una evaluación funcional completa que orienta el trabajo de NESA y todo el equipo.</p>
+        <ul class="benefit-list">
+          <li>Evaluación funcional completa del suelo pélvico</li>
+          <li>Detección de tensiones, hipertonía o disfunciones</li>
+          <li>Conexión directa con el plan de NESA</li>
+          <li>Mejora del dolor pélvico y lumbar</li>
+          <li>Pautas de autocuidado personalizadas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-3 consultas · 20 min
-· Laura
-Laura te acompaña en tres momentos del programa en lugar de dos.
-En el Prime tienes a Laura al inicio, a mitad y al final del programa. No solo hace la valoración inicial — ve cómo vas evolucionando y ajusta las recomendaciones según tus resultados reales.
-	•	 Valoración ginecológica completa al inicio  Seguimiento a mitad del programa (semana 8)  Valoración final con recomendaciones de continuidad  Acompañamiento ginecológico real durante todo el programa
+<!-- ── WOMAN BALANCE PRIME ────────────────────────────────── -->
+<section class="prime-section" id="prime">
+  <div class="container">
+    <p class="section-label">Programa Premium</p>
+    <h2 class="section-title">Woman Balance Prime</h2>
+    <p class="section-lead">Todo lo del programa Woman Balance, con mayor profundidad en cada tratamiento y la incorporación del Emsculpt Neo — la tecnología más avanzada para remodelar el cuerpo sin cirugía.</p>
 
+    <!-- EMSCULPT HIGHLIGHT -->
+    <div class="emsculpt-highlight">
+      <p class="prime-eye">Exclusivo Prime</p>
+      <h3>Emsculpt Neo</h3>
+      <p>La única tecnología que combina radiofrecuencia (reduce grasa) y estimulación electromagnética de alta intensidad (tonifica el músculo) — todo en 30 minutos, sin cirugía, sin agujas, sin recuperación.</p>
+      <div class="emsculpt-stats">
+        <div class="emsculpt-stat"><span class="val">−30%</span><span class="lbl">Grasa localizada</span></div>
+        <div class="emsculpt-stat"><span class="val">+25%</span><span class="lbl">Masa muscular</span></div>
+        <div class="emsculpt-stat"><span class="val">3ª</span><span class="lbl">Visible desde la 3ª sesión</span></div>
+        <div class="emsculpt-stat"><span class="val">0</span><span class="lbl">Sin cirugía · Sin agujas</span></div>
+      </div>
+    </div>
 
-Consulta de Nutrición
-Plan optimizado para el Emsculpt Neo
-04
+    <!-- 01 NESA PRIME -->
+    <div class="treatment-block">
+      <div class="treatment-num">01</div>
+      <div class="treatment-body">
+        <div class="treatment-meta">
+          <span class="tag tag-rose">Terapia NESA</span>
+          <span class="treatment-duration">10 sesiones · 50 min</span>
+          <span class="treatment-specialist">· Ana / Teresa</span>
+        </div>
+        <h3>Neuroestimulación Sistémica Adaptativa</h3>
+        <p class="subtitle">2 sesiones adicionales para mayor consolidación</p>
+        <p>Todo lo de Woman Balance, con 2 sesiones adicionales que permiten consolidar los cambios con mayor profundidad. Las últimas sesiones actúan como mantenimiento y fijación de resultados.</p>
+        <ul class="benefit-list">
+          <li>10 sesiones de trabajo neurológico profundo</li>
+          <li>Mayor consolidación del equilibrio nervioso</li>
+          <li>Mejor integración con los resultados del Emsculpt</li>
+          <li>Resultados más estables a largo plazo</li>
+        </ul>
+      </div>
+    </div>
 
-3 consultas · 50 min
-· Alexandra
-El plan nutricional se optimiza también para potenciar los resultados del Emsculpt.
-La nutrición en el Prime no solo trabaja el equilibrio hormonal — también se optimiza para el Emsculpt Neo. La proteína adecuada y el ajuste calórico correcto multiplican el efecto del programa.
-	•	 Todo lo de Woman Balance  Optimización nutricional para Emsculpt Neo  Seguimiento adicional al final del programa  La nutrición correcta multiplica los resultados
+    <!-- 02 EMSCULPT -->
+    <div class="treatment-block">
+      <div class="treatment-num">02</div>
+      <div class="treatment-body">
+        <div class="treatment-meta">
+          <span class="tag tag-prime">★ Emsculpt Neo</span>
+          <span class="treatment-duration">5 sesiones · 30 min</span>
+          <span class="treatment-specialist">· Ana</span>
+        </div>
+        <h3>Emsculpt Neo</h3>
+        <p class="subtitle">Remodelación corporal sin cirugía</p>
+        <p>Lo más avanzado para remodelar el cuerpo sin cirugía. En 30 minutos combina radiofrecuencia (reduce grasa) y estimulación electromagnética de alta intensidad (tonifica el músculo). Una sesión ≈ 20.000 contracciones musculares supramáximas.</p>
+        <ul class="benefit-list">
+          <li>Hasta 30% de reducción de grasa localizada</li>
+          <li>Hasta 25% de aumento de masa muscular</li>
+          <li>Sin cirugía · Sin agujas · Sin recuperación</li>
+          <li>Resultados visibles desde la 3ª sesión</li>
+          <li>Complementa y potencia tu ejercicio habitual</li>
+        </ul>
+      </div>
+    </div>
 
+    <!-- 03 GINECOLOGÍA PRIME -->
+    <div class="treatment-block">
+      <div class="treatment-num">03</div>
+      <div class="treatment-body">
+        <div class="treatment-meta">
+          <span class="tag tag-teal">Ginecología</span>
+          <span class="treatment-duration">3 consultas · 20 min</span>
+          <span class="treatment-specialist">· Laura</span>
+        </div>
+        <h3>Consulta Ginecológica</h3>
+        <p class="subtitle">Valoración + 2 seguimientos coordinados</p>
+        <p>En el Prime tienes a Laura al inicio, a mitad y al final del programa. No solo hace la valoración inicial — ve cómo vas evolucionando y ajusta las recomendaciones según tus resultados reales.</p>
+        <ul class="benefit-list">
+          <li>Valoración ginecológica completa al inicio</li>
+          <li>Seguimiento a mitad del programa (semana 8)</li>
+          <li>Valoración final con recomendaciones de continuidad</li>
+          <li>Acompañamiento ginecológico real durante todo el programa</li>
+        </ul>
+      </div>
+    </div>
 
-Fisioterapia de Suelo Pélvico
-Valoración + sesión de trabajo terapéutico
-05
+    <!-- 04 NUTRICIÓN PRIME -->
+    <div class="treatment-block">
+      <div class="treatment-num">04</div>
+      <div class="treatment-body">
+        <div class="treatment-meta">
+          <span class="tag tag-gold">Nutrición</span>
+          <span class="treatment-duration">3 consultas · 50 min</span>
+          <span class="treatment-specialist">· Alexandra</span>
+        </div>
+        <h3>Consulta de Nutrición</h3>
+        <p class="subtitle">Plan optimizado para el Emsculpt Neo</p>
+        <p>La nutrición en el Prime no solo trabaja el equilibrio hormonal — también se optimiza para el Emsculpt Neo. La proteína adecuada y el ajuste calórico correcto multiplican el efecto del programa.</p>
+        <ul class="benefit-list">
+          <li>Todo lo de Woman Balance</li>
+          <li>Optimización nutricional para Emsculpt Neo</li>
+          <li>Seguimiento adicional al final del programa</li>
+          <li>La nutrición correcta multiplica los resultados</li>
+        </ul>
+      </div>
+    </div>
 
-2 consultas · 55 min
-· María
-En semana 5, María trabaja directamente el suelo pélvico además de la valoración inicial.
-En el Prime María no solo hace la valoración inicial. En la semana 5 vuelves a trabajar con ella directamente — tratamiento manual, reeducación y ejercicio terapéutico. En ese punto ya llevas semanas de NESA y el cuerpo está más receptivo.
-	•	 Valoración inicial completa (semana 1)  Sesión de trabajo terapéutico en semana 5  Tratamiento manual y reeducación pélvica  Coordinación óptima con el Emsculpt
+    <!-- 05 SUELO PÉLVICO PRIME -->
+    <div class="treatment-block">
+      <div class="treatment-num">05</div>
+      <div class="treatment-body">
+        <div class="treatment-meta">
+          <span class="tag tag-violet">Suelo Pélvico</span>
+          <span class="treatment-duration">2 consultas · 55 min</span>
+          <span class="treatment-specialist">· María</span>
+        </div>
+        <h3>Fisioterapia de Suelo Pélvico</h3>
+        <p class="subtitle">Valoración + sesión de trabajo terapéutico</p>
+        <p>En el Prime María no solo hace la valoración inicial. En la semana 5 vuelves a trabajar con ella directamente — tratamiento manual, reeducación y ejercicio terapéutico. En ese punto ya llevas semanas de NESA y el cuerpo está más receptivo.</p>
+        <ul class="benefit-list">
+          <li>Valoración inicial completa (semana 1)</li>
+          <li>Sesión de trabajo terapéutico en semana 5</li>
+          <li>Tratamiento manual y reeducación pélvica</li>
+          <li>Coordinación óptima con el Emsculpt</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-COMPARATIVA
-¿Cuál es la diferencia?
-TRATAMIENTO
-BALANCE
-PRIME
-Terapia NESA
-8 × 50′
-10 × 50′
-Emsculpt Neo ★
-—
-5 × 30′
-Ginecología
-2 × 20′
-3 × 20′
-Nutrición
-2 × 50′
-3 × 50′
-Suelo Pélvico
-1 × 55′
-2 × 55′
+<!-- ── TABLA COMPARATIVA ───────────────────────────────────── -->
+<section class="compare-table-section" id="tabla">
+  <div class="container">
+    <p class="section-label">Comparativa</p>
+    <h2 class="section-title">¿Cuál es la diferencia?</h2>
 
-DESPUÉS DEL PROGRAMA
-Programa de Seguimiento
-Al finalizar el programa principal — ya sea Woman Balance o Prime — existe un programa de seguimiento para consolidar los resultados y acompañarte en el mantenimiento a largo plazo.
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Tratamiento</th>
+          <th>Balance</th>
+          <th>Prime ★</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Terapia NESA</td>
+          <td>8 × 50′</td>
+          <td>10 × 50′</td>
+        </tr>
+        <tr>
+          <td>Emsculpt Neo</td>
+          <td>—</td>
+          <td><span class="star">★</span> 5 × 30′</td>
+        </tr>
+        <tr>
+          <td>Ginecología</td>
+          <td>2 × 20′</td>
+          <td>3 × 20′</td>
+        </tr>
+        <tr>
+          <td>Nutrición</td>
+          <td>2 × 50′</td>
+          <td>3 × 50′</td>
+        </tr>
+        <tr>
+          <td>Suelo Pélvico</td>
+          <td>1 × 55′</td>
+          <td>2 × 55′</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
+<!-- ── SEGUIMIENTO ────────────────────────────────────────── -->
+<section class="seguimiento-section" id="seguimiento">
+  <div class="container">
+    <p class="section-label">Después del programa</p>
+    <h2 class="section-title">Programa de Seguimiento</h2>
+    <p class="section-lead">Al finalizar el programa principal — ya sea Woman Balance o Prime — existe un programa de seguimiento para consolidar los resultados y acompañarte en el mantenimiento a largo plazo.</p>
 
-NESA o Neosculpt
-Tú eliges según tus objetivos · antes de cada sesión
+    <!-- NESA o Neosculpt -->
+    <div class="seg-nesa">
+      <p class="seg-week">5 sesiones · Sem. 3·6·9·12·15</p>
+      <h4>NESA o Neosculpt</h4>
+      <p>Elige la modalidad que mejor encaje con tus objetivos en cada sesión. No tienes que decidirlo de antemano.</p>
+      <div class="nesa-options">
+        <div class="nesa-option">
+          <div class="opt-name">NESA — 50 min · Ana / Teresa</div>
+          <div class="opt-detail">Para consolidar el equilibrio nervioso. Dolor, sueño, energía, suelo pélvico.</div>
+        </div>
+        <div class="nesa-option">
+          <div class="opt-name">Neosculpt — 30 min · Ana</div>
+          <div class="opt-detail">Para mantener el tono muscular y la composición corporal conseguida.</div>
+        </div>
+      </div>
+    </div>
 
-5 sesiones
-Sem. 3·6·9·12·15
-Elige la modalidad que mejor encaje con tus objetivos en cada sesión. No tienes que decidirlo de antemano.
+    <div class="seguimiento-grid">
+      <!-- Suelo Pélvico -->
+      <div class="seg-card">
+        <p class="seg-week">Semana 1 · 55 min</p>
+        <h4>Sesión de Suelo Pélvico</h4>
+        <p class="seg-who">Continuidad terapéutica · María</p>
+        <p>María ya te conoce y sabe exactamente en qué punto está tu suelo pélvico. Esta sesión no es una nueva valoración — es trabajo terapéutico directo: revisión de evolución, tratamiento manual y pautas de autocuidado actualizadas.</p>
+      </div>
 
-NESA
-50 min · Ana / Teresa
-Para consolidar el equilibrio nervioso. Dolor, sueño, energía, suelo pélvico.
+      <!-- Nutrición -->
+      <div class="seg-card">
+        <p class="seg-week">Semana 2 · 50 min</p>
+        <h4>Consulta de Nutrición</h4>
+        <p class="seg-who">Ajuste del plan · Alexandra</p>
+        <p>Alexandra revisa cómo has mantenido los hábitos alimentarios y ajusta el plan para la fase de mantenimiento. No es empezar de nuevo — es afinar lo que ya funciona y darte herramientas para seguir sola con confianza.</p>
+      </div>
 
-Neosculpt
-30 min · Ana
-Para mantener el tono muscular y la composición corporal conseguida.
+      <!-- Ginecología cierre -->
+      <div class="seg-card" style="grid-column: 1 / -1;">
+        <p class="seg-week">Semana 15 · 20 min</p>
+        <h4>Consulta Ginecológica de Cierre</h4>
+        <p class="seg-who">Valoración final del ciclo completo · Laura</p>
+        <p>Al final del seguimiento, Laura hace una valoración de cierre para ver cómo has evolucionado en todos estos meses. El equipo te da las recomendaciones finales y te quedas con un plan claro para seguir sola.</p>
+      </div>
+    </div>
 
+    <!-- Resumen -->
+    <div class="seg-summary">
+      <div class="seg-summary-item">
+        <div class="label">NESA o Neosculpt</div>
+        <div class="value">Sem. 3·6·9·12·15</div>
+      </div>
+      <div class="seg-summary-item">
+        <div class="label">Suelo pélvico</div>
+        <div class="value">Semana 1 · 55 min</div>
+      </div>
+      <div class="seg-summary-item">
+        <div class="label">Nutrición</div>
+        <div class="value">Semana 2 · 50 min</div>
+      </div>
+      <div class="seg-summary-item">
+        <div class="label">Ginecología cierre</div>
+        <div class="value">Semana 15 · 20 min</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-Sesión de Suelo Pélvico
-Continuidad terapéutica · María
+<!-- ── FOOTER ──────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h2>Clínica Montesinos</h2>
+      <p class="footer-sub">Valencia</p>
+      <p>¿Tienes dudas sobre tu programa? Habla directamente con tu equipo — están para ayudarte en cada paso del proceso.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#balance">Woman Balance</a>
+      <a href="#prime">Prime</a>
+      <a href="#seguimiento">Seguimiento</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 · Clínica Montesinos · Todos los derechos reservados</p>
+</footer>
 
-1 sesión · 55 min
-Semana 1
-María ya te conoce y sabe exactamente en qué punto está tu suelo pélvico. Esta sesión no es una nueva valoración — es trabajo terapéutico directo: revisión de evolución, tratamiento manual y pautas de autocuidado actualizadas.
-
-
-Consulta de Nutrición
-Ajuste del plan · Alexandra
-
-1 consulta · 50 min
-Semana 2
-Alexandra revisa cómo has mantenido los hábitos alimentarios y ajusta el plan para la fase de mantenimiento. No es empezar de nuevo — es afinar lo que ya funciona y darte herramientas para seguir sola con confianza.
-
-
-Consulta Ginecológica de Cierre
-Valoración final del ciclo completo · Laura
-
-1 consulta · 20 min
-Semana 15
-Al final del seguimiento, Laura hace una valoración de cierre para ver cómo has evolucionado en todos estos meses. El equipo te da las recomendaciones finales y te quedas con un plan claro para seguir sola.
-RESUMEN DEL SEGUIMIENTO
-
-NESA o Neosculpt
-Sem. 3·6·9·12·15
-
-Suelo pélvico
-Semana 1 · 55 min
-
-Nutrición
-Semana 2 · 50 min
-
-Ginecología cierre
-Semana 15 · 20 min
-
-Clínica Montesinos
-Valencia
-¿Tienes dudas sobre tu programa? Habla directamente con tu equipo — están para ayudarte en cada paso del proceso.
-Woman Balance
-Prime
-Seguimiento
-© 2026 · Clínica Montesinos · Todos los derechos reservados
+</body>
+</html>
