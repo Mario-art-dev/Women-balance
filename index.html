@@ -212,11 +212,12 @@
     .prog-card-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem; font-weight: 500; color: var(--ink);
-      margin-bottom: .5rem;
+      margin-bottom: 1.25rem;
       display: flex; align-items: center; gap: 8px;
     }
-    .prog-more-wrap { text-align: center; margin: .35rem 0 1rem; }
+    .prog-more-wrap { text-align: center; margin-bottom: 1rem; }
     .prog-more {
+      margin-left: auto; flex-shrink: 0;
       font-family: 'Inter', sans-serif;
       font-size: .78rem; font-weight: 600; letter-spacing: .08em;
       text-transform: uppercase; text-decoration: none;
@@ -227,6 +228,9 @@
     .prog-more:hover {
       color: var(--rose); border-color: rgba(196,86,106,.35);
       background: rgba(196,86,106,.06);
+    }
+    .prog-more--sm {
+      font-size: .62rem; padding: .24rem .68rem;
     }
     .prime-tag {
       font-size: .58rem; font-weight: 700; letter-spacing: .1em;
@@ -535,8 +539,7 @@
       <div class="prog-card reveal reveal-delay-1">
         <div class="prog-card-bar" style="background:linear-gradient(90deg,var(--rose),var(--rose-l))"></div>
         <div class="prog-card-body">
-          <div class="prog-card-name">Woman Balance</div>
-          <div class="prog-more-wrap"><a href="#balance" class="prog-more">Más info ↓</a></div>
+          <div class="prog-card-name">Woman Balance<a href="#balance" class="prog-more">Más info ↓</a></div>
           <ul class="prog-items">
             <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--rose)"></span>Terapia NESA</div><span class="prog-item-right">8 &times; 50&prime;</span></li>
             <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet)"></span>Ginecolog&iacute;a</div><span class="prog-item-right">2 &times; 20&prime;</span></li>
@@ -548,8 +551,8 @@
       <div class="prog-card reveal reveal-delay-2">
         <div class="prog-card-bar" style="background:linear-gradient(90deg,var(--violet),var(--rose-l))"></div>
         <div class="prog-card-body">
-          <div class="prog-card-name">Woman Balance Prime <span class="prime-tag">&#9733; Prime</span></div>
-          <div class="prog-more-wrap"><a href="#prime" class="prog-more">Más info ↓</a></div>
+          <div class="prog-card-name" style="margin-bottom:.3rem">Woman Balance Prime <span class="prime-tag">&#9733; Prime</span></div>
+          <div class="prog-more-wrap"><a href="#prime" class="prog-more prog-more--sm">Más info ↓</a></div>
           <ul class="prog-items">
             <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--rose)"></span>Terapia NESA</div><span class="prog-item-right">10 &times; 50&prime;</span></li>
             <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet-l)"></span>Emsculpt Neo &#9733;</div><span class="prog-item-right">5 &times; 30&prime;</span></li>
