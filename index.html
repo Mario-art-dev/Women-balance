@@ -50,7 +50,7 @@
 
     /* ── ANIMATIONS ─────────────────────────────── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
+      from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeIn {
@@ -75,19 +75,19 @@
       50%       { transform: scale(1.06) translate(1.5%, -1.5%); opacity: .85; }
     }
     @keyframes numReveal {
-      from { opacity: 0; transform: translateY(14px) scale(.75); }
+      from { opacity: 0; transform: translateY(8px) scale(.85); }
       to   { opacity: 1; transform: translateY(0) scale(1); }
     }
     @keyframes slideRight {
-      from { opacity: 0; transform: translateX(-18px); }
+      from { opacity: 0; transform: translateX(-10px); }
       to   { opacity: 1; transform: translateX(0); }
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(32px) scale(.985);
-      transition: opacity 1.1s cubic-bezier(.16,1,.3,1),
-                  transform 1.1s cubic-bezier(.16,1,.3,1);
+      transform: translateY(18px) scale(.996);
+      transition: opacity 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     .reveal.visible {
       opacity: 1;
@@ -122,7 +122,7 @@
       font-size: .68rem; font-weight: 700;
       letter-spacing: .22em; text-transform: uppercase;
       color: var(--rose); margin-bottom: 1.75rem;
-      animation: fadeIn 1.2s ease both;
+      animation: fadeIn 1.7s ease both;
     }
     .clinic-dot {
       width: 6px; height: 6px; border-radius: 50%;
@@ -135,7 +135,7 @@
       font-weight: 400; line-height: 1.02; letter-spacing: -.015em;
       color: var(--ink);
       margin-bottom: 1.5rem;
-      animation: fadeUp 1.3s cubic-bezier(.16,1,.3,1) .15s both;
+      animation: fadeUp 1.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) .15s both;
     }
     .hero h1 em {
       font-style: italic; font-weight: 300;
@@ -146,12 +146,12 @@
     .hero-desc {
       font-size: 1.02rem; line-height: 1.8; color: var(--body);
       max-width: 460px; font-weight: 400;
-      animation: fadeUp 1.3s cubic-bezier(.16,1,.3,1) .38s both;
+      animation: fadeUp 1.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) .38s both;
     }
     .hero-line {
       width: 60px; height: 2px; margin: 2.5rem 0;
       background: linear-gradient(90deg, var(--rose), var(--violet-l));
-      animation: fadeIn 1.2s ease .65s both;
+      animation: fadeIn 1.7s ease .65s both;
     }
 
     /* ── DIVIDERS ───────────────────────────────── */
@@ -200,8 +200,8 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 2px 16px rgba(50,30,80,.06);
-      transition: transform .3s cubic-bezier(.16,1,.3,1),
-                  box-shadow .3s cubic-bezier(.16,1,.3,1);
+      transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     .prog-card:hover {
       transform: translateY(-5px);
@@ -265,29 +265,29 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.2rem; font-weight: 500;
       line-height: 1; padding-top: .15rem;
-      transition: transform .4s cubic-bezier(.16,1,.3,1), opacity .4s;
+      transition: transform .4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity .4s;
     }
     .tx-block:hover .tx-num { transform: scale(1.15); opacity: .8; }
     .tx-block.visible .tx-num {
-      animation: numReveal 1s cubic-bezier(.16,1,.3,1) .1s both;
+      animation: numReveal 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) .1s both;
     }
     .tx-block.visible .tx-name {
-      animation: fadeUp .9s cubic-bezier(.16,1,.3,1) .22s both;
+      animation: fadeUp 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) .22s both;
     }
     .tx-block.visible .tx-subtitle {
-      animation: fadeUp .9s cubic-bezier(.16,1,.3,1) .32s both;
+      animation: fadeUp 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) .34s both;
     }
     .tx-block.visible .tx-desc {
-      animation: fadeUp .85s cubic-bezier(.16,1,.3,1) .42s both;
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .46s both;
     }
     .tx-block.visible .prime-diff {
-      animation: fadeUp .85s cubic-bezier(.16,1,.3,1) .42s both;
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .46s both;
     }
-    .tx-block.visible .tx-benefits li:nth-child(1) { animation: slideRight .7s cubic-bezier(.16,1,.3,1) .52s both; }
-    .tx-block.visible .tx-benefits li:nth-child(2) { animation: slideRight .7s cubic-bezier(.16,1,.3,1) .62s both; }
-    .tx-block.visible .tx-benefits li:nth-child(3) { animation: slideRight .7s cubic-bezier(.16,1,.3,1) .72s both; }
-    .tx-block.visible .tx-benefits li:nth-child(4) { animation: slideRight .7s cubic-bezier(.16,1,.3,1) .82s both; }
-    .tx-block.visible .tx-benefits li:nth-child(5) { animation: slideRight .7s cubic-bezier(.16,1,.3,1) .92s both; }
+    .tx-block.visible .tx-benefits li:nth-child(1) { animation: slideRight 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .58s both; }
+    .tx-block.visible .tx-benefits li:nth-child(2) { animation: slideRight 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .70s both; }
+    .tx-block.visible .tx-benefits li:nth-child(3) { animation: slideRight 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .82s both; }
+    .tx-block.visible .tx-benefits li:nth-child(4) { animation: slideRight 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .94s both; }
+    .tx-block.visible .tx-benefits li:nth-child(5) { animation: slideRight 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.06s both; }
 
     .tx-meta { display: flex; align-items: center; gap: .6rem; margin-bottom: .55rem; flex-wrap: wrap; }
     .tx-tag {
@@ -371,17 +371,17 @@
     }
     .emsculpt-stat:hover { background: rgba(255,255,255,.12); }
     .emsculpt-box.visible .emsculpt-label {
-      animation: fadeUp .9s cubic-bezier(.16,1,.3,1) .2s both;
+      animation: fadeUp 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) .2s both;
     }
     .emsculpt-box.visible .emsculpt-title {
-      animation: fadeUp 1s cubic-bezier(.16,1,.3,1) .32s both;
+      animation: fadeUp 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) .36s both;
     }
     .emsculpt-box.visible .emsculpt-desc {
-      animation: fadeUp .9s cubic-bezier(.16,1,.3,1) .46s both;
+      animation: fadeUp 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) .54s both;
     }
-    .emsculpt-box.visible .emsculpt-stat:nth-child(1) { animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .58s both; }
-    .emsculpt-box.visible .emsculpt-stat:nth-child(2) { animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .72s both; }
-    .emsculpt-box.visible .emsculpt-stat:nth-child(3) { animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .86s both; }
+    .emsculpt-box.visible .emsculpt-stat:nth-child(1) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .68s both; }
+    .emsculpt-box.visible .emsculpt-stat:nth-child(2) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .84s both; }
+    .emsculpt-box.visible .emsculpt-stat:nth-child(3) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.00s both; }
     .emsculpt-stat .val {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.55rem; font-weight: 600; color: #fff;
@@ -428,13 +428,13 @@
     .cmp-table tr.hl td:first-child { color: var(--violet); }
     .cmp-table tr.hl td:nth-child(3) { color: var(--violet); font-weight: 700; }
     .cmp-wrap.visible thead tr {
-      animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .15s both;
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .15s both;
     }
-    .cmp-wrap.visible tbody tr:nth-child(1) { animation: fadeUp .7s cubic-bezier(.16,1,.3,1) .28s both; }
-    .cmp-wrap.visible tbody tr:nth-child(2) { animation: fadeUp .7s cubic-bezier(.16,1,.3,1) .40s both; }
-    .cmp-wrap.visible tbody tr:nth-child(3) { animation: fadeUp .7s cubic-bezier(.16,1,.3,1) .52s both; }
-    .cmp-wrap.visible tbody tr:nth-child(4) { animation: fadeUp .7s cubic-bezier(.16,1,.3,1) .64s both; }
-    .cmp-wrap.visible tbody tr:nth-child(5) { animation: fadeUp .7s cubic-bezier(.16,1,.3,1) .76s both; }
+    .cmp-wrap.visible tbody tr:nth-child(1) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .30s both; }
+    .cmp-wrap.visible tbody tr:nth-child(2) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .44s both; }
+    .cmp-wrap.visible tbody tr:nth-child(3) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .58s both; }
+    .cmp-wrap.visible tbody tr:nth-child(4) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .72s both; }
+    .cmp-wrap.visible tbody tr:nth-child(5) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .86s both; }
 
     /* ── SEGUIMIENTO ────────────────────────────── */
     .seg-list { display: flex; flex-direction: column; }
@@ -469,19 +469,19 @@
 
     /* ── SEG ITEM CHILDREN ──────────────────────── */
     .seg-item.visible .seg-week {
-      animation: slideRight .8s cubic-bezier(.16,1,.3,1) .15s both;
+      animation: slideRight 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .15s both;
     }
     .seg-item.visible .seg-item-name {
-      animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .2s both;
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .25s both;
     }
     .seg-item.visible .seg-item-who {
-      animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .3s both;
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .38s both;
     }
     .seg-item.visible .seg-item-desc {
-      animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .38s both;
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .50s both;
     }
     .seg-item.visible .seg-nesa-opts {
-      animation: fadeUp .8s cubic-bezier(.16,1,.3,1) .48s both;
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .64s both;
     }
 
     /* ── FOOTER ─────────────────────────────────── */
