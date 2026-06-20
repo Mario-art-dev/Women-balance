@@ -118,26 +118,33 @@
     }
     .hero-inner { position: relative; }
 
+    .clinic-header {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 1.75rem;
+      animation: fadeIn 1.7s ease both;
+    }
     .clinic-logo {
-      height: 54px;
+      height: 42px;
       width: auto;
       display: block;
-      margin-bottom: 1.75rem;
-      mix-blend-mode: multiply;
-      animation: fadeIn 1.7s ease both;
+      flex-shrink: 0;
     }
-
-    .clinic {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: .68rem; font-weight: 700;
-      letter-spacing: .22em; text-transform: uppercase;
-      color: var(--rose); margin-bottom: 1.75rem;
-      animation: fadeIn 1.7s ease both;
+    .clinic-divider {
+      width: 1px; height: 32px;
+      background: var(--line);
+      flex-shrink: 0;
     }
-    .clinic-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--rose);
-      animation: pulse 2.4s ease infinite;
+    .clinic-text { display: flex; flex-direction: column; gap: 3px; }
+    .clinic-name {
+      font-family: 'Inter', sans-serif;
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--ink); line-height: 1;
+    }
+    .clinic-spec {
+      font-size: .52rem; font-weight: 500;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--muted); line-height: 1;
     }
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
@@ -488,7 +495,14 @@
 <!-- ── HERO ─────────────────────────────────────────────── -->
 <div class="hero">
   <div class="hero-inner">
-    <img src="logo-montesinos.jpg" alt="Clínica Montesinos" class="clinic-logo">
+    <div class="clinic-header">
+      <img src="logo-icon.png" alt="Clínica Montesinos" class="clinic-logo">
+      <div class="clinic-divider"></div>
+      <div class="clinic-text">
+        <span class="clinic-name">Montesinos</span>
+        <span class="clinic-spec">Cl&iacute;nica Ginecol&oacute;gica</span>
+      </div>
+    </div>
     <h1>Woman<br><em>Balance</em></h1>
     <p class="hero-desc">
       Programas de bienestar integral femenino. Un equipo de especialistas coordinado para equilibrar el sistema nervioso, las hormonas, la alimentaci&oacute;n y el suelo p&eacute;lvico.
