@@ -12,18 +12,18 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --rose:     #C4566A;
-      --rose-l:   #E8849A;
-      --violet:   #7355B0;
-      --violet-l: #9B7ED4;
-      --gold:     #B8893A;
-      --teal:     #2E8B6E;
-      --ink:      #12101E;
-      --body:     #3E3658;
-      --muted:    #5C5272;
-      --faint:    #8A7FA0;
-      --line:     #E8DFF5;
-      --page:     #FDFBFF;
+      --rose:     #5B9AB8;
+      --rose-l:   #89BDD0;
+      --violet:   #3A7A95;
+      --violet-l: #6AAFC9;
+      --gold:     #6A8E9B;
+      --teal:     #2A7D9A;
+      --ink:      #2D3B4E;
+      --body:     #3E5060;
+      --muted:    #5A7080;
+      --faint:    #8BA0AD;
+      --line:     #D0E3EB;
+      --page:     #F4F9FB;
     }
 
     html { scroll-behavior: smooth; }
@@ -110,13 +110,23 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 70% 60% at 85% 20%, rgba(196,86,106,.13) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 50% at 10% 85%, rgba(115,85,176,.11) 0%, transparent 60%);
+        radial-gradient(ellipse 70% 60% at 85% 20%, rgba(91,154,184,.13) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 10% 85%, rgba(58,122,149,.11) 0%, transparent 60%);
       pointer-events: none;
       animation: driftBg 14s ease-in-out infinite;
       transform-origin: center;
     }
     .hero-inner { position: relative; }
+
+    .clinic-logo {
+      height: 54px;
+      width: auto;
+      display: block;
+      margin-bottom: 1.75rem;
+      mix-blend-mode: multiply;
+      animation: fadeIn 1.7s ease both;
+    }
+
     .clinic {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: .68rem; font-weight: 700;
@@ -168,7 +178,7 @@
         90deg,
         var(--rose) 0%,
         var(--violet-l) 45%,
-        rgba(155,126,212,.12) 75%,
+        rgba(106,175,201,.12) 75%,
         transparent 100%
       );
     }
@@ -195,17 +205,17 @@
     .prog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .prog-card {
       border-radius: 18px; overflow: hidden;
-      border: 1px solid rgba(232,223,245,.8);
+      border: 1px solid rgba(208,227,235,.8);
       background: rgba(255,255,255,.72);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 2px 16px rgba(50,30,80,.06);
+      box-shadow: 0 2px 16px rgba(30,50,70,.06);
       transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                   box-shadow .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     .prog-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(115,85,176,.12);
+      box-shadow: 0 16px 48px rgba(58,122,149,.12);
     }
     .prog-card-bar { height: 4px; }
     .prog-card-body { padding: 1.75rem; }
@@ -226,8 +236,8 @@
       transition: color .25s, border-color .25s, background .25s;
     }
     .prog-more:hover {
-      color: var(--rose); border-color: rgba(196,86,106,.35);
-      background: rgba(196,86,106,.06);
+      color: var(--rose); border-color: rgba(91,154,184,.35);
+      background: rgba(91,154,184,.06);
     }
     .prime-tag {
       font-size: .58rem; font-weight: 700; letter-spacing: .1em;
@@ -301,7 +311,7 @@
     .emsculpt-box {
       border-radius: 18px; padding: 2.25rem;
       margin-bottom: 2.25rem; position: relative; overflow: hidden;
-      background: linear-gradient(135deg, #1E1140 0%, #2C1A58 50%, #1A0D36 100%);
+      background: linear-gradient(135deg, #0E2233 0%, #1A3347 50%, #0A1B28 100%);
       background-size: 200% 200%;
       animation: gradShift 8s ease infinite;
     }
@@ -309,14 +319,14 @@
       content: '';
       position: absolute; top: -80px; right: -80px;
       width: 260px; height: 260px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(155,126,212,.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(106,175,201,.15) 0%, transparent 70%);
       pointer-events: none;
     }
     .emsculpt-inner { position: relative; z-index: 1; }
     .emsculpt-label {
       display: inline-flex; align-items: center; gap: 6px;
       font-size: .62rem; font-weight: 700; letter-spacing: .2em;
-      text-transform: uppercase; color: rgba(200,170,255,.75);
+      text-transform: uppercase; color: rgba(139,189,208,.75);
       margin-bottom: .7rem;
     }
     .emsculpt-label-star { font-size: .75rem; animation: pulse 2s ease infinite; }
@@ -360,16 +370,16 @@
 
     /* ── COMPARE TABLE ──────────────────────────── */
     .cmp-wrap {
-      border: 1px solid rgba(232,223,245,.8);
+      border: 1px solid rgba(208,227,235,.8);
       border-radius: 16px; overflow: hidden;
-      box-shadow: 0 2px 20px rgba(50,30,80,.06);
+      box-shadow: 0 2px 20px rgba(30,50,70,.06);
       background: rgba(255,255,255,.65);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
     .cmp-table { width: 100%; border-collapse: collapse; }
     .cmp-table thead tr {
-      background: linear-gradient(135deg, #F4EEFF 0%, #FFF0F4 100%);
+      background: linear-gradient(135deg, #EBF4F8 0%, #F0F8FC 100%);
     }
     .cmp-table th {
       padding: 1rem 1.35rem;
@@ -385,14 +395,14 @@
       transition: background .2s;
     }
     .cmp-table tr:last-child td { border-bottom: none; }
-    .cmp-table tbody tr:hover td { background: rgba(115,85,176,.03); }
+    .cmp-table tbody tr:hover td { background: rgba(58,122,149,.03); }
     .cmp-table td:first-child { font-weight: 500; color: var(--ink); }
     .cmp-table td:not(:first-child) { text-align: center; color: var(--muted); }
     .cmp-table tr.hl td {
-      background: linear-gradient(90deg, rgba(115,85,176,.05) 0%, rgba(196,86,106,.04) 100%);
+      background: linear-gradient(90deg, rgba(58,122,149,.05) 0%, rgba(91,154,184,.04) 100%);
     }
     .cmp-table tr.hl:hover td {
-      background: linear-gradient(90deg, rgba(115,85,176,.09) 0%, rgba(196,86,106,.07) 100%);
+      background: linear-gradient(90deg, rgba(58,122,149,.09) 0%, rgba(91,154,184,.07) 100%);
     }
     .cmp-table tr.hl td:first-child { color: var(--violet); }
     .cmp-table tr.hl td:nth-child(3) { color: var(--violet); font-weight: 700; }
@@ -422,14 +432,14 @@
     .seg-item-desc { font-size: .845rem; color: var(--body); line-height: 1.72; font-weight: 400; }
     .seg-nesa-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: .8rem; }
     .seg-opt {
-      background: rgba(255,255,255,.7); border: 1px solid rgba(232,223,245,.8);
+      background: rgba(255,255,255,.7); border: 1px solid rgba(208,227,235,.8);
       backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
       border-radius: 12px; padding: .95rem;
       transition: border-color .25s, box-shadow .25s;
     }
     .seg-opt:hover {
-      border-color: rgba(196,86,106,.3);
-      box-shadow: 0 4px 16px rgba(196,86,106,.08);
+      border-color: rgba(91,154,184,.3);
+      box-shadow: 0 4px 16px rgba(91,154,184,.08);
     }
     .seg-opt-name { font-size: .83rem; font-weight: 600; color: var(--ink); margin-bottom: .45rem; }
     .seg-opt-desc { font-size: .77rem; color: var(--body); line-height: 1.52; }
@@ -478,10 +488,7 @@
 <!-- ── HERO ─────────────────────────────────────────────── -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="clinic">
-      <span class="clinic-dot"></span>
-      Cl&iacute;nica Montesinos &middot; Valencia
-    </div>
+    <img src="logo-montesinos.jpg" alt="Clínica Montesinos" class="clinic-logo">
     <h1>Woman<br><em>Balance</em></h1>
     <p class="hero-desc">
       Programas de bienestar integral femenino. Un equipo de especialistas coordinado para equilibrar el sistema nervioso, las hormonas, la alimentaci&oacute;n y el suelo p&eacute;lvico.
@@ -536,9 +543,9 @@
 
     <div class="tx-block reveal" style="--accent:var(--rose)">
       <style>.tx-block[style*='--accent:var(--rose)']::before { background: linear-gradient(to bottom, var(--rose), var(--rose-l)); }</style>
-      <div class="tx-num" style="color:rgba(196,86,106,.55)">01</div>
+      <div class="tx-num" style="color:rgba(91,154,184,.55)">01</div>
       <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#FDEEF2;color:var(--rose)">NESA</span><span class="tx-session">8 sesiones &middot; 50 min</span></div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E5F1F7;color:var(--rose)">NESA</span><span class="tx-session">8 sesiones &middot; 50 min</span></div>
         <div class="tx-name">Terapia NESA</div>
         <div class="tx-subtitle">Neuroestimulaci&oacute;n Sist&eacute;mica Adaptativa</div>
         <p class="tx-desc">Electrodos suaves en mu&ntilde;ecas y tobillos equilibran el sistema nervioso aut&oacute;nomo &mdash; sin dolor, sin agujas. La mayor&iacute;a nota calma y ligereza desde la primera sesi&oacute;n.</p>
@@ -546,9 +553,9 @@
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(115,85,176,.55)">02</div>
+      <div class="tx-num" style="color:rgba(58,122,149,.55)">02</div>
       <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#F0EAFF;color:var(--violet)">Ginecolog&iacute;a</span><span class="tx-session">2 consultas &middot; 20 min</span></div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E2EEF4;color:var(--violet)">Ginecolog&iacute;a</span><span class="tx-session">2 consultas &middot; 20 min</span></div>
         <div class="tx-name">Consulta Ginecol&oacute;gica</div>
         <div class="tx-subtitle">Valoraci&oacute;n hormonal + seguimiento coordinado</div>
         <p class="tx-desc">Valoraci&oacute;n completa de la salud ginecol&oacute;gica y hormonal, coordinada con todo el equipo para adaptar el programa a cada persona.</p>
@@ -556,9 +563,9 @@
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(184,137,58,.55)">03</div>
+      <div class="tx-num" style="color:rgba(106,142,155,.55)">03</div>
       <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#FBF5E8;color:var(--gold)">Nutrici&oacute;n</span><span class="tx-session">2 consultas &middot; 50 min</span></div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E8F0F3;color:var(--gold)">Nutrici&oacute;n</span><span class="tx-session">2 consultas &middot; 50 min</span></div>
         <div class="tx-name">Consulta de Nutrici&oacute;n</div>
         <div class="tx-subtitle">Plan nutricional para la salud hormonal</div>
         <p class="tx-desc">No va de dietas restrictivas &mdash; va de entender c&oacute;mo la alimentaci&oacute;n afecta la energ&iacute;a, el ciclo y el bienestar. Enfoque funcional y pr&aacute;ctico para el d&iacute;a a d&iacute;a.</p>
@@ -566,9 +573,9 @@
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(46,139,110,.55)">04</div>
+      <div class="tx-num" style="color:rgba(42,125,154,.55)">04</div>
       <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#E8F6F1;color:var(--teal)">Suelo P&eacute;lvico</span><span class="tx-session">1 consulta &middot; 55 min</span></div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E2EEF2;color:var(--teal)">Suelo P&eacute;lvico</span><span class="tx-session">1 consulta &middot; 55 min</span></div>
         <div class="tx-name">Fisioterapia de Suelo P&eacute;lvico</div>
         <div class="tx-subtitle">Valoraci&oacute;n funcional completa</div>
         <p class="tx-desc">El suelo p&eacute;lvico afecta la postura, el dolor de espalda y el sistema nervioso. La evaluaci&oacute;n funcional orienta y potencia el trabajo de todo el equipo.</p>
@@ -600,7 +607,7 @@
   <div class="tx-list">
 
     <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(115,85,176,.55)">01</div>
+      <div class="tx-num" style="color:rgba(58,122,149,.55)">01</div>
       <div>
         <div class="tx-meta"><span class="tx-tag" style="background:linear-gradient(110deg,var(--violet),var(--rose));color:#fff">&#9733; Emsculpt Neo</span><span class="tx-session">5 sesiones &middot; 30 min</span></div>
         <div class="tx-name">Emsculpt Neo</div>
@@ -610,36 +617,36 @@
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(196,86,106,.55)">02</div>
+      <div class="tx-num" style="color:rgba(91,154,184,.55)">02</div>
       <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#FDEEF2;color:var(--rose)">NESA</span><span class="tx-session">10 sesiones &middot; 50 min</span></div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E5F1F7;color:var(--rose)">NESA</span><span class="tx-session">10 sesiones &middot; 50 min</span></div>
         <div class="tx-name">Terapia NESA</div>
         <div class="tx-subtitle">2 sesiones adicionales para mayor consolidaci&oacute;n</div>
       </div>
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(115,85,176,.55)">03</div>
+      <div class="tx-num" style="color:rgba(58,122,149,.55)">03</div>
       <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#F0EAFF;color:var(--violet)">Ginecolog&iacute;a</span><span class="tx-session">3 consultas &middot; 20 min</span></div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E2EEF4;color:var(--violet)">Ginecolog&iacute;a</span><span class="tx-session">3 consultas &middot; 20 min</span></div>
         <div class="tx-name">Consulta Ginecol&oacute;gica</div>
         <div class="tx-subtitle">Valoraci&oacute;n + 2 seguimientos coordinados</div>
       </div>
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(184,137,58,.55)">04</div>
+      <div class="tx-num" style="color:rgba(106,142,155,.55)">04</div>
       <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#FBF5E8;color:var(--gold)">Nutrici&oacute;n</span><span class="tx-session">3 consultas &middot; 50 min</span></div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E8F0F3;color:var(--gold)">Nutrici&oacute;n</span><span class="tx-session">3 consultas &middot; 50 min</span></div>
         <div class="tx-name">Consulta de Nutrici&oacute;n</div>
         <div class="tx-subtitle">Plan optimizado para el Emsculpt Neo</div>
       </div>
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num" style="color:rgba(46,139,110,.55)">05</div>
+      <div class="tx-num" style="color:rgba(42,125,154,.55)">05</div>
       <div>
-        <div class="tx-meta"><span class="tx-tag" style="background:#E8F6F1;color:var(--teal)">Suelo P&eacute;lvico</span><span class="tx-session">2 consultas &middot; 55 min</span></div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E2EEF2;color:var(--teal)">Suelo P&eacute;lvico</span><span class="tx-session">2 consultas &middot; 55 min</span></div>
         <div class="tx-name">Fisioterapia de Suelo P&eacute;lvico</div>
         <div class="tx-subtitle">Valoraci&oacute;n + sesi&oacute;n de trabajo terap&eacute;utico</div>
       </div>
@@ -738,13 +745,13 @@
     const canvas = document.getElementById('bg-canvas');
     const ctx    = canvas.getContext('2d');
 
-    /* Palette: soft rose, blush, lilac, white */
+    /* Palette: soft Montesinos blues, powder blue, near-white */
     const stops = [
-      { r:255, g:235, b:240 },  /* blush rose */
-      { r:248, g:228, b:255 },  /* soft lilac */
-      { r:255, g:245, b:248 },  /* near white rose */
-      { r:240, g:230, b:255 },  /* pale violet */
-      { r:255, g:238, b:242 },  /* petal pink */
+      { r:240, g:248, b:252 },  /* pale blue-white */
+      { r:228, g:242, b:250 },  /* ice blue */
+      { r:244, g:250, b:253 },  /* near-white blue */
+      { r:232, g:244, b:250 },  /* powder blue */
+      { r:240, g:248, b:252 },  /* pale blue-white */
     ];
 
     let W = 0, H = 0, scrollY = 0, targetScroll = 0;
@@ -781,7 +788,7 @@
       const grad = ctx.createLinearGradient(0, 0, W * 0.6, H);
       grad.addColorStop(0,   `rgb(${top.r},${top.g},${top.b})`);
       grad.addColorStop(0.5, `rgb(${mid.r},${mid.g},${mid.b})`);
-      grad.addColorStop(1,   `rgb(253,251,255)`);
+      grad.addColorStop(1,   `rgb(244,249,251)`);
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, W, H);
 
