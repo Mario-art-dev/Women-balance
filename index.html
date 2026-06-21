@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Woman Balance · Clínica Montesinos Valencia</title>
-  <meta name="description" content="Programas de bienestar femenino en Clínica Montesinos, Valencia." />
+  <meta name="description" content="Programas de bienestar integral femenino. Clínica Montesinos, Valencia." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -12,11 +12,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue:     #5B9AB8;
-      --blue-l:   #89BDD0;
-      --blue-d:   #3A7A95;
-      --blue-m:   #6AAFC9;
-      --slate:    #6A8E9B;
+      --rose:     #5B9AB8;
+      --rose-l:   #89BDD0;
+      --violet:   #3A7A95;
+      --violet-l: #6AAFC9;
+      --gold:     #6A8E9B;
       --teal:     #2A7D9A;
       --ink:      #2D3B4E;
       --body:     #3E5060;
@@ -30,278 +30,460 @@
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: var(--page);
+      background: transparent;
       color: var(--body);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
+    /* ── SCROLL GRADIENT BACKGROUND ─────────────── */
     #bg-canvas {
       position: fixed; inset: 0; z-index: -1;
       pointer-events: none;
     }
 
     .wrap {
-      max-width: 740px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 0 clamp(1.4rem, 5vw, 2.5rem);
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
     }
 
+    /* ── ANIMATIONS ─────────────────────────────── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
+      from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
     @keyframes gradShift {
-      0%, 100% { background-position: 0% 50%; }
-      50%       { background-position: 100% 50%; }
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50%       { opacity: .55; }
+      50%       { opacity: .6; }
+    }
+    @keyframes driftBg {
+      0%, 100% { transform: scale(1) translate(0, 0); opacity: 1; }
+      50%       { transform: scale(1.06) translate(1.5%, -1.5%); opacity: .85; }
     }
     @keyframes numReveal {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(8px) scale(.85); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(-10px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform: translateY(18px) scale(.996);
+      transition: opacity 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: .15s; }
-    .reveal-delay-2 { transition-delay: .3s; }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .reveal-delay-1 { transition-delay: .18s; }
+    .reveal-delay-2 { transition-delay: .36s; }
+    .reveal-delay-3 { transition-delay: .54s; }
+    .reveal-delay-4 { transition-delay: .72s; }
+    .reveal-delay-5 { transition-delay: .90s; }
+    .reveal-delay-6 { transition-delay: 1.08s; }
 
-    /* ── HERO ── */
+    /* ── HERO ───────────────────────────────────── */
     .hero {
-      padding: clamp(4.5rem, 12vw, 8rem) 0 clamp(3.5rem, 7vw, 5.5rem);
+      position: relative;
+      padding: clamp(5rem, 12vw, 9rem) 0 clamp(4rem, 8vw, 6rem);
+      overflow: hidden;
     }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 85% 20%, rgba(91,154,184,.13) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 10% 85%, rgba(58,122,149,.11) 0%, transparent 60%);
+      pointer-events: none;
+      animation: driftBg 14s ease-in-out infinite;
+      transform-origin: center;
+    }
+    .hero-inner { position: relative; }
 
     .clinic-header {
       display: inline-flex; align-items: center; gap: 10px;
-      margin-bottom: 2rem;
-      animation: fadeIn 1.4s ease both;
+      margin-bottom: 1.75rem;
+      animation: fadeIn 1.7s ease both;
     }
-    .clinic-logo { height: 40px; width: auto; display: block; flex-shrink: 0; }
-    .clinic-divider { width: 1px; height: 28px; background: var(--line); flex-shrink: 0; }
+    .clinic-logo {
+      height: 42px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+    .clinic-divider {
+      width: 1px; height: 32px;
+      background: var(--line);
+      flex-shrink: 0;
+    }
     .clinic-text { display: flex; flex-direction: column; gap: 3px; }
     .clinic-name {
       font-family: 'Inter', sans-serif;
-      font-size: .75rem; font-weight: 600;
-      letter-spacing: .16em; text-transform: uppercase;
+      font-size: .78rem; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
       color: var(--ink); line-height: 1;
     }
     .clinic-spec {
-      font-size: .5rem; font-weight: 500;
-      letter-spacing: .18em; text-transform: uppercase;
+      font-size: .52rem; font-weight: 500;
+      letter-spacing: .2em; text-transform: uppercase;
       color: var(--muted); line-height: 1;
     }
-
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 10vw, 5.5rem);
-      font-weight: 400; line-height: 1.02; letter-spacing: -.02em;
-      color: var(--ink); margin-bottom: 1.6rem;
-      animation: fadeUp 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) .1s both;
+      font-size: clamp(3.2rem, 10vw, 6rem);
+      font-weight: 400; line-height: 1.02; letter-spacing: -.015em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 1.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) .15s both;
     }
     .hero h1 em {
       font-style: italic; font-weight: 300;
-      background: linear-gradient(110deg, var(--blue) 0%, var(--blue-m) 100%);
+      background: linear-gradient(110deg, var(--rose) 0%, var(--violet-l) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     .hero-desc {
-      font-size: .97rem; line-height: 1.85; color: var(--body);
-      max-width: 440px; font-weight: 400;
-      animation: fadeUp 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) .25s both;
+      font-size: 1.02rem; line-height: 1.8; color: var(--body);
+      max-width: 460px; font-weight: 400;
+      animation: fadeUp 1.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) .38s both;
     }
-    .hero-rule {
-      width: 48px; height: 1px; margin: 2.2rem 0;
-      background: var(--blue-l);
-      animation: fadeIn 1.4s ease .5s both;
+    .hero-line {
+      width: 60px; height: 2px; margin: 2.5rem 0;
+      background: linear-gradient(90deg, var(--rose), var(--violet-l));
+      animation: fadeIn 1.7s ease .65s both;
     }
 
-    /* ── SECTIONS ── */
+    /* ── DIVIDERS ───────────────────────────────── */
     .section-wrap {
-      padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
-      border-top: 1px solid var(--line);
+      padding: clamp(4.5rem, 10vw, 7rem) 0 clamp(4rem, 8vw, 6rem);
+      position: relative;
     }
+    .section-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--rose) 0%,
+        var(--violet-l) 45%,
+        rgba(106,175,201,.12) 75%,
+        transparent 100%
+      );
+    }
+
+    .label {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: .64rem; font-weight: 700;
+      letter-spacing: .24em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .label-dot { width: 5px; height: 5px; border-radius: 50%; }
 
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.65rem, 4vw, 2.4rem);
-      font-weight: 400; color: var(--ink);
-      line-height: 1.1; margin-bottom: 1rem;
+      font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+      font-weight: 400; color: var(--ink); line-height: 1.12; margin-bottom: .65rem;
     }
-    .section-intro {
-      font-size: .9rem; color: var(--muted); line-height: 1.82;
-      font-weight: 400; margin-bottom: 2.5rem; max-width: 500px;
+    .section-sub {
+      font-size: .89rem; color: var(--muted); line-height: 1.78;
+      font-weight: 400; margin-bottom: 2.75rem; max-width: 520px;
     }
 
-    /* ── PROGRAM CARDS ── */
-    .prog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    /* ── PROGRAM OVERVIEW ───────────────────────── */
+    .prog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .prog-card {
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: #fff;
-      padding: 1.6rem;
-      box-shadow: 0 1px 8px rgba(30,50,70,.05);
-      transition: box-shadow .3s ease, transform .3s ease;
+      border-radius: 18px; overflow: hidden;
+      border: 1px solid rgba(208,227,235,.8);
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 16px rgba(30,50,70,.06);
+      transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     .prog-card:hover {
-      box-shadow: 0 6px 24px rgba(58,122,149,.1);
-      transform: translateY(-3px);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(58,122,149,.12);
     }
-    .prog-card-accent {
-      width: 28px; height: 2px;
-      margin-bottom: 1.2rem;
-      border-radius: 2px;
-    }
+    .prog-card-bar { height: 4px; }
+    .prog-card-body { padding: 1.75rem; }
     .prog-card-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem; font-weight: 500; color: var(--ink);
-      margin-bottom: 1.1rem; line-height: 1.15;
+      font-size: 1.6rem; font-weight: 500; color: var(--ink);
+      margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
     }
-    .prog-card-name small {
-      display: block; font-family: 'Inter', sans-serif;
-      font-size: .6rem; font-weight: 600; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--blue-d);
-      margin-top: .3rem;
+    .prog-more-wrap { text-align: center; margin-bottom: 1rem; }
+    .prog-more {
+      margin-left: auto; flex-shrink: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: .78rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--muted); border: 1px solid var(--line);
+      border-radius: 9999px; padding: .32rem .9rem;
+      transition: color .25s, border-color .25s, background .25s;
     }
-    .prog-link {
-      display: inline-block; margin-top: 1.1rem;
-      font-size: .75rem; font-weight: 500; color: var(--muted);
-      text-decoration: none; border-bottom: 1px solid var(--line);
-      padding-bottom: 1px;
-      transition: color .2s, border-color .2s;
+    .prog-more:hover {
+      color: var(--rose); border-color: rgba(91,154,184,.35);
+      background: rgba(91,154,184,.06);
     }
-    .prog-link:hover { color: var(--blue); border-color: var(--blue-l); }
-    .prog-items { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
-    .prog-item {
-      display: flex; justify-content: space-between;
-      align-items: baseline; gap: .5rem;
-      font-size: .82rem;
+    .prime-tag {
+      font-size: .58rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: .25rem .55rem;
+      border-radius: 9999px; white-space: nowrap;
+      background: linear-gradient(110deg, var(--violet), var(--rose));
+      color: #fff;
     }
-    .prog-item-name { color: var(--body); font-weight: 500; }
-    .prog-item-time { color: var(--faint); white-space: nowrap; font-size: .75rem; }
+    .prog-items { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+    .prog-item { display: flex; justify-content: space-between; align-items: center; gap: .75rem; }
+    .prog-item-left { display: flex; align-items: center; gap: 9px; font-size: .855rem; font-weight: 500; color: var(--body); }
+    .prog-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .prog-item-right { font-size: .76rem; color: var(--muted); white-space: nowrap; }
 
-    /* ── TREATMENTS ── */
+    /* ── TREATMENTS ─────────────────────────────── */
     .tx-list { display: flex; flex-direction: column; }
     .tx-block {
-      display: grid; grid-template-columns: 44px 1fr;
-      gap: 1.4rem; padding: 2rem 0;
+      display: grid; grid-template-columns: 52px 1fr;
+      gap: 1.5rem; padding: 2.25rem 0;
       border-bottom: 1px solid var(--line);
+      position: relative;
+      transition: background .25s;
     }
     .tx-block:last-child { border-bottom: none; }
+    .tx-block::before {
+      content: '';
+      position: absolute; left: -clamp(1.25rem,5vw,3rem);
+      top: 0; bottom: 0; width: 3px;
+      border-radius: 0 3px 3px 0;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .tx-block:hover::before { opacity: 1; }
     .tx-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.9rem; font-weight: 400;
-      line-height: 1; color: var(--line);
-      padding-top: .1rem;
+      font-size: 2.2rem; font-weight: 500;
+      line-height: 1; padding-top: .15rem;
+      transition: transform .4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity .4s;
     }
-    .tx-block.visible .tx-num { animation: numReveal 1.2s ease .1s both; }
-    .tx-block.visible .tx-content { animation: fadeUp 1.2s ease .2s both; }
+    .tx-block:hover .tx-num { transform: scale(1.15); opacity: .8; }
+    .tx-block.visible .tx-num {
+      animation: numReveal 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) .1s both;
+    }
+    .tx-block.visible .tx-name {
+      animation: fadeUp 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) .22s both;
+    }
+    .tx-block.visible .tx-subtitle {
+      animation: fadeUp 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) .34s both;
+    }
+    .tx-block.visible .tx-desc {
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .46s both;
+    }
 
-    .tx-area {
-      font-size: .6rem; font-weight: 600; letter-spacing: .14em;
-      text-transform: uppercase; color: var(--blue);
-      margin-bottom: .5rem;
+    .tx-meta { display: flex; align-items: center; gap: .6rem; margin-bottom: .55rem; flex-wrap: wrap; }
+    .tx-tag {
+      font-size: .63rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .28rem .7rem; border-radius: 9999px;
     }
+    .tx-session { font-size: .76rem; color: var(--muted); }
+
     .tx-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem; font-weight: 500; color: var(--ink);
-      margin-bottom: .15rem; line-height: 1.2;
+      font-size: 1.4rem; font-weight: 500; color: var(--ink);
+      margin-bottom: .2rem; line-height: 1.2;
     }
-    .tx-sessions { font-size: .72rem; color: var(--faint); margin-bottom: .75rem; }
-    .tx-desc { font-size: .87rem; color: var(--body); line-height: 1.8; font-weight: 400; }
+    .tx-subtitle { font-size: .77rem; color: var(--muted); margin-bottom: .85rem; font-weight: 400; }
+    .tx-desc { font-size: .875rem; color: var(--body); line-height: 1.78; margin-bottom: .25rem; font-weight: 400; }
 
-    /* ── EMSCULPT ── */
+    /* ── EMSCULPT ───────────────────────────────── */
     .emsculpt-box {
-      border-radius: 12px; padding: 2rem;
-      margin-bottom: 2rem;
-      background: #0E2233;
+      border-radius: 18px; padding: 2.25rem;
+      margin-bottom: 2.25rem; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #0E2233 0%, #1A3347 50%, #0A1B28 100%);
+      background-size: 200% 200%;
+      animation: gradShift 8s ease infinite;
     }
+    .emsculpt-box::after {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(106,175,201,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .emsculpt-inner { position: relative; z-index: 1; }
+    .emsculpt-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .62rem; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: rgba(139,189,208,.75);
+      margin-bottom: .7rem;
+    }
+    .emsculpt-label-star { font-size: .75rem; animation: pulse 2s ease infinite; }
     .emsculpt-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; font-weight: 400; color: #fff;
-      margin-bottom: .6rem; line-height: 1.1;
-    }
-    .emsculpt-subtitle {
-      font-size: .65rem; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: rgba(139,189,208,.7);
-      margin-bottom: .9rem;
+      font-size: 1.75rem; font-weight: 400; color: #fff;
+      margin-bottom: .65rem; line-height: 1.12;
     }
     .emsculpt-desc {
-      font-size: .855rem; color: rgba(255,255,255,.75);
-      line-height: 1.75; font-weight: 300;
+      font-size: .855rem; color: rgba(255,255,255,.82);
+      line-height: 1.72; margin-bottom: 1.5rem; font-weight: 300;
     }
-    .emsculpt-numbers {
-      display: flex; gap: 2rem; margin-top: 1.4rem; flex-wrap: wrap;
+    .emsculpt-stats { display: flex; gap: .85rem; flex-wrap: wrap; }
+    .emsculpt-stat {
+      flex: 1; min-width: 88px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px; padding: .85rem;
+      text-align: center;
+      transition: background .3s;
     }
-    .emsculpt-num .val {
+    .emsculpt-stat:hover { background: rgba(255,255,255,.12); }
+    .emsculpt-box.visible .emsculpt-label {
+      animation: fadeUp 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) .2s both;
+    }
+    .emsculpt-box.visible .emsculpt-title {
+      animation: fadeUp 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) .36s both;
+    }
+    .emsculpt-box.visible .emsculpt-desc {
+      animation: fadeUp 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) .54s both;
+    }
+    .emsculpt-box.visible .emsculpt-stat:nth-child(1) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .68s both; }
+    .emsculpt-box.visible .emsculpt-stat:nth-child(2) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .84s both; }
+    .emsculpt-box.visible .emsculpt-stat:nth-child(3) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.00s both; }
+    .emsculpt-stat .val {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; font-weight: 500; color: #fff;
-      display: block; line-height: 1;
+      font-size: 1.55rem; font-weight: 600; color: #fff;
+      display: block; line-height: 1; margin-bottom: .28rem;
     }
-    .emsculpt-num .lbl {
-      font-size: .62rem; color: rgba(255,255,255,.5);
-      margin-top: .2rem; display: block;
-    }
+    .emsculpt-stat .lbl { font-size: .63rem; color: rgba(255,255,255,.68); line-height: 1.3; }
 
-    /* ── SEGUIMIENTO ── */
+    /* ── COMPARE TABLE ──────────────────────────── */
+    .cmp-wrap {
+      border: 1px solid rgba(208,227,235,.8);
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 2px 20px rgba(30,50,70,.06);
+      background: rgba(255,255,255,.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .cmp-table { width: 100%; border-collapse: collapse; }
+    .cmp-table thead tr {
+      background: linear-gradient(135deg, #EBF4F8 0%, #F0F8FC 100%);
+    }
+    .cmp-table th {
+      padding: 1rem 1.35rem;
+      font-size: .68rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      text-align: left; border-bottom: 1px solid var(--line);
+    }
+    .cmp-table th:nth-child(2) { color: var(--rose); text-align: center; }
+    .cmp-table th:nth-child(3) { color: var(--violet); text-align: center; }
+    .cmp-table td {
+      padding: .9rem 1.35rem; font-size: .86rem;
+      border-bottom: 1px solid var(--line);
+      transition: background .2s;
+    }
+    .cmp-table tr:last-child td { border-bottom: none; }
+    .cmp-table tbody tr:hover td { background: rgba(58,122,149,.03); }
+    .cmp-table td:first-child { font-weight: 500; color: var(--ink); }
+    .cmp-table td:not(:first-child) { text-align: center; color: var(--muted); }
+    .cmp-table tr.hl td {
+      background: linear-gradient(90deg, rgba(58,122,149,.05) 0%, rgba(91,154,184,.04) 100%);
+    }
+    .cmp-table tr.hl:hover td {
+      background: linear-gradient(90deg, rgba(58,122,149,.09) 0%, rgba(91,154,184,.07) 100%);
+    }
+    .cmp-table tr.hl td:first-child { color: var(--violet); }
+    .cmp-table tr.hl td:nth-child(3) { color: var(--violet); font-weight: 700; }
+    .cmp-wrap.visible thead tr {
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .15s both;
+    }
+    .cmp-wrap.visible tbody tr:nth-child(1) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .30s both; }
+    .cmp-wrap.visible tbody tr:nth-child(2) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .44s both; }
+    .cmp-wrap.visible tbody tr:nth-child(3) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .58s both; }
+    .cmp-wrap.visible tbody tr:nth-child(4) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .72s both; }
+    .cmp-wrap.visible tbody tr:nth-child(5) { animation: fadeUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) .86s both; }
+
+    /* ── SEGUIMIENTO ────────────────────────────── */
     .seg-list { display: flex; flex-direction: column; }
     .seg-item {
-      display: grid; grid-template-columns: 80px 1fr;
-      gap: 1.4rem; padding: 1.7rem 0;
+      display: grid; grid-template-columns: 88px 1fr;
+      gap: 1.5rem; padding: 1.85rem 0;
       border-bottom: 1px solid var(--line); align-items: start;
     }
     .seg-item:last-child { border-bottom: none; }
     .seg-week {
-      font-size: .72rem; color: var(--faint);
-      line-height: 1.5; padding-top: .1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: .88rem; color: var(--muted);
+      line-height: 1.45; padding-top: .12rem;
     }
-    .seg-item-name {
-      font-size: .92rem; font-weight: 600; color: var(--ink); margin-bottom: .4rem;
-    }
-    .seg-item-desc { font-size: .84rem; color: var(--body); line-height: 1.75; }
-    .seg-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-top: .75rem; }
+    .seg-item-name { font-size: .95rem; font-weight: 600; color: var(--ink); margin-bottom: .5rem; }
+    .seg-item-desc { font-size: .845rem; color: var(--body); line-height: 1.72; font-weight: 400; }
+    .seg-nesa-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-top: .8rem; }
     .seg-opt {
-      background: var(--page); border: 1px solid var(--line);
-      border-radius: 8px; padding: .85rem;
+      background: rgba(255,255,255,.7); border: 1px solid rgba(208,227,235,.8);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border-radius: 12px; padding: .95rem;
+      transition: border-color .25s, box-shadow .25s;
     }
-    .seg-opt-name { font-size: .8rem; font-weight: 600; color: var(--ink); margin-bottom: .3rem; }
-    .seg-opt-desc { font-size: .74rem; color: var(--muted); line-height: 1.5; }
+    .seg-opt:hover {
+      border-color: rgba(91,154,184,.3);
+      box-shadow: 0 4px 16px rgba(91,154,184,.08);
+    }
+    .seg-opt-name { font-size: .83rem; font-weight: 600; color: var(--ink); margin-bottom: .45rem; }
+    .seg-opt-desc { font-size: .77rem; color: var(--body); line-height: 1.52; }
 
-    .seg-item.visible .seg-week { animation: fadeUp 1.1s ease .1s both; }
-    .seg-item.visible .seg-item-name { animation: fadeUp 1.1s ease .2s both; }
-    .seg-item.visible .seg-item-desc { animation: fadeUp 1.1s ease .3s both; }
-    .seg-item.visible .seg-opts { animation: fadeUp 1.1s ease .45s both; }
+    /* ── SEG ITEM CHILDREN ──────────────────────── */
+    .seg-item.visible .seg-week {
+      animation: slideRight 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .15s both;
+    }
+    .seg-item.visible .seg-item-name {
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .25s both;
+    }
+    .seg-item.visible .seg-item-desc {
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .40s both;
+    }
+    .seg-item.visible .seg-nesa-opts {
+      animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) .64s both;
+    }
 
-    /* ── FOOTER ── */
+    /* ── FOOTER ─────────────────────────────────── */
     .footer {
-      padding: 2.5rem 0;
+      padding: 3rem 0;
       display: flex; align-items: center;
       justify-content: space-between; gap: 1rem;
       border-top: 1px solid var(--line); flex-wrap: wrap;
     }
-    .footer-brand { font-size: .75rem; color: var(--faint); }
+    .footer-brand { font-size: .78rem; color: var(--faint); }
     .footer-brand strong { color: var(--muted); font-weight: 600; }
-    .footer-copy { font-size: .7rem; color: var(--faint); }
+    .footer-copy { font-size: .72rem; color: var(--faint); }
 
-    @media (max-width: 540px) {
+    /* ── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 560px) {
       .prog-grid { grid-template-columns: 1fr; }
-      .tx-block { grid-template-columns: 34px 1fr; gap: .9rem; }
-      .tx-num { font-size: 1.4rem; }
-      .seg-item { grid-template-columns: 56px 1fr; gap: .9rem; }
-      .seg-opts { grid-template-columns: 1fr; }
-      .footer { flex-direction: column; align-items: flex-start; gap: .3rem; }
-      .emsculpt-numbers { gap: 1.4rem; }
+      .tx-block { grid-template-columns: 36px 1fr; gap: 1rem; }
+      .tx-num { font-size: 1.5rem; }
+      .seg-item { grid-template-columns: 60px 1fr; gap: 1rem; }
+      .seg-nesa-opts { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; align-items: flex-start; gap: .4rem; }
     }
   </style>
 </head>
@@ -310,192 +492,227 @@
 <canvas id="bg-canvas"></canvas>
 <div class="wrap">
 
-<!-- HERO -->
+<!-- ── HERO ─────────────────────────────────────────────── -->
 <div class="hero">
-  <div class="clinic-header">
-    <img src="logo-icon.png" alt="Clínica Montesinos" class="clinic-logo">
-    <div class="clinic-divider"></div>
-    <div class="clinic-text">
-      <span class="clinic-name">Montesinos</span>
-      <span class="clinic-spec">Cl&iacute;nica Ginecol&oacute;gica</span>
-    </div>
-  </div>
-  <h1>Woman<br><em>Balance</em></h1>
-  <p class="hero-desc">
-    Dos programas dise&ntilde;ados en la cl&iacute;nica para el bienestar de la mujer. Ginecolog&iacute;a, nutrici&oacute;n, fisioterapia y terapia NESA trabajan juntos, no por separado.
-  </p>
-  <div class="hero-rule"></div>
-</div>
-
-<!-- PROGRAMAS -->
-<div class="section-wrap">
-  <h2 class="section-title reveal">Dos programas, una misma base</h2>
-  <p class="section-intro reveal reveal-delay-1">La diferencia entre los dos est&aacute; en la intensidad y en que Prime incorpora el Emsculpt Neo. El resto de &aacute;reas son las mismas, con m&aacute;s sesiones en cada una.</p>
-  <div class="prog-grid">
-    <div class="prog-card reveal reveal-delay-1">
-      <div class="prog-card-accent" style="background:var(--blue)"></div>
-      <div class="prog-card-name">Woman Balance</div>
-      <ul class="prog-items">
-        <li class="prog-item"><span class="prog-item-name">Terapia NESA</span><span class="prog-item-time">8 &times; 50 min</span></li>
-        <li class="prog-item"><span class="prog-item-name">Ginecolog&iacute;a</span><span class="prog-item-time">2 &times; 20 min</span></li>
-        <li class="prog-item"><span class="prog-item-name">Nutrici&oacute;n</span><span class="prog-item-time">2 &times; 50 min</span></li>
-        <li class="prog-item"><span class="prog-item-name">Suelo P&eacute;lvico</span><span class="prog-item-time">1 &times; 55 min</span></li>
-      </ul>
-      <a href="#balance" class="prog-link">Ver detalle</a>
-    </div>
-    <div class="prog-card reveal reveal-delay-2">
-      <div class="prog-card-accent" style="background:var(--blue-d)"></div>
-      <div class="prog-card-name">
-        Woman Balance Prime
-        <small>Incluye Emsculpt Neo</small>
+  <div class="hero-inner">
+    <div class="clinic-header">
+      <img src="logo-icon.png" alt="Clínica Montesinos" class="clinic-logo">
+      <div class="clinic-divider"></div>
+      <div class="clinic-text">
+        <span class="clinic-name">Montesinos</span>
+        <span class="clinic-spec">Cl&iacute;nica Ginecol&oacute;gica</span>
       </div>
-      <ul class="prog-items">
-        <li class="prog-item"><span class="prog-item-name">Terapia NESA</span><span class="prog-item-time">10 &times; 50 min</span></li>
-        <li class="prog-item"><span class="prog-item-name">Emsculpt Neo</span><span class="prog-item-time">5 &times; 30 min</span></li>
-        <li class="prog-item"><span class="prog-item-name">Ginecolog&iacute;a</span><span class="prog-item-time">3 &times; 20 min</span></li>
-        <li class="prog-item"><span class="prog-item-name">Nutrici&oacute;n</span><span class="prog-item-time">3 &times; 50 min</span></li>
-        <li class="prog-item"><span class="prog-item-name">Suelo P&eacute;lvico</span><span class="prog-item-time">2 &times; 55 min</span></li>
-      </ul>
-      <a href="#prime" class="prog-link">Ver detalle</a>
+    </div>
+    <h1>Woman<br><em>Balance</em></h1>
+    <p class="hero-desc">
+      Programas de bienestar integral femenino. Un equipo de especialistas coordinado para equilibrar el sistema nervioso, las hormonas, la alimentaci&oacute;n y el suelo p&eacute;lvico.
+    </p>
+    <div class="hero-line"></div>
+  </div>
+</div>
+
+<!-- ── DE UN VISTAZO ─────────────────────────────────────── -->
+<div class="section-wrap">
+  <div class="wrap-inner reveal">
+    <div class="label" style="color:var(--muted)"><span class="label-dot" style="background:var(--muted)"></span>De un vistazo</div>
+    <h2 class="section-title">Dos programas</h2>
+    <p class="section-sub">Ambos trabajan de forma coordinada. La diferencia est&aacute; en la intensidad de cada tratamiento y en la incorporaci&oacute;n del Emsculpt Neo.</p>
+    <div class="prog-grid">
+      <div class="prog-card reveal reveal-delay-1">
+        <div class="prog-card-bar" style="background:linear-gradient(90deg,var(--rose),var(--rose-l))"></div>
+        <div class="prog-card-body">
+          <div class="prog-card-name">Woman Balance<a href="#balance" class="prog-more">Más info ↓</a></div>
+          <ul class="prog-items">
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--rose)"></span>Terapia NESA</div><span class="prog-item-right">8 &times; 50&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet)"></span>Ginecolog&iacute;a</div><span class="prog-item-right">2 &times; 20&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--gold)"></span>Nutrici&oacute;n</div><span class="prog-item-right">2 &times; 50&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--teal)"></span>Suelo P&eacute;lvico</div><span class="prog-item-right">1 &times; 55&prime;</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-card reveal reveal-delay-2">
+        <div class="prog-card-bar" style="background:linear-gradient(90deg,var(--violet),var(--rose-l))"></div>
+        <div class="prog-card-body">
+          <div class="prog-card-name" style="margin-bottom:.3rem">Woman Balance Prime <span class="prime-tag">&#9733; Prime</span></div>
+          <div class="prog-more-wrap"><a href="#prime" class="prog-more">Más info ↓</a></div>
+          <ul class="prog-items">
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--rose)"></span>Terapia NESA</div><span class="prog-item-right">10 &times; 50&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet-l)"></span>Emsculpt Neo &#9733;</div><span class="prog-item-right">5 &times; 30&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--violet)"></span>Ginecolog&iacute;a</div><span class="prog-item-right">3 &times; 20&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--gold)"></span>Nutrici&oacute;n</div><span class="prog-item-right">3 &times; 50&prime;</span></li>
+            <li class="prog-item"><div class="prog-item-left"><span class="prog-dot" style="background:var(--teal)"></span>Suelo P&eacute;lvico</div><span class="prog-item-right">2 &times; 55&prime;</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- WOMAN BALANCE -->
+<!-- ── WOMAN BALANCE ──────────────────────────────────────── -->
 <div class="section-wrap" id="balance">
-  <h2 class="section-title reveal">Woman Balance</h2>
-  <p class="section-intro reveal reveal-delay-1">Empezamos con una valoraci&oacute;n y desde ah&iacute; construimos el programa. Todas las especialidades se coordinan entre s&iacute; desde el primer d&iacute;a.</p>
+  <div class="label reveal" style="color:var(--rose)"><span class="label-dot" style="background:var(--rose)"></span>Programa</div>
+  <h2 class="section-title reveal reveal-delay-1">Woman Balance</h2>
+  <p class="section-sub reveal reveal-delay-2">4 tratamientos especializados que trabajan juntos para equilibrar el sistema nervioso, la salud hormonal, la alimentaci&oacute;n y el suelo p&eacute;lvico.</p>
   <div class="tx-list">
 
-    <div class="tx-block reveal">
-      <div class="tx-num">01</div>
-      <div class="tx-content">
-        <div class="tx-area">NESA &middot; 8 sesiones</div>
+    <div class="tx-block reveal" style="--accent:var(--rose)">
+      <style>.tx-block[style*='--accent:var(--rose)']::before { background: linear-gradient(to bottom, var(--rose), var(--rose-l)); }</style>
+      <div class="tx-num" style="color:rgba(91,154,184,.55)">01</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E5F1F7;color:var(--rose)">NESA</span><span class="tx-session">8 sesiones &middot; 50 min</span></div>
         <div class="tx-name">Terapia NESA</div>
-        <div class="tx-sessions">Neuroestimulaci&oacute;n Sist&eacute;mica Adaptativa</div>
-        <p class="tx-desc">Electrodos en mu&ntilde;ecas y tobillos que regulan el sistema nervioso aut&oacute;nomo sin dolor ni agujas. La mayor&iacute;a de pacientes nota calma y ligereza desde la primera sesi&oacute;n.</p>
+        <div class="tx-subtitle">Neuroestimulaci&oacute;n Sist&eacute;mica Adaptativa</div>
+        <p class="tx-desc">Electrodos suaves en mu&ntilde;ecas y tobillos equilibran el sistema nervioso aut&oacute;nomo &mdash; sin dolor, sin agujas. La mayor&iacute;a nota calma y ligereza desde la primera sesi&oacute;n.</p>
       </div>
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num">02</div>
-      <div class="tx-content">
-        <div class="tx-area">Ginecolog&iacute;a &middot; 2 consultas</div>
+      <div class="tx-num" style="color:rgba(58,122,149,.55)">02</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E2EEF4;color:var(--violet)">Ginecolog&iacute;a</span><span class="tx-session">2 consultas &middot; 20 min</span></div>
         <div class="tx-name">Consulta Ginecol&oacute;gica</div>
-        <div class="tx-sessions">Valoraci&oacute;n hormonal y seguimiento</div>
-        <p class="tx-desc">Dos consultas para ver el estado hormonal y ginecol&oacute;gico. Lo que se obtiene aqu&iacute; orienta el trabajo del resto del equipo a lo largo del programa.</p>
+        <div class="tx-subtitle">Valoraci&oacute;n hormonal + seguimiento coordinado</div>
+        <p class="tx-desc">Valoraci&oacute;n completa de la salud ginecol&oacute;gica y hormonal, coordinada con todo el equipo para adaptar el programa a cada persona.</p>
       </div>
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num">03</div>
-      <div class="tx-content">
-        <div class="tx-area">Nutrici&oacute;n &middot; 2 consultas</div>
+      <div class="tx-num" style="color:rgba(106,142,155,.55)">03</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E8F0F3;color:var(--gold)">Nutrici&oacute;n</span><span class="tx-session">2 consultas &middot; 50 min</span></div>
         <div class="tx-name">Consulta de Nutrici&oacute;n</div>
-        <div class="tx-sessions">Plan nutricional para la salud hormonal</div>
-        <p class="tx-desc">No va de dietas restrictivas &mdash; va de entender c&oacute;mo la alimentaci&oacute;n afecta la energ&iacute;a, el ciclo y el bienestar. Enfoque pr&aacute;ctico y funcional para el d&iacute;a a d&iacute;a.</p>
+        <div class="tx-subtitle">Plan nutricional para la salud hormonal</div>
+        <p class="tx-desc">No va de dietas restrictivas &mdash; va de entender c&oacute;mo la alimentaci&oacute;n afecta la energ&iacute;a, el ciclo y el bienestar. Enfoque funcional y pr&aacute;ctico para el d&iacute;a a d&iacute;a.</p>
       </div>
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num">04</div>
-      <div class="tx-content">
-        <div class="tx-area">Suelo P&eacute;lvico &middot; 1 consulta</div>
+      <div class="tx-num" style="color:rgba(42,125,154,.55)">04</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E2EEF2;color:var(--teal)">Suelo P&eacute;lvico</span><span class="tx-session">1 consulta &middot; 55 min</span></div>
         <div class="tx-name">Fisioterapia de Suelo P&eacute;lvico</div>
-        <div class="tx-sessions">Valoraci&oacute;n funcional</div>
-        <p class="tx-desc">El suelo p&eacute;lvico tiene m&aacute;s impacto del que parece: afecta la postura, el dolor lumbar y el sistema nervioso. La valoraci&oacute;n complementa y potencia el trabajo de todo el equipo.</p>
+        <div class="tx-subtitle">Valoraci&oacute;n funcional completa</div>
+        <p class="tx-desc">El suelo p&eacute;lvico afecta la postura, el dolor de espalda y el sistema nervioso. La evaluaci&oacute;n funcional orienta y potencia el trabajo de todo el equipo.</p>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- PRIME -->
+<!-- ── PRIME ──────────────────────────────────────────────── -->
 <div class="section-wrap" id="prime">
-  <h2 class="section-title reveal">Woman Balance Prime</h2>
-  <p class="section-intro reveal reveal-delay-1">Todo lo que incluye Woman Balance, con m&aacute;s sesiones en cada &aacute;rea y la incorporaci&oacute;n del Emsculpt Neo para las pacientes que quieren ir un paso m&aacute;s all&aacute;.</p>
+  <div class="label reveal" style="color:var(--violet)"><span class="label-dot" style="background:var(--violet)"></span>Programa Premium</div>
+  <h2 class="section-title reveal reveal-delay-1">Woman Balance Prime</h2>
+  <p class="section-sub reveal reveal-delay-2">Todo lo del programa Woman Balance, con m&aacute;s profundidad en cada tratamiento y la incorporaci&oacute;n del Emsculpt Neo.</p>
 
   <div class="emsculpt-box reveal">
-    <div class="emsculpt-subtitle">Solo en Prime</div>
-    <div class="emsculpt-title">Emsculpt Neo</div>
-    <p class="emsculpt-desc">Combina radiofrecuencia para reducir grasa y estimulaci&oacute;n electromagn&eacute;tica para tonificar m&uacute;sculo, en 30 minutos. Sin cirug&iacute;a, sin agujas y sin recuperaci&oacute;n. Una sesi&oacute;n equivale a 20.000 contracciones musculares.</p>
-    <div class="emsculpt-numbers">
-      <div class="emsculpt-num"><span class="val">&minus;30%</span><span class="lbl">Grasa localizada</span></div>
-      <div class="emsculpt-num"><span class="val">+25%</span><span class="lbl">Masa muscular</span></div>
-      <div class="emsculpt-num"><span class="val">3.ª ses.</span><span class="lbl">Resultados visibles</span></div>
+    <div class="emsculpt-inner">
+      <div class="emsculpt-label"><span class="emsculpt-label-star">&#9733;</span> Exclusivo Prime</div>
+      <div class="emsculpt-title">Emsculpt Neo</div>
+      <p class="emsculpt-desc">La &uacute;nica tecnolog&iacute;a que combina radiofrecuencia (reduce grasa) y estimulaci&oacute;n electromagn&eacute;tica de alta intensidad (tonifica el m&uacute;sculo) en 30 minutos, sin cirug&iacute;a, sin agujas y sin recuperaci&oacute;n. Una sesi&oacute;n equivale a 20.000 contracciones musculares supram&aacute;ximas.</p>
+      <div class="emsculpt-stats">
+        <div class="emsculpt-stat"><span class="val">&minus;30%</span><span class="lbl">Grasa localizada</span></div>
+        <div class="emsculpt-stat"><span class="val">+25%</span><span class="lbl">Masa muscular</span></div>
+        <div class="emsculpt-stat"><span class="val">3&ordf; ses.</span><span class="lbl">Visible desde</span></div>
+      </div>
     </div>
   </div>
 
   <div class="tx-list">
 
     <div class="tx-block reveal">
-      <div class="tx-num">01</div>
-      <div class="tx-content">
-        <div class="tx-area">Emsculpt Neo &middot; 5 sesiones</div>
+      <div class="tx-num" style="color:rgba(58,122,149,.55)">01</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:linear-gradient(110deg,var(--violet),var(--rose));color:#fff">&#9733; Emsculpt Neo</span><span class="tx-session">5 sesiones &middot; 30 min</span></div>
         <div class="tx-name">Emsculpt Neo</div>
-        <div class="tx-sessions">Remodelaci&oacute;n corporal</div>
-        <p class="tx-desc">Exclusivo del programa Prime. Cinco sesiones de 30 minutos que trabajan grasa y m&uacute;sculo a la vez, complementando el resto del programa desde dentro.</p>
+        <div class="tx-subtitle">Remodelaci&oacute;n corporal sin cirug&iacute;a</div>
+        <p class="tx-desc">Combina radiofrecuencia y estimulaci&oacute;n electromagn&eacute;tica en 30 minutos. Sin cirug&iacute;a, sin agujas, sin recuperaci&oacute;n. Resultados visibles desde la tercera sesi&oacute;n.</p>
       </div>
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num">02</div>
-      <div class="tx-content">
-        <div class="tx-area">NESA &middot; 10 sesiones</div>
+      <div class="tx-num" style="color:rgba(91,154,184,.55)">02</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E5F1F7;color:var(--rose)">NESA</span><span class="tx-session">10 sesiones &middot; 50 min</span></div>
         <div class="tx-name">Terapia NESA</div>
-        <div class="tx-sessions">2 sesiones m&aacute;s que en Balance</div>
+        <div class="tx-subtitle">2 sesiones adicionales para mayor consolidaci&oacute;n</div>
       </div>
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num">03</div>
-      <div class="tx-content">
-        <div class="tx-area">Ginecolog&iacute;a &middot; 3 consultas</div>
+      <div class="tx-num" style="color:rgba(58,122,149,.55)">03</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E2EEF4;color:var(--violet)">Ginecolog&iacute;a</span><span class="tx-session">3 consultas &middot; 20 min</span></div>
         <div class="tx-name">Consulta Ginecol&oacute;gica</div>
-        <div class="tx-sessions">Valoraci&oacute;n + 2 seguimientos</div>
+        <div class="tx-subtitle">Valoraci&oacute;n + 2 seguimientos coordinados</div>
       </div>
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num">04</div>
-      <div class="tx-content">
-        <div class="tx-area">Nutrici&oacute;n &middot; 3 consultas</div>
+      <div class="tx-num" style="color:rgba(106,142,155,.55)">04</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E8F0F3;color:var(--gold)">Nutrici&oacute;n</span><span class="tx-session">3 consultas &middot; 50 min</span></div>
         <div class="tx-name">Consulta de Nutrici&oacute;n</div>
-        <div class="tx-sessions">Plan adaptado al Emsculpt Neo</div>
+        <div class="tx-subtitle">Plan optimizado para el Emsculpt Neo</div>
       </div>
     </div>
 
     <div class="tx-block reveal">
-      <div class="tx-num">05</div>
-      <div class="tx-content">
-        <div class="tx-area">Suelo P&eacute;lvico &middot; 2 consultas</div>
+      <div class="tx-num" style="color:rgba(42,125,154,.55)">05</div>
+      <div>
+        <div class="tx-meta"><span class="tx-tag" style="background:#E2EEF2;color:var(--teal)">Suelo P&eacute;lvico</span><span class="tx-session">2 consultas &middot; 55 min</span></div>
         <div class="tx-name">Fisioterapia de Suelo P&eacute;lvico</div>
-        <div class="tx-sessions">Valoraci&oacute;n + sesi&oacute;n terap&eacute;utica</div>
+        <div class="tx-subtitle">Valoraci&oacute;n + sesi&oacute;n de trabajo terap&eacute;utico</div>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- SEGUIMIENTO -->
+<!-- ── COMPARATIVA ────────────────────────────────────────── -->
+<div class="section-wrap" id="comparativa">
+  <div class="label reveal" style="color:var(--muted)"><span class="label-dot" style="background:var(--muted)"></span>Comparativa</div>
+  <h2 class="section-title reveal reveal-delay-1">Balance vs Prime</h2>
+  <div class="cmp-wrap reveal reveal-delay-2">
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th style="color:var(--muted)">Tratamiento</th>
+          <th>Balance</th>
+          <th>Prime &#9733;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Terapia NESA</td><td>8 &times; 50&prime;</td><td>10 &times; 50&prime;</td></tr>
+        <tr class="hl"><td>Emsculpt Neo</td><td style="color:var(--faint);font-style:italic">&mdash;</td><td>5 &times; 30&prime;</td></tr>
+        <tr><td>Ginecolog&iacute;a</td><td>2 &times; 20&prime;</td><td>3 &times; 20&prime;</td></tr>
+        <tr><td>Nutrici&oacute;n</td><td>2 &times; 50&prime;</td><td>3 &times; 50&prime;</td></tr>
+        <tr><td>Suelo P&eacute;lvico</td><td>1 &times; 55&prime;</td><td>2 &times; 55&prime;</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ── SEGUIMIENTO ────────────────────────────────────────── -->
 <div class="section-wrap" id="seguimiento">
-  <h2 class="section-title reveal">Despu&eacute;s del programa</h2>
-  <p class="section-intro reveal reveal-delay-1">Terminar el programa no es el final. Hay un protocolo de seguimiento para que los resultados se mantengan y se consoliden a lo largo de los meses.</p>
+  <div class="label reveal" style="color:var(--teal)"><span class="label-dot" style="background:var(--teal)"></span>Despu&eacute;s del programa</div>
+  <h2 class="section-title reveal reveal-delay-1">Programa de Seguimiento</h2>
+  <p class="section-sub reveal reveal-delay-2">Al finalizar Woman Balance o Prime, hay un programa de seguimiento para consolidar los resultados a largo plazo.</p>
   <div class="seg-list">
 
     <div class="seg-item reveal">
-      <div class="seg-week">Sem. 3, 6, 9, 12 y 15</div>
+      <div class="seg-week">Sem.<br>3&middot;6&middot;9&middot;12&middot;15</div>
       <div>
         <div class="seg-item-name">NESA o Neosculpt &mdash; 5 sesiones</div>
-        <p class="seg-item-desc">En cada cita se elige la modalidad seg&uacute;n c&oacute;mo est&eacute; la paciente y qu&eacute; necesite en ese momento.</p>
-        <div class="seg-opts">
+        <p class="seg-item-desc">En cada sesi&oacute;n se elige la modalidad seg&uacute;n los objetivos del momento.</p>
+        <div class="seg-nesa-opts">
           <div class="seg-opt">
             <div class="seg-opt-name">NESA &mdash; 50 min</div>
-            <div class="seg-opt-desc">Sistema nervioso, dolor, sue&ntilde;o, energ&iacute;a y suelo p&eacute;lvico.</div>
+            <div class="seg-opt-desc">Equilibrio nervioso, dolor, sue&ntilde;o, energ&iacute;a y suelo p&eacute;lvico.</div>
           </div>
           <div class="seg-opt">
             <div class="seg-opt-name">Neosculpt &mdash; 30 min</div>
-            <div class="seg-opt-desc">Mantener el tono y la composici&oacute;n corporal trabajados.</div>
+            <div class="seg-opt-desc">Mantener el tono muscular y la composici&oacute;n corporal conseguida.</div>
           </div>
         </div>
       </div>
@@ -504,84 +721,114 @@
     <div class="seg-item reveal">
       <div class="seg-week">Semana 1</div>
       <div>
-        <div class="seg-item-name">Suelo P&eacute;lvico &mdash; 55 min</div>
-        <p class="seg-item-desc">Revisi&oacute;n de c&oacute;mo ha ido, tratamiento manual y pautas actualizadas seg&uacute;n la evoluci&oacute;n.</p>
+        <div class="seg-item-name">Sesi&oacute;n de Suelo P&eacute;lvico &mdash; 55 min</div>
+        <p class="seg-item-desc">Trabajo terap&eacute;utico directo: revisi&oacute;n de evoluci&oacute;n, tratamiento manual y pautas actualizadas.</p>
       </div>
     </div>
 
     <div class="seg-item reveal">
       <div class="seg-week">Semana 2</div>
       <div>
-        <div class="seg-item-name">Nutrici&oacute;n &mdash; 50 min</div>
-        <p class="seg-item-desc">No es empezar de cero &mdash; es ajustar lo que ya funciona a la fase de mantenimiento.</p>
+        <div class="seg-item-name">Consulta de Nutrici&oacute;n &mdash; 50 min</div>
+        <p class="seg-item-desc">Se ajusta el plan para la fase de mantenimiento &mdash; no es empezar de cero, es afinar lo que ya funciona.</p>
       </div>
     </div>
 
     <div class="seg-item reveal">
       <div class="seg-week">Semana 15</div>
       <div>
-        <div class="seg-item-name">Ginecolog&iacute;a &mdash; 20 min</div>
-        <p class="seg-item-desc">Valoraci&oacute;n final y recomendaciones para seguir con un plan claro a partir de ah&iacute;.</p>
+        <div class="seg-item-name">Consulta Ginecol&oacute;gica de Cierre &mdash; 20 min</div>
+        <p class="seg-item-desc">Valoraci&oacute;n final del proceso y recomendaciones para seguir con un plan claro.</p>
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
 <div class="footer reveal">
   <div class="footer-brand"><strong>Cl&iacute;nica Montesinos</strong> &middot; Valencia</div>
-  <div class="footer-copy">&copy; 2026</div>
+  <div class="footer-copy">&copy; 2026 &middot; Todos los derechos reservados</div>
 </div>
 
-</div>
+</div><!-- /wrap -->
 
 <script>
+  /* ── SCROLL-REACTIVE GRADIENT BACKGROUND ── */
   (function () {
     const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
+    const ctx    = canvas.getContext('2d');
+
+    /* Palette: soft Montesinos blues, powder blue, near-white */
     const stops = [
-      { r:240, g:248, b:252 },
-      { r:230, g:243, b:250 },
-      { r:244, g:250, b:253 },
-      { r:234, g:245, b:251 },
-      { r:240, g:248, b:252 },
+      { r:240, g:248, b:252 },  /* pale blue-white */
+      { r:228, g:242, b:250 },  /* ice blue */
+      { r:244, g:250, b:253 },  /* near-white blue */
+      { r:232, g:244, b:250 },  /* powder blue */
+      { r:240, g:248, b:252 },  /* pale blue-white */
     ];
-    let W = 0, H = 0, scrollY = 0, target = 0;
-    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-    function lerp(a, b, t) { return a + (b - a) * t; }
-    function lerpC(a, b, t) { return { r: lerp(a.r,b.r,t), g: lerp(a.g,b.g,t), b: lerp(a.b,b.b,t) }; }
-    function draw() {
-      scrollY += (target - scrollY) * 0.05;
-      const docH = document.body.scrollHeight - window.innerHeight || 1;
-      const p = Math.max(0, Math.min(1, scrollY / docH)) * (stops.length - 1);
-      const i = Math.floor(p), t = p - i;
-      const top = lerpC(stops[Math.min(i, stops.length-1)], stops[Math.min(i+1, stops.length-1)], t);
-      const p2 = Math.max(0, Math.min(1, scrollY / docH + 0.25)) * (stops.length - 1);
-      const i2 = Math.floor(p2), t2 = p2 - i2;
-      const mid = lerpC(stops[Math.min(i2, stops.length-1)], stops[Math.min(i2+1, stops.length-1)], t2);
-      const g = ctx.createLinearGradient(0, 0, W * 0.5, H);
-      g.addColorStop(0, `rgb(${top.r},${top.g},${top.b})`);
-      g.addColorStop(0.6, `rgb(${mid.r},${mid.g},${mid.b})`);
-      g.addColorStop(1, `rgb(244,249,251)`);
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, W, H);
-      requestAnimationFrame(draw);
+
+    let W = 0, H = 0, scrollY = 0, targetScroll = 0;
+    let raf = null;
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
     }
-    window.addEventListener('scroll', () => { target = window.scrollY; }, { passive: true });
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function lerpC(a, b, t) {
+      return { r: lerp(a.r, b.r, t), g: lerp(a.g, b.g, t), b: lerp(a.b, b.b, t) };
+    }
+
+    function draw() {
+      scrollY += (targetScroll - scrollY) * 0.06;
+      const docH   = document.body.scrollHeight - window.innerHeight || 1;
+      const prog   = Math.max(0, Math.min(1, scrollY / docH));
+      const scaled = prog * (stops.length - 1);
+      const idx    = Math.floor(scaled);
+      const t      = scaled - idx;
+      const ca     = stops[Math.min(idx, stops.length - 1)];
+      const cb     = stops[Math.min(idx + 1, stops.length - 1)];
+      const top    = lerpC(ca, cb, t);
+
+      /* Second color is offset ¼ page ahead for depth */
+      const prog2  = Math.max(0, Math.min(1, (scrollY / docH) + 0.25));
+      const sc2    = prog2 * (stops.length - 1);
+      const i2     = Math.floor(sc2);
+      const t2     = sc2 - i2;
+      const mid    = lerpC(stops[Math.min(i2, stops.length - 1)], stops[Math.min(i2 + 1, stops.length - 1)], t2);
+
+      const grad = ctx.createLinearGradient(0, 0, W * 0.6, H);
+      grad.addColorStop(0,   `rgb(${top.r},${top.g},${top.b})`);
+      grad.addColorStop(0.5, `rgb(${mid.r},${mid.g},${mid.b})`);
+      grad.addColorStop(1,   `rgb(244,249,251)`);
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, W, H);
+
+      raf = requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('scroll', () => { targetScroll = window.scrollY; }, { passive: true });
     window.addEventListener('resize', resize);
-    resize(); draw();
+    resize();
+    draw();
   })();
 </script>
 
 <script>
   const observer = new IntersectionObserver(
-    entries => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-    }),
-    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 </script>
 
 </body>
