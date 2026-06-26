@@ -475,6 +475,64 @@
     .footer-brand { font-size: .78rem; color: var(--faint); }
     .footer-brand strong { color: var(--muted); font-weight: 600; }
     .footer-copy { font-size: .72rem; color: var(--faint); }
+    .footer-legal { font-size: .72rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .footer-legal a {
+      color: var(--faint); text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .footer-legal a:hover { color: var(--muted); border-bottom-color: var(--line); }
+
+    /* ── LEGAL MODALS ────────────────────────────── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(45,59,78,.45); backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      align-items: flex-start; justify-content: center;
+      padding: 2rem 1rem; overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: #fff; border-radius: 12px;
+      max-width: 680px; width: 100%;
+      padding: clamp(1.5rem, 5vw, 2.5rem);
+      position: relative; margin: auto;
+      box-shadow: 0 20px 60px rgba(45,59,78,.18);
+    }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: none; cursor: pointer;
+      color: var(--faint); font-size: 1.4rem; line-height: 1;
+      width: 2rem; height: 2rem; display: flex;
+      align-items: center; justify-content: center;
+      border-radius: 50%; transition: background .15s;
+    }
+    .modal-close:hover { background: var(--page); color: var(--ink); }
+    .modal h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 400; color: var(--ink);
+      margin-bottom: 1.5rem; padding-bottom: .75rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .modal h3 {
+      font-size: .78rem; font-weight: 600; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--violet);
+      margin: 1.5rem 0 .5rem;
+    }
+    .modal p, .modal li {
+      font-size: .84rem; line-height: 1.7;
+      color: var(--body); margin-bottom: .5rem;
+    }
+    .modal ul { padding-left: 1.2rem; }
+    .modal li { margin-bottom: .3rem; }
+    .modal a { color: var(--teal); }
+    .modal-note {
+      margin-top: 1.5rem; padding: 1rem;
+      background: var(--page); border-radius: 8px;
+      border-left: 3px solid var(--rose-l);
+      font-size: .78rem; color: var(--muted); line-height: 1.6;
+    }
 
     /* ── RESPONSIVE ─────────────────────────────── */
     @media (max-width: 560px) {
@@ -747,11 +805,94 @@
 
 <!-- ── FOOTER ─────────────────────────────────────────────── -->
 <div class="footer reveal">
-  <div class="footer-brand"><strong>Cl&iacute;nica Montesinos</strong> &middot; Valencia</div>
+  <div class="footer-brand"><strong>Cl&iacute;nica Montesinos</strong> &middot; Valencia &middot; <a href="tel:+34963953385" style="color:inherit;text-decoration:none;">963 95 33 85</a></div>
+  <div class="footer-legal">
+    <a href="#" onclick="openModal('aviso-legal');return false;">Aviso Legal</a>
+    <a href="#" onclick="openModal('privacidad');return false;">Pol&iacute;tica de Privacidad</a>
+  </div>
   <div class="footer-copy">&copy; 2026 &middot; Todos los derechos reservados</div>
 </div>
 
 </div><!-- /wrap -->
+
+<!-- ── MODAL: AVISO LEGAL ──────────────────────────────────── -->
+<div class="modal-overlay" id="aviso-legal" role="dialog" aria-modal="true" aria-labelledby="al-title">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('aviso-legal')" aria-label="Cerrar">&times;</button>
+    <h2 id="al-title">Aviso Legal</h2>
+
+    <h3>Titular del sitio web</h3>
+    <p>En cumplimiento del art&iacute;culo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Informaci&oacute;n y de Comercio Electr&oacute;nico (LSSI-CE), se informa:</p>
+    <ul>
+      <li><strong>Denominaci&oacute;n social:</strong> Cl&iacute;nica Montesinos SL</li>
+      <li><strong>CIF:</strong> B96787692</li>
+      <li><strong>Domicilio social:</strong> Duque de Calabria, 8 Bajo Izquierdo, 46005 Valencia</li>
+      <li><strong>Tel&eacute;fono:</strong> <a href="tel:+34963953385">+34 963 95 33 85</a></li>
+      <li><strong>Correo electr&oacute;nico:</strong> <a href="mailto:ginecologiamontesinos@gmail.com">ginecologiamontesinos@gmail.com</a></li>
+      <li><strong>N&uacute;mero de colegiado:</strong> 464620190 &mdash; Colegio Oficial de M&eacute;dicos de Valencia (ICOMV)</li>
+      <li><strong>Inscripci&oacute;n registral:</strong> Registro Mercantil de Valencia, Tomo 6134, Folio 60, Hoja V-61519</li>
+    </ul>
+
+    <h3>Objeto y &aacute;mbito de aplicaci&oacute;n</h3>
+    <p>El presente Aviso Legal regula el acceso y uso del sitio web <strong>womanbalance.clinicamontesinos.es</strong> (en adelante, &laquo;el Sitio&raquo;), titularidad de Cl&iacute;nica Montesinos SL. El acceso al Sitio implica la aceptaci&oacute;n plena de las condiciones aqu&iacute; recogidas.</p>
+
+    <h3>Propiedad intelectual e industrial</h3>
+    <p>Todos los contenidos del Sitio &mdash;textos, im&aacute;genes, dise&ntilde;os, logotipos y marcas&mdash; son propiedad de Cl&iacute;nica Montesinos SL o de sus licenciantes, y est&aacute;n protegidos por la legislaci&oacute;n espa&ntilde;ola e internacional en materia de propiedad intelectual e industrial. Queda expresamente prohibida su reproducci&oacute;n, distribuci&oacute;n o comunicaci&oacute;n p&uacute;blica sin autorizaci&oacute;n previa y por escrito.</p>
+
+    <h3>Responsabilidad</h3>
+    <p>La informaci&oacute;n publicada en este Sitio tiene car&aacute;cter meramente informativo y divulgativo. No constituye diagn&oacute;stico m&eacute;dico ni consejo sanitario individualizado. Cl&iacute;nica Montesinos SL no se responsabiliza del uso que el usuario haga de dicha informaci&oacute;n.</p>
+
+    <h3>Ley aplicable y jurisdicci&oacute;n</h3>
+    <p>Este Aviso Legal se rige por la legislaci&oacute;n espa&ntilde;ola. Para cualquier controversia derivada del acceso o uso del Sitio, las partes se someten, con renuncia expresa a cualquier otro fuero, a los Juzgados y Tribunales de Valencia.</p>
+
+    <div class="modal-note">
+      &Uacute;ltima actualizaci&oacute;n: junio de 2026
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL: POLÍTICA DE PRIVACIDAD ──────────────────────── -->
+<div class="modal-overlay" id="privacidad" role="dialog" aria-modal="true" aria-labelledby="pp-title">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('privacidad')" aria-label="Cerrar">&times;</button>
+    <h2 id="pp-title">Pol&iacute;tica de Privacidad</h2>
+
+    <h3>Responsable del tratamiento</h3>
+    <ul>
+      <li><strong>Identidad:</strong> Cl&iacute;nica Montesinos SL</li>
+      <li><strong>CIF:</strong> B96787692</li>
+      <li><strong>Direcci&oacute;n:</strong> Duque de Calabria, 8 Bajo Izquierdo, 46005 Valencia</li>
+      <li><strong>Tel&eacute;fono:</strong> <a href="tel:+34963953385">+34 963 95 33 85</a></li>
+      <li><strong>Contacto:</strong> <a href="mailto:ginecologiamontesinos@gmail.com">ginecologiamontesinos@gmail.com</a></li>
+    </ul>
+
+    <h3>Datos que recogemos</h3>
+    <p>Este sitio web es meramente informativo. <strong>No dispone de formularios de contacto, ni recoge datos personales de forma autom&aacute;tica.</strong> No se utilizan cookies de rastreo ni herramientas de anal&iacute;tica de terceros.</p>
+    <p>Si usted nos contacta por correo electr&oacute;nico, trataremos &uacute;nicamente los datos que nos proporcione (nombre, direcci&oacute;n de correo y contenido del mensaje) con la finalidad exclusiva de atender su consulta.</p>
+
+    <h3>Base jur&iacute;dica</h3>
+    <p>El tratamiento de datos derivado del contacto por correo electr&oacute;nico se basa en el inter&eacute;s leg&iacute;timo del responsable y/o en el consentimiento del interesado (art. 6.1.a y 6.1.f del Reglamento (UE) 2016/679, RGPD).</p>
+
+    <h3>Conservaci&oacute;n de datos</h3>
+    <p>Los datos de contacto se conservan durante el tiempo necesario para atender la consulta y, en su caso, durante los plazos legales que resulten de aplicaci&oacute;n.</p>
+
+    <h3>Destinatarios</h3>
+    <p>Los datos no se ceden a terceros, salvo obligaci&oacute;n legal. No se realizan transferencias internacionales de datos.</p>
+
+    <h3>Derechos del interesado</h3>
+    <p>Puede ejercer, en cualquier momento y de forma gratuita, sus derechos de acceso, rectificaci&oacute;n, supresi&oacute;n, limitaci&oacute;n del tratamiento, portabilidad y oposici&oacute;n, dirigi&eacute;ndose por escrito a:</p>
+    <p><strong>Cl&iacute;nica Montesinos SL</strong> &mdash; Duque de Calabria, 8 Bajo Izquierdo, 46005 Valencia<br>
+    o a: <a href="mailto:ginecologiamontesinos@gmail.com">ginecologiamontesinos@gmail.com</a></p>
+    <p>Asimismo, tiene derecho a presentar una reclamaci&oacute;n ante la <strong>Agencia Espa&ntilde;ola de Protecci&oacute;n de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
+
+    <h3>Cookies</h3>
+    <p>Este sitio web <strong>no utiliza cookies</strong> propias ni de terceros para rastreo, anal&iacute;tica o publicidad. Solo se cargan las fuentes tipogr&aacute;ficas de Google Fonts (conexi&oacute;n t&eacute;cnica a servidores de Google al cargar la p&aacute;gina).</p>
+
+    <div class="modal-note">
+      &Uacute;ltima actualizaci&oacute;n: junio de 2026
+    </div>
+  </div>
+</div>
 
 <script>
   /* ── SCROLL-REACTIVE GRADIENT BACKGROUND ── */
@@ -829,6 +970,29 @@
     { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+
+<script>
+  function openModal(id) {
+    const el = document.getElementById(id);
+    el.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    el.addEventListener('click', function outsideClick(e) {
+      if (e.target === el) { closeModal(id); el.removeEventListener('click', outsideClick); }
+    });
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
+        m.classList.remove('open');
+      });
+      document.body.style.overflow = '';
+    }
+  });
 </script>
 
 </body>
