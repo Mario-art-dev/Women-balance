@@ -80,6 +80,7 @@
     burger.setAttribute('aria-expanded', 'false');
     burger.setAttribute('aria-label', 'Abrir menú');
     header.classList.remove('menu-open');
+    document.body.classList.remove('menu-open');
     document.body.style.overflow = '';
     lenis && lenis.start();
   }
@@ -89,6 +90,7 @@
     burger.setAttribute('aria-expanded', 'true');
     burger.setAttribute('aria-label', 'Cerrar menú');
     header.classList.add('menu-open', 'is-scrolled');
+    document.body.classList.add('menu-open');
     header.classList.remove('is-hidden');
     document.body.style.overflow = 'hidden';
     lenis && lenis.stop();
@@ -233,21 +235,58 @@
   /* ---------------- WhatsApp ---------------- */
   const waFab = $('.wa-fab');
   const waPanel = $('#wa-panel');
+  const mbar = $('.mbar');
+  const isSheet = () => window.innerWidth <= 760;
+  let waOpener = null;
   function closeWa() {
     if (waPanel.hidden) return;
-    const done = () => { waPanel.hidden = true; };
-    waFab.setAttribute('aria-expanded', 'false');
-    if (hasGSAP && !reduce) gsap.to(waPanel, { opacity: 0, scale: 0.92, y: 12, duration: 0.25, ease: 'power2.in', onComplete: done });
-    else done();
+    const done = () => { waPanel.hidden = true; mbar && mbar.classList.remove('is-hidden-by-wa'); waOpener && waOpener.focus({ preventScroll: true }); };
+    [waFab, $('.mbar-wa')].forEach((b) => b && b.setAttribute('aria-expanded', 'false'));
+    if (hasGSAP && !reduce) {
+      gsap.to(waPanel, isSheet()
+        ? { yPercent: 100, duration: 0.28, ease: 'power2.out', onComplete: done }
+        : { opacity: 0, scale: 0.96, y: 8, duration: 0.18, ease: 'power2.out', onComplete: done });
+    } else done();
+    lenis && lenis.start();
   }
-  waFab.addEventListener('click', () => {
+  function openWa(opener) {
     if (!waPanel.hidden) return closeWa();
+    waOpener = opener;
     waPanel.hidden = false;
-    waFab.setAttribute('aria-expanded', 'true');
-    if (hasGSAP && !reduce) gsap.fromTo(waPanel, { opacity: 0, scale: 0.9, y: 16 }, { opacity: 1, scale: 1, y: 0, duration: 0.55, ease: 'back.out(1.4)' });
-    setTimeout(() => $('#wa-nombre').focus({ preventScroll: true }), 200);
-  });
+    opener.setAttribute('aria-expanded', 'true');
+    if (hasGSAP && !reduce) {
+      if (isSheet()) gsap.fromTo(waPanel, { yPercent: 100, opacity: 1, scale: 1, y: 0 }, { yPercent: 0, duration: 0.5, ease: 'expo.out' });
+      else gsap.fromTo(waPanel, { opacity: 0, scale: 0.95, y: 10, yPercent: 0 }, { opacity: 1, scale: 1, y: 0, duration: 0.26, ease: 'power3.out' });
+    }
+    if (isSheet()) lenis && lenis.stop();
+    setTimeout(() => $('#wa-nombre').focus({ preventScroll: true }), 260);
+  }
+  waFab.addEventListener('click', () => openWa(waFab));
+  const mbarWa = $('.mbar-wa');
+  mbarWa && mbarWa.addEventListener('click', () => openWa(mbarWa));
   $('.wa-close').addEventListener('click', closeWa);
+  document.addEventListener('pointerdown', (e) => {
+    if (!waPanel.hidden && !e.target.closest('.wa') && !e.target.closest('.mbar')) closeWa();
+  });
+
+  // Barra inferior en móvil: aparece tras la portada, se aparta en el pie
+  if (mbar) {
+    const heroEl = $('.hero');
+    const footer = $('.site-footer');
+    const io = new IntersectionObserver(() => {
+      const heroOut = heroEl.getBoundingClientRect().bottom < window.innerHeight * 0.35;
+      const footIn = footer.getBoundingClientRect().top < window.innerHeight * 0.9;
+      mbar.classList.toggle('is-on', heroOut && !footIn);
+    }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+    io.observe(heroEl); io.observe(footer);
+    const tick = () => {
+      const heroOut = heroEl.getBoundingClientRect().bottom < window.innerHeight * 0.35;
+      const footIn = footer.getBoundingClientRect().top < window.innerHeight * 0.9;
+      mbar.classList.toggle('is-on', heroOut && !footIn);
+    };
+    if (lenis) lenis.on('scroll', tick); else window.addEventListener('scroll', tick, { passive: true });
+  }
+
   $('.wa-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const f = e.currentTarget;
@@ -274,11 +313,11 @@
 
   // Las líneas se calculan con la tipografía ya cargada
   const fontsReady = document.fonts ? Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 1500))]) : Promise.resolve();
-  gsap.set('.hero-copy, .doc-card', { autoAlpha: 0 });
+  gsap.set('.hero-copy', { autoAlpha: 0 });
   fontsReady.then(startMotion);
 
   function startMotion() {
-  gsap.set('.hero-copy, .doc-card', { autoAlpha: 1 });
+  gsap.set('.hero-copy', { autoAlpha: 1 });
 
   /* --- Hero: entrada --- */
   const h1 = $('.hero h1');
@@ -286,20 +325,12 @@
   const heroTl = gsap.timeline({ defaults: { ease: 'power4.out' }, delay: 0.15 });
   heroTl
     .from(split.lines, { yPercent: 115, duration: 1.3, stagger: 0.09 })
-    .from('[data-hero]', { y: 28, opacity: 0, duration: 1.1, stagger: 0.09, ease: 'power3.out' }, 0.35)
-    .from('.hero-stage', { scale: 0.86, opacity: 0, duration: 1.8, ease: 'expo.out' }, 0);
+    .from('[data-hero]', { y: 22, opacity: 0, duration: 1.1, stagger: 0.08, ease: 'power3.out' }, 0.3)
+    .from('.hero-stage', { scale: 0.9, autoAlpha: 0, duration: 1.8, ease: 'expo.out' }, 0)
+    .from('.hero-floor', { scaleX: 0.4, opacity: 0, duration: 1.8, ease: 'expo.out' }, 0.2)
+    .from('.branch', { opacity: 0, duration: 2.4, ease: 'power2.out' }, 0);
 
-  // Tarjeta Doctoralia: inclinación 3D
   if (finePointer) {
-    const card = $('.doc-card');
-    card.addEventListener('pointermove', (e) => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      gsap.to(card, { rotateY: x * 12, rotateX: -y * 12, transformPerspective: 800, duration: 0.6, ease: 'power3.out' });
-    });
-    card.addEventListener('pointerleave', () => gsap.to(card, { rotateY: 0, rotateX: 0, duration: 0.9, ease: 'power3.out' }));
-
     // Botones magnéticos
     $$('.magnetic').forEach((b) => {
       b.addEventListener('pointermove', (e) => {
@@ -344,16 +375,12 @@
   });
 
   /* --- Enfoque: panel que sube y fotos con profundidad --- */
-  gsap.from('.panel', {
-    y: 80, scale: 0.96, ease: 'none',
-    scrollTrigger: { trigger: '.enfoque', start: 'top bottom', end: 'top 30%', scrub: 0.8 },
-  });
   gsap.from('.ph-team', {
-    yPercent: 18, rotateX: 14, transformPerspective: 1200, transformOrigin: '50% 100%', ease: 'none',
+    yPercent: 10, rotateX: 10, transformPerspective: 1200, transformOrigin: '50% 100%', ease: 'none',
     scrollTrigger: { trigger: '.enfoque-photos', start: 'top bottom', end: 'bottom 70%', scrub: 0.8 },
   });
   gsap.from('.ph-laura', {
-    yPercent: 40, rotate: -8, scale: 0.85, ease: 'none',
+    yPercent: 22, ease: 'none',
     scrollTrigger: { trigger: '.enfoque-photos', start: 'top bottom', end: 'bottom 75%', scrub: 0.8 },
   });
   gsap.from('.pillars .petal', {
@@ -383,13 +410,13 @@
   gsap.timeline({ scrollTrigger: { trigger: '.exp-media', start: 'top 80%', once: true } })
     .fromTo('.exp-photo', { clipPath: 'inset(100% 0% 0% 0% round 999px 999px 28px 28px)' }, { clipPath: 'inset(0% 0% 0% 0% round 999px 999px 28px 28px)', duration: 1.3, ease: 'expo.inOut' })
     .fromTo('.exp-photo img', { scale: 1.15 }, { scale: 1, duration: 1.6, ease: 'expo.out' }, 0.2)
-    .from('.exp-badge', { scale: 0, rotate: -90, duration: 1.1, ease: 'back.out(1.6)' }, 0.7)
+    .from('.exp-badge', { scale: 0.6, opacity: 0, rotate: -60, duration: 1.2, ease: 'expo.out' }, 0.7)
     .to({ v: 0 }, {
       v: +counter.dataset.count, duration: 1.6, ease: 'power2.out',
       onUpdate() { counter.textContent = Math.round(this.targets()[0].v); },
     }, 0.8);
   gsap.from('.exp-list li', {
-    x: 40, opacity: 0, rotateY: -12, transformPerspective: 900, duration: 1, stagger: 0.1, ease: 'power3.out',
+    y: 24, opacity: 0, duration: 1, stagger: 0.09, ease: 'power3.out',
     scrollTrigger: { trigger: '.exp-list', start: 'top 85%', once: true },
   });
 
@@ -414,14 +441,9 @@
   });
 
   /* --- Aseguradoras: fichas que giran al entrar --- */
-  gsap.from('.seg-lead', {
-    y: 40, opacity: 0, duration: 1.1, ease: 'power3.out',
+  gsap.from('.seg-lead > *, .seg-marquee', {
+    y: 26, opacity: 0, duration: 1.1, stagger: 0.08, ease: 'power3.out',
     scrollTrigger: { trigger: '.seg-board', start: 'top 85%', once: true },
-  });
-  gsap.from('.seg-tiles li', {
-    rotateX: -70, y: 30, opacity: 0, transformOrigin: '50% 0%', duration: 1, ease: 'power3.out',
-    stagger: { each: 0.04, grid: 'auto', from: 'start' },
-    scrollTrigger: { trigger: '.seg-tiles', start: 'top 85%', once: true },
   });
 
   /* --- Pie: el isotipo y la palabra --- */

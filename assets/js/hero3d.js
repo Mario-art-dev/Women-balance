@@ -20,7 +20,7 @@ function init() {
   } catch (e) {
     return; // sin WebGL: queda el isotipo plano
   }
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 760 ? 1.5 : 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.05;
@@ -35,18 +35,19 @@ function init() {
   const key = new THREE.DirectionalLight(0xffffff, 1.6);
   key.position.set(-300, 400, 600);
   scene.add(key);
-  const rim = new THREE.DirectionalLight(0xedd7c8, 1.2); // luz cálida (arena de la marca)
+  const rim = new THREE.DirectionalLight(0xedd7c8, 1.5); // luz cálida de ventana (arena de la marca)
   rim.position.set(500, -200, -300);
   scene.add(rim);
   scene.add(new THREE.AmbientLight(0xe1eff0, 0.6));
 
   const material = new THREE.MeshPhysicalMaterial({
-    color: new THREE.Color('#7FC3CD'),
-    roughness: 0.32,
+    // cerámica satinada: mate al tacto, con un brillo suave de esmalte
+    color: new THREE.Color('#86C5CE'),
+    roughness: 0.48,
     metalness: 0.0,
-    clearcoat: 1,
-    clearcoatRoughness: 0.18,
-    sheen: 0.6,
+    clearcoat: 0.55,
+    clearcoatRoughness: 0.35,
+    sheen: 0.8,
     sheenColor: new THREE.Color('#E1EFF0'),
     sheenRoughness: 0.5,
   });
@@ -119,20 +120,21 @@ function init() {
   const clock = new THREE.Clock();
   const render = () => {
     const t = clock.getElapsedTime();
-    smooth.x += (target.x - smooth.x) * 0.05;
-    smooth.y += (target.y - smooth.y) * 0.05;
+    smooth.x += (target.x - smooth.x) * 0.035;
+    smooth.y += (target.y - smooth.y) * 0.035;
     smooth.s += (scrollProgress() - smooth.s) * 0.08;
     const s = smooth.s;
 
-    pivot.rotation.y = -0.38 + smooth.x * 0.55 + Math.sin(t * 0.35) * 0.08 + s * 1.1;
-    pivot.rotation.x = 0.12 + smooth.y * 0.35 + Math.cos(t * 0.3) * 0.05 - s * 0.35;
-    pivot.rotation.z = Math.sin(t * 0.2) * 0.04 + s * 0.25;
+    const breath = (1 - Math.cos((t * Math.PI * 2) / 10.9)) / 2; // 0→1→0 cada ~11 s
+    pivot.rotation.y = -0.42 + smooth.x * 0.4 + Math.sin(t * 0.21) * 0.06 + s * 0.9;
+    pivot.rotation.x = 0.16 + smooth.y * 0.24 + Math.cos(t * 0.17) * 0.03 - s * 0.3;
+    pivot.rotation.z = Math.sin(t * 0.13) * 0.025 + s * 0.2;
+    pivot.position.y = breath * 6 - 3;
 
     pieces.forEach((p) => {
-      const breathe = 4 + Math.sin(t * 0.9 + p.phase) * 3;
-      const spread = breathe + s * 70;
-      p.holder.position.set(p.dir.x * spread, p.dir.y * spread, Math.sin(t * 0.7 + p.phase) * 8 + s * 40 * (p.i - 1));
-      p.holder.rotation.z = Math.sin(t * 0.5 + p.phase) * 0.03;
+      const spread = 2.5 + breath * 6 + s * 60;
+      p.holder.position.set(p.dir.x * spread, p.dir.y * spread, (breath - 0.5) * 6 * (p.i - 1) + s * 36 * (p.i - 1));
+      p.holder.rotation.z = Math.sin(t * 0.35 + p.phase) * 0.02;
     });
     renderer.render(scene, camera);
   };
