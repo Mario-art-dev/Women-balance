@@ -17,15 +17,6 @@
         ],
         "createdAt": "2026-11-03T22:15:04.743Z",
         "reason": "Claude verified in browser: all 9 flagged containers have computed padding 40-172px (inset via .wrap and clamp(), which the static scan misses); panel bottom edge crops photos by design"
-      },
-      {
-        "rule": "marquee",
-        "value": "*",
-        "files": [
-          "assets/css/styles.css"
-        ],
-        "createdAt": "2026-11-03T22:30:39.811Z",
-        "reason": "Claude: deliberate slow strip for the 18 insurer logos (user asked for a cleaner, less overwhelming page); pauses on hover, becomes a static wrapped list under prefers-reduced-motion"
       }
     ]
   }

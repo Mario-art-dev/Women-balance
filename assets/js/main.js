@@ -441,8 +441,8 @@
   });
 
   /* --- Aseguradoras: fichas que giran al entrar --- */
-  gsap.from('.seg-lead > *, .seg-marquee', {
-    y: 26, opacity: 0, duration: 1.1, stagger: 0.08, ease: 'power3.out',
+  gsap.from('.seg-lead > *, .seg-logos li', {
+    y: 20, opacity: 0, duration: 0.9, stagger: 0.03, ease: 'power3.out',
     scrollTrigger: { trigger: '.seg-board', start: 'top 85%', once: true },
   });
 

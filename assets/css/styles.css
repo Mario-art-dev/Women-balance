@@ -332,15 +332,10 @@ details[open]{padding-bottom:8px}
 .seg-board{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,6vw,96px);align-items:center}
 .seg-lead .h3{font-size:clamp(1.7rem,1.2rem + 1.4vw,2.6rem);font-weight:300;line-height:1.1;letter-spacing:-.02em;margin-bottom:18px;text-wrap:balance}
 .seg-lead p{color:var(--muted);max-width:30em}
-.seg-marquee{display:flex;flex-direction:column;gap:12px;overflow:hidden;border-radius:20px}
-.seg-row{display:flex;width:max-content;animation:marquee 70s linear infinite;will-change:transform}
-.seg-rev{animation-direction:reverse;animation-duration:80s}
-.seg-marquee:hover .seg-row{animation-play-state:paused}
-.seg-track{display:flex;gap:12px;padding-right:12px}
-.seg-track li{flex:none;width:clamp(128px,12vw,168px);aspect-ratio:3/2;background:var(--paper);border-radius:16px;display:grid;place-items:center;padding:16px 20px}
-.seg-track img{max-height:100%;width:auto;max-width:100%;object-fit:contain;filter:saturate(.45);opacity:.88;transition:filter 300ms ease,opacity 300ms ease}
-@media (hover:hover){.seg-track li:hover img{filter:none;opacity:1}}
-@keyframes marquee{to{transform:translateX(-50%)}}
+.seg-logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.seg-logos li{position:relative;aspect-ratio:3/2;background:var(--paper);border-radius:16px;overflow:hidden}
+.seg-logos img{position:absolute;inset:18%  16%;width:68%;height:64%;object-fit:contain;filter:saturate(.45);opacity:.88;transition:filter 300ms ease,opacity 300ms ease}
+@media (hover:hover){.seg-logos li:hover img{filter:none;opacity:1}}
 
 /* ==========================================================
    CONTACTO
@@ -500,7 +495,8 @@ details[open]{padding-bottom:8px}
   .op-iso{display:none}
   .op-stage{padding-left:18px}
 
-  .seg-track li{width:120px;border-radius:14px;padding:12px 14px}
+  .seg-logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .seg-logos li{border-radius:14px}
 
   .ct-way .btn{align-self:stretch}
   .ct-way{padding:26px 20px 28px}
@@ -543,8 +539,5 @@ details[open]{padding-bottom:8px}
   .reveal-frame{clip-path:none}
   .reveal-frame img{transform:none}
   .reveal-caption{opacity:1;transform:none}
-  .seg-row{flex-wrap:wrap;width:auto}
-  .seg-track[aria-hidden]{display:none}
-  .seg-track{flex-wrap:wrap}
   .mbar{transform:none}
 }
