@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-11-03T22:14:59.146Z",
+        "reason": "Claude: Inter is the clinic's existing brand font (Elementor global typography on montesinos.webtesterclientes.com)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-03T22:15:04.743Z",
+        "reason": "Claude verified in browser: all 9 flagged containers have computed padding 40-172px (inset via .wrap and clamp(), which the static scan misses); panel bottom edge crops photos by design"
+      }
+    ]
+  }
+}
